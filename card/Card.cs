@@ -13,14 +13,18 @@ public class Card : Panel
 		
 	}
 
-	public override void _PhysicsProcess(float _delta) {
-		if (selectable) {
-			if (Input.IsActionJustPressed("left_click") && readyToMove) {
+	public override void _PhysicsProcess(float _delta)
+	{
+		if (selectable) 
+		{
+			if (Input.IsActionJustPressed("left_click") && readyToMove)
+			{
 				Raise();
 				clickPosition = GetGlobalMousePosition();
 				distanceMoved = GetPosition() - clickPosition;
 			}
-			if (Input.IsActionPressed("left_click") && readyToMove) {
+			if (Input.IsActionPressed("left_click") && readyToMove)
+			{
 				SetPosition(GetGlobalMousePosition() + distanceMoved);
 			}
 		}
@@ -36,5 +40,6 @@ public class Card : Panel
 	{
 		readyToMove = false;
 	}
+	
 }
 
