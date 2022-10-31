@@ -43,10 +43,10 @@ position = Vector2( 80, 300 )
 [node name="PlayerCards" type="Node2D" parent="."]
 
 [node name="Card" parent="PlayerCards" instance=ExtResource( 3 )]
-margin_left = 450.0
-margin_top = 362.0
-margin_right = 450.0
-margin_bottom = 362.0
+margin_left = 678.0
+margin_top = 341.0
+margin_right = 678.0
+margin_bottom = 341.0
 
 [node name="Score_Panel" type="Panel" parent="."]
 margin_right = 1024.0
