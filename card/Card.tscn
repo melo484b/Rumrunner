@@ -40,6 +40,8 @@ margin_right = 100.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 100, 14 )
 text = "Placeholder Cat"
+clip_text = true
+percent_visible = 1.11765
 max_lines_visible = 1
 
 [node name="CardClass" type="TextureRect" parent="VBoxContainer/NameAndClass"]
@@ -77,6 +79,7 @@ text = "+1 Rum
 +1 Bomb
 +1 Ship Parts"
 autowrap = true
+percent_visible = -0.0454545
 max_lines_visible = 3
 
 [node name="DescriptionSeparator" type="HSeparator" parent="VBoxContainer"]
