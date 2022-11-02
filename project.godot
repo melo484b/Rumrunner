@@ -13,6 +13,11 @@ config_version=4
 config/name="Rumrunner"
 config/icon="res://icon.png"
 
+[autoload]
+
+GameDatabase="*res://database/GameDatabase.gd"
+Player="*res://player/Player.gd"
+
 [display]
 
 mouse_cursor/custom_image="res://art/anchor_cursor.png"
