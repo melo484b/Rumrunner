@@ -22,43 +22,41 @@ func add_new_player(name: String, currency: int, score: int) -> void:
 	data["score"] = score
 	db.insert_row(PLAYER_TABLE, data)
 
-# TODO
-func update_player_data() -> void:
-	pass
-
 func add_new_card(name: String, card_class: String, art_id: int, 
-description_1: String, description_2: String, description_3: String, 
-offensive_stat: int, defensive_stat: int, value: int) -> void:
+description: String, offensive_stat: int, defensive_stat: int, cost: int) -> void:
 	db.open_db()
 	var data: Dictionary = Dictionary()
 	data["name"] = name
 	data["card_class"] = card_class
 	data["art_id"] = art_id
-	data["description_1"] = description_1
-	data["description_2"] = description_2
-	data["description_3"] = description_3
+	data["description"] = description
 	data["offensive_stat"] = offensive_stat
 	data["defensive_stat"] = defensive_stat
-	data["value"] = value
+	data["cost"] = cost
 	db.insert_row(CARD_TABLE, data)
 
-# TODO
-func update_card_data() -> void:
-	pass
-
-func associate_new_card_with_player(player_id: int, card_id: int, number_of_copies: int) -> void:
+func associate_new_card_with_player(player_id: int, card_id: int, card_copies: int) -> void:
 	db.open_db()
 	var data: Dictionary = Dictionary()
 	data["player_id"] = player_id
 	data["card_id"] = card_id
-	data["number_of_copies"] = number_of_copies
+	data["card_copies"] = card_copies
 	db.insert_row(DECK_TABLE, data)
 
-# TODO
-func update_deck_data() -> void:
-	pass
-
-func read_data_from_db(table_name: String) -> Dictionary:
+# TODO verify new_value and condition work properly while holding integers OR strings in C# script
+func update_data(table_name: String, column_name: String, new_value, condition_column: String, condition) -> void:
+	var query: String = str("update " + table_name + " set " + column_name + " = " + new_value + " where " + condition_column + " = " + condition + ";")
 	db.open_db()
-	var data: Dictionary = db.query("select * from " + table_name + ";")
+	db.query(query)
+
+func get_all_data_in_table(table_name: String) -> Array:
+	db.open_db()
+	db.query("select * from " + table_name + ";")
+	var data: Array = db.query_result
+	return data
+
+func get_by_id(table_name: String, target_column: String, id: int) -> Array:
+	db.open_db()
+	db.query("select * from " + table_name + " where " + target_column + " = " + str(id) + ";")
+	var data: Array = db.query_result
 	return data
