@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://environment/GameEnvironment.gd" type="Script" id=1]
+[ext_resource path="res://environment/CardNode.tscn" type="PackedScene" id=2]
+[ext_resource path="res://card/Card.tscn" type="PackedScene" id=3]
+
+[node name="GameEnvironment" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="CardNode" parent="." instance=ExtResource( 2 )]
+position = Vector2( 150, 580 )
+scale = Vector2( 0.8, 0.8 )
+
+[node name="CardNode2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 330, 580 )
+scale = Vector2( 0.8, 0.8 )
+
+[node name="CardNode3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 510, 580 )
+scale = Vector2( 0.8, 0.8 )
+
+[node name="CardNode4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 690, 580 )
+scale = Vector2( 0.8, 0.8 )
+
+[node name="CardNode5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 870, 580 )
+scale = Vector2( 0.8, 0.8 )
+
+[node name="Card" parent="." instance=ExtResource( 3 )]
+position = Vector2( 150, 580 )
+
+[node name="Card2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 330, 580 )
+
+[node name="Card3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 510, 580 )
+
+[node name="Card4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 690, 580 )
+
+[node name="Card5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 870, 580 )
