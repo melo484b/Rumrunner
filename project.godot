@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "Position2D",
 "class": "CardNode",
 "language": "GDScript",
-"path": "res://CardNode.gd"
+"path": "res://environment/CardNode.gd"
 } ]
 _global_script_class_icons={
 "Card": "",
