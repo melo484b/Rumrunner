@@ -9,8 +9,10 @@ const NORMAL_MODULATE = "ffffff"
 const DEACTIVATED_MODULATE = "111111"
 
 var active: bool = false
+var selected: bool = false
 
 var save_data: Dictionary = {
+	"player_id": 1,
 	"player_name": "Player Name",
 	"currency": 99,
 	"score": 200
@@ -28,7 +30,8 @@ func _on_SaveFile_mouse_exited():
 		modulate = NORMAL_MODULATE
 
 
-func update_player_data(new_name: String, new_currency: int, new_score: int) -> void:
+func update_player_data(new_id: int, new_name: String, new_currency: int, new_score: int) -> void:
+	save_data["player_id"] = new_id
 	save_data["player_name"] = new_name
 	save_data["currency"] = new_currency
 	save_data["score"] = new_score
@@ -45,3 +48,13 @@ func set_inactive() -> void:
 func set_active() -> void:
 	active = true
 	modulate = NORMAL_MODULATE
+
+func commit_player_data():
+	Player.player_id = save_data["player_id"]
+	Player.player_name = save_data["player_name"]
+	Player.currency = save_data["currency"]
+	Player.score = save_data["score"]
+	print(Player.player_id)
+	print(Player.player_name)
+	print(Player.currency)
+	print(Player.score)
