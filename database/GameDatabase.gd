@@ -43,7 +43,6 @@ func associate_new_card_with_player(player_id: int, card_id: int, card_copies: i
 	data["card_copies"] = card_copies
 	db.insert_row(DECK_TABLE, data)
 
-# TODO verify new_value and condition work properly while holding integers OR strings in C# script
 func update_data(table_name: String, column_name: String, new_value, condition_column: String, condition) -> void:
 	var query: String = str("update " + table_name + " set " + column_name + " = " + new_value + " where " + condition_column + " = " + condition + ";")
 	db.open_db()
