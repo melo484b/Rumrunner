@@ -1,7 +1,6 @@
 extends Node
 
-var id: int
-var playerName: String
+var player_id: int = 1
+var player_name: String
 var currency: int
 var score: int
-var playerCards: Array
