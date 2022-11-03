@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://UI/GameButton.gd" type="Script" id=1]
+[ext_resource path="res://UI/UI_theme.tres" type="Theme" id=2]
+[ext_resource path="res://resources/LSANS_dynamic_font_extra_large.tres" type="DynamicFont" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "hover"
+
+[sub_resource type="Animation" id=2]
+resource_name = "click"
+
+[node name="GameButton" type="Button"]
+margin_right = 82.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 153, 34 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
+text = "Game Button"
+script = ExtResource( 1 )
+
+[node name="HoverAnimationPlayer" type="AnimationPlayer" parent="."]
+anims/hover = SubResource( 1 )
+
+[node name="ClickAnimationPlayer" type="AnimationPlayer" parent="."]
+anims/click = SubResource( 2 )

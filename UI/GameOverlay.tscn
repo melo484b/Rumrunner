@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://art/card_back.png" type="Texture" id=1]
+[ext_resource path="res://art/draw_card.png" type="Texture" id=2]
+[ext_resource path="res://UI/CardBackTexture.gd" type="Script" id=3]
+[ext_resource path="res://UI/GameOverlay.gd" type="Script" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "draw_card"
+length = 0.25
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 141, 441 ), Vector2( 212, 529 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="GameOverlay" type="CanvasLayer"]
+script = ExtResource( 4 )
+
+[node name="CardBackTexture" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 212.0
+margin_top = 529.0
+margin_right = 462.001
+margin_bottom = 879.002
+rect_rotation = -218.4
+rect_scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 1 )
+script = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CardBackTexture"]
+anims/draw_card = SubResource( 1 )
+
+[node name="Timer" type="Timer" parent="CardBackTexture"]
+wait_time = 1.25
+one_shot = true
+
+[node name="DeckTexture" type="TextureRect" parent="."]
+margin_left = 141.0
+margin_top = 441.0
+margin_right = 391.0
+margin_bottom = 873.0
+rect_rotation = -218.4
+rect_scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 2 )
+
+[connection signal="timeout" from="CardBackTexture/Timer" to="CardBackTexture" method="_on_Timer_timeout"]
