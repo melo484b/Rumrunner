@@ -2,6 +2,10 @@ extends RigidBody2D
 
 class_name Card
 
+onready var collider = $CardCollider
+onready var animator = $AnimationPlayer
+onready var area = $Sprite/Area2D
+
 var selected: bool = false
 var placed: bool = false
 var target_position: Vector2
@@ -17,8 +21,8 @@ func _physics_process(delta) -> void:
 	else:
 		global_position = lerp(global_position, target_position, 10 * delta)
 		
-func _on_Area2D_input_event(viewport, event, shape_idx) -> void:
-	if Input.is_action_just_pressed("left_click"):
+func _on_Area2D_input_event(_viewport, _event, _shape_idx) -> void:
+	if Input.is_action_just_pressed("left_click") and not placed:
 		selected = true
 
 func _input(event) -> void:
@@ -28,11 +32,23 @@ func _input(event) -> void:
 			target_position = global_position
 			var shortest_distance = 150
 			for child in target_nodes:
-				if !child.filled:
+				if !child.filled and not placed:
 					var distance = global_position.distance_to(child.global_position)
 					if distance < shortest_distance:
 						child.select()
 						target_position = child.global_position
 						shortest_distance = distance
-						placed = true
+						if child.is_in_group("SHIP_NODE"):
+							set_placed()
+						if child.is_in_group("DISCARD"):
+							set_placed()
+							animator.play("shrink")
 
+func set_placed() -> void:
+	placed = true
+	collider.disabled = true
+	animator.stop()
+
+func reset_card() -> void:
+	placed = false
+	collider.disabled = false
