@@ -35,7 +35,7 @@ margin_right = 473.0
 margin_bottom = 102.0
 custom_constants/separation = 10
 
-[node name="SaveFile" parent="ThemedMarginContainer/PanelContainer/MarginContainer/HBoxContainer2" instance=ExtResource( 3 )]
+[node name="SaveFile1" parent="ThemedMarginContainer/PanelContainer/MarginContainer/HBoxContainer2" instance=ExtResource( 3 )]
 
 [node name="SaveFile2" parent="ThemedMarginContainer/PanelContainer/MarginContainer/HBoxContainer2" instance=ExtResource( 3 )]
 margin_left = 161.0

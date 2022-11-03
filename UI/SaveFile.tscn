@@ -7,6 +7,7 @@
 [node name="SaveFile" type="PanelContainer"]
 margin_right = 151.0
 margin_bottom = 102.0
+rect_min_size = Vector2( 151, 102 )
 theme = ExtResource( 3 )
 script = ExtResource( 2 )
 
@@ -25,6 +26,7 @@ custom_fonts/font = ExtResource( 1 )
 text = "Player Name"
 align = 1
 valign = 1
+max_lines_visible = 1
 
 [node name="Currency" type="Label" parent="VBoxContainer2"]
 margin_top = 32.0
@@ -35,6 +37,7 @@ custom_fonts/font = ExtResource( 1 )
 text = "Currency"
 align = 1
 valign = 1
+max_lines_visible = 1
 
 [node name="Score" type="Label" parent="VBoxContainer2"]
 margin_top = 64.0
@@ -45,6 +48,7 @@ custom_fonts/font = ExtResource( 1 )
 text = "Score"
 align = 1
 valign = 1
+max_lines_visible = 1
 
 [connection signal="mouse_entered" from="." to="." method="_on_SaveFile_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_SaveFile_mouse_exited"]

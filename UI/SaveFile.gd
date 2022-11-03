@@ -31,7 +31,7 @@ func _on_SaveFile_mouse_exited():
 func update_player_data(new_name: String, new_currency: int, new_score: int) -> void:
 	save_data["player_name"] = new_name
 	save_data["currency"] = new_currency
-	save_data["score"] = score
+	save_data["score"] = new_score
 
 func update_labels() -> void:
 	player_name.text = save_data["player_name"]
