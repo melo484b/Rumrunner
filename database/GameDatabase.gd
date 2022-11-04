@@ -21,7 +21,15 @@ func add_new_player(name: String, currency: int, score: int) -> void:
 	data["currency"] = currency
 	data["score"] = score
 	db.insert_row(PLAYER_TABLE, data)
-
+	
+func update_player_data(player_id: int, name: String, currency: int, score: int):
+	db.open_db()
+	var data: Dictionary = Dictionary()
+	data["name"] = name
+	data["currency"] = currency
+	data["score"] = score
+	db.update_rows(PLAYER_TABLE, "id = " + str(player_id), data)
+	
 func add_new_card(name: String, card_class: String, art_id: int, 
 description: String, offensive_stat: int, defensive_stat: int, cost: int) -> void:
 	db.open_db()
