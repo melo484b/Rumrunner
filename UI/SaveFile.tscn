@@ -50,5 +50,14 @@ align = 1
 valign = 1
 max_lines_visible = 1
 
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 313.0
+margin_bottom = 98.0
+window_title = "Warning!"
+dialog_text = "This action will overwrite player data!"
+
 [connection signal="mouse_entered" from="." to="." method="_on_SaveFile_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_SaveFile_mouse_exited"]
+[connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_ConfirmationDialog_confirmed"]
