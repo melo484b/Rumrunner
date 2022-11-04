@@ -1,0 +1,4 @@
+extends MarginContainer
+
+func _on_GameButton_pressed():
+	get_tree().change_scene("res://UI/MainMenu.tscn")

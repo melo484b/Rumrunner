@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://UI/GameButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UI/ReturnToMainMenu.gd" type="Script" id=2]
+[ext_resource path="res://UI/UI_theme.tres" type="Theme" id=3]
+
+[node name="ReturnToMainMenu" type="MarginContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+theme = ExtResource( 3 )
+script = ExtResource( 2 )
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+margin_right = 161.0
+margin_bottom = 42.0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 157.0
+margin_bottom = 38.0
+
+[node name="GameButton" parent="PanelContainer/MarginContainer" instance=ExtResource( 1 )]
+margin_right = 153.0
+margin_bottom = 34.0
+text = "Main Menu"
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/GameButton" to="." method="_on_GameButton_pressed"]
