@@ -13,7 +13,6 @@ func _ready() -> void:
 	db = SQLite.new()
 	db.path = db_name
 
-
 func add_new_player(player_name: String, currency: int, score: int) -> void:
 	db.open_db()
 	var data: Dictionary = Dictionary()
@@ -30,11 +29,11 @@ func update_player_data(player_id: int, player_name: String, currency: int, scor
 	data["score"] = score
 	db.update_rows(PLAYER_TABLE, "id = " + str(player_id), data)
 	
-func add_new_card(player_name: String, card_class: String, art_id: int, 
+func add_new_card(card_name: String, card_class: String, art_id: int, 
 description: String, offensive_stat: int, defensive_stat: int, cost: int) -> void:
 	db.open_db()
 	var data: Dictionary = Dictionary()
-	data["name"] = player_name
+	data["name"] = card_name
 	data["card_class"] = card_class
 	data["art_id"] = art_id
 	data["description"] = description
@@ -62,7 +61,7 @@ func get_all_data_in_table(table_name: String) -> Array:
 	var data: Array = db.query_result
 	return data
 
-func get_by_id(table_name: String, target_column: String, id: int) -> Array:
+func get_data_by_id(table_name: String, target_column: String, id: int) -> Array:
 	db.open_db()
 	db.query("select * from " + table_name + " where " + target_column + " = " + str(id) + ";")
 	var data: Array = db.query_result
