@@ -1,36 +1,42 @@
 extends Node
 
 var deck: Dictionary
-var card: Dictionary
 var hand: Dictionary
-var discarded: Dictionary
+var discard_pile: Dictionary
+var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
 func _ready() -> void:
-	pass
+	rng.randomize()
+	build_deck(Player.player_id)
 
-# Get cards ID's associated with player ID
-# Iterate through list of card ID's
-# 	Call build_card() to get card data for each card_id-
-#	Add card data to deck dictionary
-func build_deck(player_id: int) -> Dictionary:
-	return Dictionary()
+func build_deck(player_id: int) -> void:
+	var deck_data = GameDatabase.get_data_by_id(GameDatabase.DECK_TABLE, "player_id", Player.player_id)
+	for card in deck_data:
+		deck[card["id"]] = card
 
-# Retrieve card with specific card ID from the database
-# Add card data to dictionary
-# Return dictionary 
-func build_card(card_id: int) -> Dictionary:
-	return Dictionary()
-
-# Return a randomly selected card - to be used by CardManager to access
-# card data
-# Move card from deck to hand
 func draw_card() -> Dictionary:
-	return Dictionary()
+	var pulled: int
+	if self.deck.size() >= 1:
+		var card_ids: Array = self.deck.keys()
+		card_ids.shuffle()
+		pulled = card_ids[0]
+		hand[pulled] = self.deck.get(pulled)
+		self.deck.erase(pulled)
+		return hand.get(pulled)
+	else:
+		shuffle()
+		var card_ids: Array = self.deck.keys()
+		card_ids.shuffle()
+		pulled = card_ids[0]
+		hand[pulled] = self.deck.get(pulled)
+		self.deck.erase(pulled)
+		return hand.get(pulled)
+	
+func discard(card_id: int) -> void:
+	if (hand.has(card_id)):
+		self.discard_pile[card_id] = self.hand.get(card_id)
+		self.hand.erase(card_id)
 
-# Move card from hand to discard
-func discard() -> void:
-	pass
-
-# Move all cards from discard to deck
 func shuffle() -> void:
-	pass
+	self.deck.merge(discard_pile)
+	self.discard_pile.clear()
