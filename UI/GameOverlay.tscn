@@ -39,12 +39,13 @@ script = ExtResource( 4 )
 
 [node name="CardBackTexture" type="TextureRect" parent="."]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 212.0
-margin_top = 529.0
-margin_right = 462.001
-margin_bottom = 879.002
+margin_left = 158.278
+margin_top = 493.567
+margin_right = 408.279
+margin_bottom = 843.569
 rect_rotation = -218.4
 rect_scale = Vector2( 0.3, 0.3 )
+mouse_filter = 2
 texture = ExtResource( 1 )
 script = ExtResource( 3 )
 
@@ -56,12 +57,13 @@ wait_time = 1.25
 one_shot = true
 
 [node name="DeckTexture" type="TextureRect" parent="."]
-margin_left = 141.0
-margin_top = 441.0
-margin_right = 391.0
-margin_bottom = 873.0
+margin_left = 87.2778
+margin_top = 405.567
+margin_right = 337.278
+margin_bottom = 837.567
 rect_rotation = -218.4
 rect_scale = Vector2( 0.3, 0.3 )
+mouse_filter = 2
 texture = ExtResource( 2 )
 
 [connection signal="timeout" from="CardBackTexture/Timer" to="CardBackTexture" method="_on_Timer_timeout"]
