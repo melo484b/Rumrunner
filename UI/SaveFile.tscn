@@ -26,7 +26,6 @@ custom_fonts/font = ExtResource( 1 )
 text = "Player Name"
 align = 1
 valign = 1
-percent_visible = 1.5
 max_lines_visible = 1
 
 [node name="Currency" type="Label" parent="VBoxContainer2"]
