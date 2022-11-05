@@ -14,27 +14,27 @@ func _ready() -> void:
 	db.path = db_name
 
 
-func add_new_player(name: String, currency: int, score: int) -> void:
+func add_new_player(player_name: String, currency: int, score: int) -> void:
 	db.open_db()
 	var data: Dictionary = Dictionary()
-	data["name"] = name
+	data["name"] = player_name
 	data["currency"] = currency
 	data["score"] = score
 	db.insert_row(PLAYER_TABLE, data)
 	
-func update_player_data(player_id: int, name: String, currency: int, score: int):
+func update_player_data(player_id: int, player_name: String, currency: int, score: int):
 	db.open_db()
 	var data: Dictionary = Dictionary()
-	data["name"] = name
+	data["name"] = player_name
 	data["currency"] = currency
 	data["score"] = score
 	db.update_rows(PLAYER_TABLE, "id = " + str(player_id), data)
 	
-func add_new_card(name: String, card_class: String, art_id: int, 
+func add_new_card(player_name: String, card_class: String, art_id: int, 
 description: String, offensive_stat: int, defensive_stat: int, cost: int) -> void:
 	db.open_db()
 	var data: Dictionary = Dictionary()
-	data["name"] = name
+	data["name"] = player_name
 	data["card_class"] = card_class
 	data["art_id"] = art_id
 	data["description"] = description
