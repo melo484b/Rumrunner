@@ -26,6 +26,7 @@ custom_fonts/font = ExtResource( 1 )
 text = "Player Name"
 align = 1
 valign = 1
+percent_visible = 1.5
 max_lines_visible = 1
 
 [node name="Currency" type="Label" parent="VBoxContainer2"]
@@ -53,11 +54,15 @@ max_lines_visible = 1
 [node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
 margin_left = 4.0
 margin_top = 4.0
-margin_right = 313.0
+margin_right = 204.0
 margin_bottom = 98.0
+rect_pivot_offset = Vector2( 100, 47 )
 window_title = "Warning!"
 dialog_text = "This action will overwrite player data!"
+dialog_autowrap = true
 
 [connection signal="mouse_entered" from="." to="." method="_on_SaveFile_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_SaveFile_mouse_exited"]
+[connection signal="write_new_file" from="." to="." method="_on_SaveFile_write_new_file"]
+[connection signal="about_to_show" from="ConfirmationDialog" to="." method="_on_ConfirmationDialog_about_to_show"]
 [connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_ConfirmationDialog_confirmed"]
