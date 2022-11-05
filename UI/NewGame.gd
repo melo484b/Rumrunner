@@ -8,7 +8,7 @@ onready var name_line: LineEdit = $NameThemedMarginContainer/PanelContainer/Marg
 var save_files: Array
 var player_data: Array
 
-func _ready():
+func _ready() -> void:
 	save_files = [save_1, save_2, save_3]
 	update_player_data()
 
@@ -19,18 +19,21 @@ func update_player_data() -> void:
 		save_files[index].update_player_data(save["id"], save["name"], save["currency"], save["score"])
 		save_files[index].update_labels()
 		save_files[index].set_active()
-
-func _on_SelectSaveFile1_pressed():
+	
+func _on_SelectSaveFile1_pressed() -> void:
 	save_1.temp_name = name_line.text
 	save_1.write_to_slot(true)
 	save_1.commit_player_data()
+	get_tree().change_scene("res://environment/GameEnvironment.tscn")
 
-func _on_SelectSaveFile2_pressed():
+func _on_SelectSaveFile2_pressed() -> void:
 	save_2.temp_name = name_line.text
 	save_2.write_to_slot(true)
 	save_2.commit_player_data()
+	get_tree().change_scene("res://environment/GameEnvironment.tscn")
 	
-func _on_SelectSaveFile3_pressed():
+func _on_SelectSaveFile3_pressed() -> void:
 	save_3.temp_name = name_line.text
 	save_3.write_to_slot(true)
 	save_3.commit_player_data()
+	get_tree().change_scene("res://environment/GameEnvironment.tscn")

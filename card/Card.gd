@@ -2,9 +2,9 @@ extends RigidBody2D
 
 class_name Card
 
-onready var collider = $CardCollider
-onready var animator = $AnimationPlayer
-onready var area = $Sprite/Area2D
+onready var collider: CollisionShape2D = $CardCollider
+onready var animator: AnimationPlayer = $AnimationPlayer
+onready var area: Area2D = $Sprite/Area2D
 
 var selected: bool = false
 var placed: bool = false

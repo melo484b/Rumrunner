@@ -3,7 +3,7 @@ extends Node
 onready var deck_manager: Node = $"../DeckManager"
 onready var card_manager: Node = $"../CardManager"
 
-func _ready():
+func _ready() -> void:
 	
 	if deck_manager == null:
 		push_error("deck_manager not found!")

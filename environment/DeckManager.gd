@@ -5,7 +5,7 @@ var card: Dictionary
 var hand: Dictionary
 var discarded: Dictionary
 
-func _ready():
+func _ready() -> void:
 	pass
 
 # Get cards ID's associated with player ID

@@ -1,4 +1,4 @@
 extends "res://environment/CardNode.gd"
 
-func _ready():
+func _ready() -> void:
 	pass

@@ -4,19 +4,19 @@ class_name CardNode
 var selected: bool = false
 var filled: bool = false
 
-func _ready():
+func _ready() -> void:
 	select()
 
-func select():
+func select() -> void:
 	modulate = Color.aqua
 	selected = true
 	filled = true
 
-func deselect():
+func deselect() -> void:
 	modulate = Color.white
 	selected = false
 	filled = false
 
-func _on_Area2D_area_exited(_area):
+func _on_Area2D_area_exited(_area) -> void:
 	deselect()
 

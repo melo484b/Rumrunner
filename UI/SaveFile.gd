@@ -78,14 +78,14 @@ func check_new_game() -> void:
 	if (new_game):
 		set_player_data_to_new_player_data()
 
-func _on_SaveFile_mouse_entered():
+func _on_SaveFile_mouse_entered() -> void:
 	if active:
 		modulate = HOVERED_MODULATE
 
-func _on_SaveFile_mouse_exited():
+func _on_SaveFile_mouse_exited() -> void:
 	if active:
 		modulate = NORMAL_MODULATE
 
-func _on_ConfirmationDialog_confirmed():
+func _on_ConfirmationDialog_confirmed() -> void:
 	check_new_game()
 	overwrite_player_data()

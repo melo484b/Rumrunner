@@ -9,7 +9,7 @@ const PLAYER_TABLE: String = "player"
 const CARD_TABLE: String = "card"
 const DECK_TABLE: String = "deck"
 
-func _ready():
+func _ready() -> void:
 	db = SQLite.new()
 	db.path = db_name
 
