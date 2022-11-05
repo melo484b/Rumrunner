@@ -1,7 +1,5 @@
 extends CanvasLayer
 
-signal write_to_slot
-
 onready var save_1: PanelContainer = $SaveThemedMarginContainer/PanelContainer/MarginContainer/HBoxContainer2/VBoxContainer/SaveFile1
 onready var save_2: PanelContainer = $SaveThemedMarginContainer/PanelContainer/MarginContainer/HBoxContainer2/VBoxContainer2/SaveFile2
 onready var save_3: PanelContainer = $SaveThemedMarginContainer/PanelContainer/MarginContainer/HBoxContainer2/VBoxContainer3/SaveFile3

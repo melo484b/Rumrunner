@@ -16,7 +16,7 @@ func _ready() -> void:
 	build_deck(Player.player_id)
 
 func build_deck(player_id: int) -> void:
-	var deck_data = GameDatabase.get_data_by_id(GameDatabase.DECK_TABLE, "player_id", Player.player_id)
+	var deck_data = GameDatabase.get_data_by_id(GameDatabase.DECK_TABLE, "player_id", player_id)
 	for card in deck_data:
 		deck[card["id"]] = card
 

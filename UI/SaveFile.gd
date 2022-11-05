@@ -1,8 +1,5 @@
 extends PanelContainer
 
-signal data_written
-signal write_new_file
-
 onready var player_name: Label = $VBoxContainer2/PlayerName
 onready var currency: Label = $VBoxContainer2/Currency
 onready var score: Label = $VBoxContainer2/Score
