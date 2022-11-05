@@ -1,5 +1,11 @@
 extends Node
 
+onready var card_1: RigidBody2D = $"../CardManager/Card"
+onready var card_2: RigidBody2D = $"../CardManager/Card2"
+onready var card_3: RigidBody2D = $"../CardManager/Card3"
+onready var card_4: RigidBody2D = $"../CardManager/Card4"
+onready var card_5: RigidBody2D = $"../CardManager/Card5"
+
 var deck: Dictionary
 var hand: Dictionary
 var discard_pile: Dictionary
