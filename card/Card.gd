@@ -6,6 +6,15 @@ onready var collider: CollisionShape2D = $CardCollider
 onready var animator: AnimationPlayer = $AnimationPlayer
 onready var area: Area2D = $Sprite/Area2D
 
+var card_id: int
+var card_name: String
+var card_class: String
+var art_id: int
+var description: String
+var offense: int
+var defense: int
+var value: int
+
 var selected: bool = false
 var placed: bool = false
 var target_position: Vector2
