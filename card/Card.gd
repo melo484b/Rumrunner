@@ -48,7 +48,7 @@ func _input(event) -> void:
 			target_position = global_position
 			var shortest_distance = 100
 			for child in target_nodes:
-				if !child.filled and not placed:
+				if !child.filled and not placed and child.active:
 					var distance = global_position.distance_to(child.global_position)
 					if distance < shortest_distance:
 						child.select()
@@ -56,6 +56,7 @@ func _input(event) -> void:
 						shortest_distance = distance
 						if child.is_in_group("SHIP_NODE"):
 							set_placed()
+							child.set_inactive()
 						if child.is_in_group("DISCARD"):
 							set_placed()
 							animator.play("shrink")
