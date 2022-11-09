@@ -1,6 +1,12 @@
 class_name Card
 extends RigidBody2D
 
+var card_data: Dictionary
+var selected: bool = false
+var placed: bool = false
+var target_position: Vector2
+var target_nodes: Array = []
+
 onready var collider: CollisionShape2D = $CardCollider
 onready var animator: AnimationPlayer = $AnimationPlayer
 onready var area: Area2D = $Sprite/Area2D
@@ -10,12 +16,6 @@ onready var art: TextureRect = $ThemedMarginContainer/ClassPanelContainer/Margin
 onready var description: Label = $ThemedMarginContainer/ClassPanelContainer/MarginContainer/VBoxContainer/Description
 onready var offense: Label = $ThemedMarginContainer/ClassPanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/Offense
 onready var defense: Label = $ThemedMarginContainer/ClassPanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/Defense
-
-var card_data: Dictionary
-var selected: bool = false
-var placed: bool = false
-var target_position: Vector2
-var target_nodes: Array = []
 
 func _ready() -> void:
 	target_nodes = get_tree().get_nodes_in_group("CARD_NODE")
@@ -73,3 +73,9 @@ func populate_card_data() -> void:
 	self.description.text = card_data["description"]
 	self.offense.text = str(card_data["offensive_stat"])
 	self.defense.text = str(card_data["defensive_stat"])
+
+func set_card_art() -> void:
+	pass
+
+func set_card_class() -> void:
+	pass

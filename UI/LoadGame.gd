@@ -1,11 +1,11 @@
 extends CanvasLayer
 
+var save_files: Array
+var player_data: Array
+
 onready var save_1: PanelContainer = $ThemedMarginContainer/PanelContainer/MarginContainer/HBoxContainer2/VBoxContainer/SaveFile1
 onready var save_2: PanelContainer = $ThemedMarginContainer/PanelContainer/MarginContainer/HBoxContainer2/VBoxContainer2/SaveFile2
 onready var save_3: PanelContainer = $ThemedMarginContainer/PanelContainer/MarginContainer/HBoxContainer2/VBoxContainer3/SaveFile3
-
-var save_files: Array
-var player_data: Array
 
 func _ready() -> void:
 	save_files = [save_1, save_2, save_3]

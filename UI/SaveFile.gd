@@ -1,28 +1,27 @@
 extends PanelContainer
 
-onready var player_name: Label = $VBoxContainer2/PlayerName
-onready var currency: Label = $VBoxContainer2/Currency
-onready var score: Label = $VBoxContainer2/Score
-onready var confirmation: ConfirmationDialog = $ConfirmationDialog
-
-export var exported_player_id: int = 1
-
 const HOVERED_MODULATE = "00ffe6"
 const NORMAL_MODULATE = "ffffff"
 const DEACTIVATED_MODULATE = "111111"
 const LOADED_MODULATE = "1a0095"
 
+export var exported_player_id: int = 1
+
 var active: bool = false
 var selected: bool = false
 var new_game: bool
 var temp_name: String = ""
-
 var save_data: Dictionary = {
 	"player_id": -1,
 	"player_name": "Player Name",
 	"currency": 0,
 	"score": 0
 }
+
+onready var player_name: Label = $VBoxContainer2/PlayerName
+onready var currency: Label = $VBoxContainer2/Currency
+onready var score: Label = $VBoxContainer2/Score
+onready var confirmation: ConfirmationDialog = $ConfirmationDialog
 	
 func _ready() -> void:
 	set_inactive()

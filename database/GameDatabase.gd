@@ -1,13 +1,12 @@
 extends Node
 
 const SQLite = preload("res://addons/godot-sqlite/bin/gdsqlite.gdns")
-
-var db
-var db_name: String = "res://database/data/rumrunner"
-
 const PLAYER_TABLE: String = "player"
 const CARD_TABLE: String = "card"
 const DECK_TABLE: String = "deck"
+
+var db
+var db_name: String = "res://database/data/rumrunner"
 
 func _ready() -> void:
 	db = SQLite.new()
