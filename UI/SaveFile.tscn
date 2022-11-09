@@ -62,6 +62,4 @@ dialog_autowrap = true
 
 [connection signal="mouse_entered" from="." to="." method="_on_SaveFile_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_SaveFile_mouse_exited"]
-[connection signal="write_new_file" from="." to="." method="_on_SaveFile_write_new_file"]
-[connection signal="about_to_show" from="ConfirmationDialog" to="." method="_on_ConfirmationDialog_about_to_show"]
 [connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_ConfirmationDialog_confirmed"]

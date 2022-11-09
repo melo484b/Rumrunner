@@ -108,7 +108,3 @@ func _on_SaveFile_mouse_exited() -> void:
 func _on_ConfirmationDialog_confirmed() -> void:
 	commit_player_data()
 	update_labels()
-
-
-func _on_ConfirmationDialog_about_to_show():
-	print("about to show")
