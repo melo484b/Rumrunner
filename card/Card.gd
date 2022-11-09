@@ -1,6 +1,16 @@
 class_name Card
 extends RigidBody2D
 
+signal placed
+
+const CARD_CLASS = {
+	"cat": "64ff00fb",
+	"offense": "64ff0000",
+	"defense": "643800ff",
+	"strategy": "6400ff0a",
+}
+const CARD_ART_PATH = "res://card_art/"
+
 var card_data: Dictionary
 var selected: bool = false
 var placed: bool = false
@@ -54,6 +64,7 @@ func set_placed() -> void:
 	self.placed = true
 	self.collider.disabled = true
 	self.animator.stop()
+	emit_signal("placed", self.card_data)
 
 func reset_card() -> void:
 	self.placed = false
@@ -70,12 +81,16 @@ func set_card_data(new_data: Dictionary) -> void:
 	
 func populate_card_data() -> void:
 	self.card_name.text = card_data["name"]
+	set_card_class(card_data["card_class"])
+	set_card_art(card_data["art_id"])
 	self.description.text = card_data["description"]
 	self.offense.text = str(card_data["offensive_stat"])
 	self.defense.text = str(card_data["defensive_stat"])
 
-func set_card_art() -> void:
-	pass
+func set_card_art(art_id: int) -> void:
+	var art_path: String = CARD_ART_PATH + str(art_id) + ".png"
+	print(art_path)
+	art.texture = load(art_path)
 
-func set_card_class() -> void:
-	pass
+func set_card_class(class_modulation: String) -> void:
+	card_class.self_modulate = CARD_CLASS.get(class_modulation)
