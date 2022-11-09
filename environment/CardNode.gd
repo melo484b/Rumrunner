@@ -5,7 +5,7 @@ var selected: bool = false
 var filled: bool = false
 
 func _ready() -> void:
-	select()
+	deselect()
 
 func select() -> void:
 	modulate = Color.aqua

@@ -35,7 +35,7 @@ func _physics_process(delta) -> void:
 	if selected:
 		global_position = lerp(global_position, get_global_mouse_position(), 25 * delta)
 	else:
-		global_position = lerp(global_position, target_position, 10 * delta)
+		global_position = lerp(global_position, target_position, 15 * delta)
 		
 func _on_Area2D_input_event(_viewport, _event, _shape_idx) -> void:
 	if Input.is_action_just_pressed("left_click") and not placed:
