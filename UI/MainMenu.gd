@@ -11,10 +11,10 @@ onready var quit: Button = $ThemedMarginContainer/PanelContainer/MarginContainer
 #  <C++ Source>  core/object.cpp:1468 @ connect()
 #  <Stack Trace> MainMenu.gd:20 @ _on_load_game_button()
 func _ready() -> void:
-	#new_game.connect("pressed", self, "_on_new_game_button")
-	#load_game.connect("pressed", self, "_on_load_game_button")
-	#options.connect("pressed", self, "_on_options_button")
-	#quit.connect("pressed", self, "_on_quit_button")
+	new_game.connect("pressed", self, "_on_new_game_button")
+	load_game.connect("pressed", self, "_on_load_game_button")
+	options.connect("pressed", self, "_on_options_button")
+	quit.connect("pressed", self, "_on_quit_button")
 	pass
 
 func _on_new_game_button() -> void:
