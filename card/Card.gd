@@ -4,16 +4,14 @@ extends RigidBody2D
 onready var collider: CollisionShape2D = $CardCollider
 onready var animator: AnimationPlayer = $AnimationPlayer
 onready var area: Area2D = $Sprite/Area2D
+onready var card_name: Label = $ThemedMarginContainer/ClassPanelContainer/MarginContainer/VBoxContainer/Name
+onready var card_class: PanelContainer = $ThemedMarginContainer/ClassPanelContainer
+onready var art: TextureRect = $ThemedMarginContainer/ClassPanelContainer/MarginContainer/VBoxContainer/TextureRect
+onready var description: Label = $ThemedMarginContainer/ClassPanelContainer/MarginContainer/VBoxContainer/Description
+onready var offense: Label = $ThemedMarginContainer/ClassPanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/Offense
+onready var defense: Label = $ThemedMarginContainer/ClassPanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/Defense
 
-var card_id: int
-var card_name: String
-var card_class: String
-var art_id: int
-var description: String
-var offense: int
-var defense: int
-var value: int
-
+var card_data: Dictionary
 var selected: bool = false
 var placed: bool = false
 var target_position: Vector2
@@ -53,10 +51,25 @@ func _input(event) -> void:
 							animator.play("shrink")
 
 func set_placed() -> void:
-	placed = true
-	collider.disabled = true
-	animator.stop()
+	self.placed = true
+	self.collider.disabled = true
+	self.animator.stop()
 
 func reset_card() -> void:
-	placed = false
-	collider.disabled = false
+	self.placed = false
+	self.collider.disabled = false
+	if self.visible == false:
+		self.visible = true
+
+func set_card_data(new_data: Dictionary) -> void:
+	if !new_data.empty():
+		self.card_data.merge(new_data, true)
+	else:
+		set_placed()
+		self.visible = false
+	
+func populate_card_data() -> void:
+	self.card_name.text = card_data["name"]
+	self.description.text = card_data["description"]
+	self.offense.text = str(card_data["offensive_stat"])
+	self.defense.text = str(card_data["defensive_stat"])
