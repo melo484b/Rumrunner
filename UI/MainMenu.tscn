@@ -66,3 +66,8 @@ margin_top = 114.0
 margin_right = 161.0
 margin_bottom = 148.0
 text = "Quit"
+
+[connection signal="pressed" from="ThemedMarginContainer/PanelContainer/MarginContainer/VBoxContainer/NewGame" to="." method="_on_new_game_button"]
+[connection signal="pressed" from="ThemedMarginContainer/PanelContainer/MarginContainer/VBoxContainer/LoadGame" to="." method="_on_load_game_button"]
+[connection signal="pressed" from="ThemedMarginContainer/PanelContainer/MarginContainer/VBoxContainer/Options" to="." method="_on_options_button"]
+[connection signal="pressed" from="ThemedMarginContainer/PanelContainer/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_button"]

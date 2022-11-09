@@ -1,6 +1,5 @@
-extends RigidBody2D
-
 class_name Card
+extends RigidBody2D
 
 onready var collider: CollisionShape2D = $CardCollider
 onready var animator: AnimationPlayer = $AnimationPlayer

@@ -18,15 +18,28 @@ _global_script_classes=[ {
 "class": "CardNode",
 "language": "GDScript",
 "path": "res://environment/CardNode.gd"
+}, {
+"base": "Reference",
+"class": "GutHookScript",
+"language": "GDScript",
+"path": "res://addons/gut/hook_script.gd"
+}, {
+"base": "Node",
+"class": "GutTest",
+"language": "GDScript",
+"path": "res://addons/gut/test.gd"
 } ]
 _global_script_class_icons={
 "Card": "",
-"CardNode": ""
+"CardNode": "",
+"GutHookScript": "",
+"GutTest": ""
 }
 
 [application]
 
 config/name="Rumrunner"
+run/main_scene="res://UI/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]

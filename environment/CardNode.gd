@@ -1,5 +1,5 @@
-extends Position2D
 class_name CardNode
+extends Position2D
 
 var selected: bool = false
 var filled: bool = false
