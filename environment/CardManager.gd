@@ -1,10 +1,11 @@
+class_name CardManager
 extends Node
 
 
 var deck: Dictionary
 var hand: Dictionary
 var discard_pile: Dictionary
-var player_cards: Array
+var cards: Array
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
 onready var card_1: RigidBody2D = $"../CardManager/Card"
@@ -17,8 +18,7 @@ onready var card_5: RigidBody2D = $"../CardManager/Card5"
 func _ready() -> void:
 	rng.randomize()
 	build_deck(Player.player_id)
-	player_cards = [ card_1, card_2, card_3, card_4, card_5 ]
-	draw_player_hand()
+	cards = [ card_1, card_2, card_3, card_4, card_5 ]
 	
 
 func build_deck(player_id: int) -> void:
@@ -70,7 +70,13 @@ func shuffle_cards() -> void:
 
 
 func draw_player_hand() -> void:
-	for card in player_cards:
+	for card in cards:
 		var new_card: Dictionary = build_card(draw_card())[0]
 		card.call("set_card_data", new_card)
 		card.call("populate_card_data")
+
+
+func _on_GameOverlay_player_turn():
+	pass
+	# Discard used cards
+	# Draw new cards to replace
