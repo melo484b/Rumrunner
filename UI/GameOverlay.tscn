@@ -85,12 +85,13 @@ margin_bottom = 40.0
 mouse_filter = 2
 script = ExtResource( 10 )
 
+[node name="ProgressTween" type="Tween" parent="LevelProgress"]
+
 [node name="ProgressTexture" type="TextureProgress" parent="LevelProgress"]
 margin_right = 1024.0
 margin_bottom = 40.0
 mouse_filter = 2
 max_value = 120.0
-value = 1.0
 rounded = true
 texture_under = ExtResource( 6 )
 texture_over = ExtResource( 7 )
@@ -114,5 +115,6 @@ margin_bottom = 268.0
 theme = ExtResource( 11 )
 
 [connection signal="timeout" from="CardBackTexture/Timer" to="CardBackTexture" method="_on_Timer_timeout"]
+[connection signal="value_changed" from="LevelProgress/ProgressTexture" to="." method="_on_ProgressTexture_value_changed"]
 [connection signal="timeout" from="ProgressTimer" to="." method="_on_ProgressTimer_timeout"]
 [connection signal="timeout" from="ProgressTimer" to="LevelProgress" method="_on_ProgressTimer_timeout"]
