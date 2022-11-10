@@ -251,9 +251,16 @@ one_shot = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TurnTimer"]
 anims/shake = SubResource( 4 )
 
+[node name="InputBlocker" type="Panel" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color( 1, 1, 1, 0 )
+margin_right = 1024.0
+margin_bottom = 600.0
+
 [connection signal="timeout" from="CardBackTexture/Timer" to="CardBackTexture" method="_on_Timer_timeout"]
 [connection signal="value_changed" from="LevelProgress/ProgressTexture" to="LevelProgress" method="_on_ProgressTexture_value_changed"]
 [connection signal="incoming" from="IncomingAnnouncement" to="." method="_on_IncomingAnnouncement_incoming"]
+[connection signal="player_turn" from="IncomingAnnouncement" to="." method="_on_IncomingAnnouncement_player_turn"]
 [connection signal="timeout" from="IncomingAnnouncement/DisplayTimer" to="IncomingAnnouncement" method="_on_Timer_timeout"]
 [connection signal="player_time_out" from="TurnTimer" to="IncomingAnnouncement" method="_on_TurnTimer_player_time_out"]
 [connection signal="timeout" from="TurnTimer/Timer" to="TurnTimer" method="_on_Timer_timeout"]
