@@ -18,6 +18,6 @@ func _on_Timer_timeout() -> void:
 	emit_signal("player_turn")
 
 
-func _on_TurnTimer_player_time_out():
+func _on_TurnTimer_player_time_out() -> void:
 	emit_signal("incoming")
 	display_incoming()
