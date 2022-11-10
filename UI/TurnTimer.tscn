@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://UI/UI_theme.tres" type="Theme" id=1]
+[ext_resource path="res://art/time_progress_placeholder.png" type="Texture" id=2]
+[ext_resource path="res://UI/TurnTimer.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.12549, 0.12549, 0.12549, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.25098, 0, 0.509804, 1 )
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="Animation" id=4]
+resource_name = "shake"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 850, 45 ), Vector2( 860, 45 ), Vector2( 840, 45 ), Vector2( 850, 45 ), Vector2( 840, 45 ) ]
+}
+
+[node name="TurnTimer" type="MarginContainer"]
+margin_left = 850.0
+margin_top = 45.0
+margin_right = 958.0
+margin_bottom = 153.001
+theme = ExtResource( 1 )
+script = ExtResource( 3 )
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+margin_right = 108.0
+margin_bottom = 108.0
+custom_styles/panel = SubResource( 3 )
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 106.0
+margin_bottom = 106.0
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/MarginContainer"]
+margin_right = 104.0
+margin_bottom = 104.0
+
+[node name="TextureProgress" type="TextureProgress" parent="PanelContainer/MarginContainer/CenterContainer"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 102.0
+margin_bottom = 102.0
+max_value = 60.0
+rounded = true
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 2 )
+fill_mode = 4
+tint_under = Color( 0.709804, 0.156863, 1, 0.227451 )
+tint_progress = Color( 1, 0, 0, 1 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 6.0
+one_shot = true
+
+[node name="TimerTween" type="Tween" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/shake = SubResource( 4 )
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
