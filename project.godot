@@ -28,12 +28,18 @@ _global_script_classes=[ {
 "class": "GutTest",
 "language": "GDScript",
 "path": "res://addons/gut/test.gd"
+}, {
+"base": "MarginContainer",
+"class": "TurnTimer",
+"language": "GDScript",
+"path": "res://UI/TurnTimer.gd"
 } ]
 _global_script_class_icons={
 "Card": "",
 "CardNode": "",
 "GutHookScript": "",
-"GutTest": ""
+"GutTest": "",
+"TurnTimer": ""
 }
 
 [application]
