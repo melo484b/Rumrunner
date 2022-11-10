@@ -2,7 +2,7 @@ class_name Card
 extends RigidBody2D
 
 
-signal placed
+signal placed(card_data, node)
 
 const CARD_CLASS = {
 	"cat": "64ff00fb",
@@ -48,10 +48,10 @@ func _input(event) -> void:
 						target_position = child.global_position
 						shortest_distance = distance
 						if child.is_in_group("SHIP_NODE"):
-							set_placed()
+							set_placed(child.name)
 							child.set_inactive()
 						if child.is_in_group("DISCARD"):
-							set_placed()
+							set_placed(child.name)
 							animator.play("shrink")
 
 
@@ -63,11 +63,11 @@ func _physics_process(delta) -> void:
 		
 
 
-func set_placed() -> void:
+func set_placed(node_name: String) -> void:
 	self.placed = true
 	self.collider.disabled = true
 	self.animator.stop()
-	emit_signal("placed", self.card_data)
+	emit_signal("placed", self.card_data, node_name)
 
 
 func reset_card() -> void:
@@ -81,7 +81,7 @@ func set_card_data(new_data: Dictionary) -> void:
 	if !new_data.empty():
 		self.card_data.merge(new_data, true)
 	else:
-		set_placed()
+		set_placed("none")
 		self.visible = false
 	
 	
