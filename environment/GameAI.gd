@@ -31,7 +31,6 @@ func _ready() -> void:
 
 func start_player_turn() -> void:
 	overlay.start_player_timer()
-	current_turn = Turn.PLAYER
 
 
 func _on_Card_placed(card_data, node):
@@ -57,3 +56,12 @@ func _on_Card4_placed(card_data, node):
 func _on_Card5_placed(card_data, node):
 	player_card_positions[node] = card_data
 	print(player_card_positions)
+
+
+func _on_GameOverlay_player_turn():
+	current_turn = Turn.PLAYER
+
+
+func _on_GameOverlay_ai_turn():
+	current_turn = Turn.PLAYER
+	# Run AI sequence
