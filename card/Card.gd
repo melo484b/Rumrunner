@@ -1,6 +1,7 @@
 class_name Card
 extends RigidBody2D
 
+
 signal placed
 
 const CARD_CLASS = {
@@ -27,19 +28,11 @@ onready var description: Label = $ThemedMarginContainer/ClassPanelContainer/Marg
 onready var offense: Label = $ThemedMarginContainer/ClassPanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/Offense
 onready var defense: Label = $ThemedMarginContainer/ClassPanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/Defense
 
+
 func _ready() -> void:
 	target_nodes = get_tree().get_nodes_in_group("CARD_NODE")
 	target_position = global_position
-	
-func _physics_process(delta) -> void:
-	if selected:
-		global_position = lerp(global_position, get_global_mouse_position(), 25 * delta)
-	else:
-		global_position = lerp(global_position, target_position, 10 * delta)
-		
-func _on_Area2D_input_event(_viewport, _event, _shape_idx) -> void:
-	if Input.is_action_just_pressed("left_click") and not placed:
-		selected = true
+
 
 func _input(event) -> void:
 	if event is InputEventMouseButton:
@@ -61,11 +54,21 @@ func _input(event) -> void:
 							set_placed()
 							animator.play("shrink")
 
+
+func _physics_process(delta) -> void:
+	if selected:
+		global_position = lerp(global_position, get_global_mouse_position(), 25 * delta)
+	else:
+		global_position = lerp(global_position, target_position, 10 * delta)
+		
+
+
 func set_placed() -> void:
 	self.placed = true
 	self.collider.disabled = true
 	self.animator.stop()
 	emit_signal("placed", self.card_data)
+
 
 func reset_card() -> void:
 	self.placed = false
@@ -73,12 +76,14 @@ func reset_card() -> void:
 	if self.visible == false:
 		self.visible = true
 
+
 func set_card_data(new_data: Dictionary) -> void:
 	if !new_data.empty():
 		self.card_data.merge(new_data, true)
 	else:
 		set_placed()
 		self.visible = false
+	
 	
 func populate_card_data() -> void:
 	self.card_name.text = card_data["name"]
@@ -88,10 +93,17 @@ func populate_card_data() -> void:
 	self.offense.text = str(card_data["offensive_stat"])
 	self.defense.text = str(card_data["defensive_stat"])
 
+
 func set_card_art(art_id: int) -> void:
 	var art_path: String = CARD_ART_PATH + str(art_id) + ".png"
 	print(art_path)
 	art.texture = load(art_path)
 
+
 func set_card_class(class_modulation: String) -> void:
 	card_class.self_modulate = CARD_CLASS.get(class_modulation)
+
+
+func _on_Area2D_input_event(_viewport, _event, _shape_idx) -> void:
+	if Input.is_action_just_pressed("left_click") and not placed:
+		selected = true

@@ -1,5 +1,6 @@
 extends Node
 
+
 var deck: Dictionary
 var hand: Dictionary
 var discard_pile: Dictionary
@@ -11,6 +12,7 @@ onready var card_2: RigidBody2D = $"../CardManager/Card2"
 onready var card_3: RigidBody2D = $"../CardManager/Card3"
 onready var card_4: RigidBody2D = $"../CardManager/Card4"
 onready var card_5: RigidBody2D = $"../CardManager/Card5"
+
 
 func _ready() -> void:
 	rng.randomize()
@@ -25,12 +27,14 @@ func build_deck(player_id: int) -> void:
 		deck[card["id"]] = card
 	print(self.deck)
 
+
 func build_card(card_data: Dictionary) -> Dictionary:
 	if !card_data.empty():
 		var card = GameDatabase.get_data_by_id(GameDatabase.CARD_TABLE, "id", card_data.get("id"))
 		print(card)
 		return card
 	return Dictionary()
+
 
 # TODO add a check for "number_of_copies"
 func draw_card() -> Dictionary:
@@ -53,14 +57,17 @@ func draw_card() -> Dictionary:
 	else:
 		return Dictionary()
 	
+	
 func discard(card_id: int) -> void:
 	if (hand.has(card_id)):
 		self.discard_pile[card_id] = self.hand.get(card_id)
 		self.hand.erase(card_id)
 
+
 func shuffle_cards() -> void:
 	self.deck.merge(discard_pile)
 	self.discard_pile.clear()
+
 
 func draw_player_hand() -> void:
 	for card in player_cards:

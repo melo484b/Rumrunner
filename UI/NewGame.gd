@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+
 const NEW_GAME: bool = true
 
 var save_files: Array
@@ -11,9 +12,11 @@ onready var save_2: PanelContainer = $SaveThemedMarginContainer/PanelContainer/M
 onready var save_3: PanelContainer = $SaveThemedMarginContainer/PanelContainer/MarginContainer/HBoxContainer2/VBoxContainer3/SaveFile3
 onready var name_line: LineEdit = $NameThemedMarginContainer/PanelContainer/MarginContainer/VBoxContainer/LineEdit
 
+
 func _ready() -> void:
 	save_files = [save_1, save_2, save_3]
 	display_player_data_from_database()
+
 
 func display_player_data_from_database() -> void:
 	player_data = GameDatabase.get_all_data_in_table(GameDatabase.PLAYER_TABLE)
@@ -23,21 +26,25 @@ func display_player_data_from_database() -> void:
 		save_files[index].update_labels()
 		save_files[index].set_active()
 	
+	
 func _on_SelectSaveFile1_pressed() -> void:
 	save_1.temp_name = name_line.text
 	save_1.check_for_overwrite()
 	save_1.set_player_data_to_new_player_data()
 	current_save = 0
 
+
 func _on_SelectSaveFile2_pressed() -> void:
 	save_2.check_for_overwrite()
 	save_2.set_player_data_to_new_player_data()
 	current_save = 1
 	
+	
 func _on_SelectSaveFile3_pressed() -> void:
 	save_3.check_for_overwrite()
 	save_3.set_player_data_to_new_player_data()
 	current_save = 2
+
 
 func _on_ConfirmationButton_pressed():
 	if save_files[current_save].is_active():
