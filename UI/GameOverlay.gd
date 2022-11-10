@@ -2,6 +2,8 @@ extends CanvasLayer
 
 
 signal level_complete
+signal player_turn
+signal ai_turn
 
 onready var deck: TextureRect = $CardBackTexture
 onready var level_progress_bar: MarginContainer = $LevelProgress
@@ -34,11 +36,13 @@ func _on_ProgressTexture_value_changed(value) -> void:
 		emit_signal("level_complete")
 
 
-func _on_IncomingAnnouncement_incoming():
+func _on_IncomingAnnouncement_incoming() -> void:
 	input_blocker.visible = true
+	emit_signal("ai_turn")
 	
 
 
-func _on_IncomingAnnouncement_player_turn():
+func _on_IncomingAnnouncement_player_turn() -> void:
 	input_blocker.visible = false
 	start_player_timer()
+	emit_signal("player_turn")
