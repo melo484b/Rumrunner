@@ -12,6 +12,8 @@ const CARD_CLASS = {
 }
 const CARD_ART_PATH = "res://card_art/"
 
+export var selectable: bool = true
+
 var card_data: Dictionary
 var selected: bool = false
 var placed: bool = false
@@ -35,7 +37,7 @@ func _ready() -> void:
 
 
 func _input(event) -> void:
-	if event is InputEventMouseButton:
+	if event is InputEventMouseButton and selectable:
 		if event.button_index == BUTTON_LEFT and not event.pressed:
 			selected = false
 			target_position = global_position
