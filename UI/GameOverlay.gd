@@ -6,6 +6,7 @@ signal level_complete
 const MAX_LEVEL_TIME: int = 120
 const TIME_DECREMENT: int = 1
 const TIME_MINIMUM: int = 0
+const PROGRESS_TIME_MULTIPLIER: int = 10
 
 var level_time: int = MAX_LEVEL_TIME
 var time_left: int
@@ -36,7 +37,7 @@ func _on_ProgressTimer_timeout() -> void:
 
 
 func _on_ProgressTexture_value_changed(value):
-	if value >= self.MAX_LEVEL_TIME:
+	if value >= self.MAX_LEVEL_TIME * PROGRESS_TIME_MULTIPLIER:
 		progress_timer.stop()
 		emit_signal("level_complete", self.level_time)
 		print("level complete" + str(self.level_time))
