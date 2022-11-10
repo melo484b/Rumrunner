@@ -38,19 +38,19 @@ scale = Vector2( 0.8, 0.8 )
 
 [node name="ShipNodeManager" type="Node" parent="."]
 
-[node name="ShipNode" parent="ShipNodeManager" instance=ExtResource( 4 )]
+[node name="bow" parent="ShipNodeManager" instance=ExtResource( 4 )]
 position = Vector2( 820, 231 )
 scale = Vector2( 0.6, 0.6 )
 
-[node name="ShipNode2" parent="ShipNodeManager" instance=ExtResource( 4 )]
+[node name="port" parent="ShipNodeManager" instance=ExtResource( 4 )]
 position = Vector2( 504, 117 )
 scale = Vector2( 0.6, 0.6 )
 
-[node name="ShipNode3" parent="ShipNodeManager" instance=ExtResource( 4 )]
+[node name="starboard" parent="ShipNodeManager" instance=ExtResource( 4 )]
 position = Vector2( 501, 328 )
 scale = Vector2( 0.6, 0.6 )
 
-[node name="ShipNode4" parent="ShipNodeManager" instance=ExtResource( 4 )]
+[node name="stern" parent="ShipNodeManager" instance=ExtResource( 4 )]
 position = Vector2( 201, 227 )
 scale = Vector2( 0.6, 0.6 )
 
@@ -77,3 +77,9 @@ position = Vector2( 690, 580 )
 
 [node name="Card5" parent="CardManager" instance=ExtResource( 3 )]
 position = Vector2( 870, 580 )
+
+[connection signal="placed" from="CardManager/Card" to="GameAI" method="_on_Card_placed"]
+[connection signal="placed" from="CardManager/Card2" to="GameAI" method="_on_Card2_placed"]
+[connection signal="placed" from="CardManager/Card3" to="GameAI" method="_on_Card3_placed"]
+[connection signal="placed" from="CardManager/Card4" to="GameAI" method="_on_Card4_placed"]
+[connection signal="placed" from="CardManager/Card5" to="GameAI" method="_on_Card5_placed"]
