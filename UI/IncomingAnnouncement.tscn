@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://UI/UI_theme.tres" type="Theme" id=1]
+[ext_resource path="res://resources/LSANS_dynamic_font_massive.tres" type="DynamicFont" id=2]
+[ext_resource path="res://UI/IncomingAnnouncement.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 1, 0, 0, 0.364706 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 0.580392, 0, 0, 1 )
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 10
+
+[node name="IncomingAnnouncement" type="MarginContainer"]
+visible = false
+margin_top = 159.0
+margin_right = 1024.0
+margin_bottom = 245.0
+mouse_filter = 2
+theme = ExtResource( 1 )
+script = ExtResource( 3 )
+__meta__ = {
+"_editor_description_": "Display when the turn changes to the player's turn."
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+margin_right = 1024.0
+margin_bottom = 86.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 2 )
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 1016.0
+margin_bottom = 94.0
+mouse_filter = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/MarginContainer"]
+margin_right = 1008.0
+margin_bottom = 86.0
+mouse_filter = 2
+
+[node name="IncomingLabel" type="Label" parent="PanelContainer/MarginContainer/CenterContainer"]
+margin_left = 308.0
+margin_right = 699.0
+margin_bottom = 86.0
+custom_fonts/font = ExtResource( 2 )
+text = "INCOMING!"
+align = 1
+valign = 1
+
+[node name="DisplayTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[connection signal="timeout" from="DisplayTimer" to="." method="_on_Timer_timeout"]
