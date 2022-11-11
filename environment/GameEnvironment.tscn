@@ -114,6 +114,7 @@ margin_right = 1012.0
 margin_bottom = 156.001
 mouse_filter = 2
 
+[connection signal="end_player_turn" from="GameOverlay" to="GameAI" method="_on_GameOverlay_end_player_turn"]
 [connection signal="placed" from="AiCardManager/AiCard" to="GameAI" method="_on_AiCard_placed"]
 [connection signal="placed" from="AiCardManager/AiCard2" to="GameAI" method="_on_AiCard2_placed"]
 [connection signal="placed" from="AiCardManager/AiCard3" to="GameAI" method="_on_AiCard3_placed"]
@@ -124,3 +125,5 @@ mouse_filter = 2
 [connection signal="placed" from="CardManager/Card3" to="GameAI" method="_on_Card3_placed"]
 [connection signal="placed" from="CardManager/Card4" to="GameAI" method="_on_Card4_placed"]
 [connection signal="placed" from="CardManager/Card5" to="GameAI" method="_on_Card5_placed"]
+[connection signal="player_turn" from="IncomingAnnouncement" to="GameAI" method="_on_IncomingAnnouncement_player_turn"]
+[connection signal="player_time_out" from="TurnTimer" to="GameAI" method="_on_TurnTimer_player_time_out"]
