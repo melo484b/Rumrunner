@@ -19,7 +19,6 @@ func _on_ready() -> void:
 	cards = [ card_1, card_2, card_3, card_4, card_5 ]
 	build_deck(owner_id)
 	draw_hand()
-	place_card(LOCATIONS[0], POSITIONS[0], card_1)
 
 
 func place_card(location: String, new_position: Vector2, card: Card) -> void:
