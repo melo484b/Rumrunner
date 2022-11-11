@@ -1,7 +1,6 @@
 extends MarginContainer
 
 
-signal incoming
 signal player_turn
 
 onready var timer: Timer = $DisplayTimer
