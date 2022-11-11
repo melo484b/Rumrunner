@@ -2,27 +2,29 @@ extends CardManager
 
 
 const AI_ID: int = 99
+const POSITIONS: Array = [Vector2(820, 231), Vector2(504, 117), Vector2(501, 328), Vector2(201, 227)]
+const LOCATIONS: Array = ["bow", "port", "starboard", "stern"]
 
-func _ready():
-	card_1 = $Card
-	card_2 = $Card2
-	card_3 = $Card3
-	card_4 = $Card4
-	card_5 = $Card5
-	build_deck(AI_ID)
+func _init():
+	owner_id = AI_ID
+
+
+func _on_ready() -> void:
+	rng.randomize()
+	card_1 = $AiCard
+	card_2 = $AiCard2
+	card_3 = $AiCard3
+	card_4 = $AiCard4
+	card_5 = $AiCard5
 	cards = [ card_1, card_2, card_3, card_4, card_5 ]
+	build_deck(owner_id)
+	draw_hand()
+	place_card(LOCATIONS[0], POSITIONS[0], card_1)
 
 
-func draw_ai_hand() -> void:
-	for card in cards:
-		var new_card: Dictionary = build_card(draw_card())[0]
-		card.call("set_card_data", new_card)
-		card.call("populate_card_data")
-
-
-func place_card(location: String, position: Vector2, card: Card):
+func place_card(location: String, new_position: Vector2, card: Card) -> void:
 	card.set_placed(location)
-
-
-func _on_GameOverlay_ai_turn():
-	pass
+	card.set_position(new_position)
+	card.set_physics_process(false)
+	
+	
