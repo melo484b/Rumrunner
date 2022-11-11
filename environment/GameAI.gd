@@ -58,10 +58,26 @@ func _on_Card5_placed(card_data, node):
 	print(player_card_positions)
 
 
-func _on_GameOverlay_player_turn():
-	current_turn = Turn.PLAYER
+func _on_AiCard_placed(card_data, node):
+	ai_card_positions[node] = card_data
+	print(ai_card_positions)
 
 
-func _on_GameOverlay_ai_turn():
-	current_turn = Turn.PLAYER
-	# Run AI sequence
+func _on_AiCard2_placed(card_data, node):
+	ai_card_positions[node] = card_data
+	print(ai_card_positions)
+
+
+func _on_AiCard3_placed(card_data, node):
+	ai_card_positions[node] = card_data
+	print(ai_card_positions)
+
+
+func _on_AiCard4_placed(card_data, node):
+	ai_card_positions[node] = card_data
+	print(ai_card_positions)
+
+
+func _on_AiCard5_placed(card_data, node):
+	ai_card_positions[node] = card_data
+	print(ai_card_positions)
