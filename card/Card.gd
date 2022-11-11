@@ -65,11 +65,16 @@ func _physics_process(delta) -> void:
 		
 
 
+func set_position(new_global_position: Vector2) -> void:
+	global_position = new_global_position
+
+
 func set_placed(node_name: String) -> void:
-	self.placed = true
-	self.collider.disabled = true
-	self.animator.stop()
-	emit_signal("placed", self.card_data, node_name)
+	placed = true
+	collider.disabled = true
+	animator.stop()
+	emit_signal("placed", card_data, node_name)
+	print(self.name + "placed")
 
 
 func reset_card() -> void:
@@ -81,29 +86,40 @@ func reset_card() -> void:
 
 func set_card_data(new_data: Dictionary) -> void:
 	if !new_data.empty():
-		self.card_data.merge(new_data, true)
+		card_data.merge(new_data, true)
 	else:
 		set_placed("none")
-		self.visible = false
+		visible = false
 	
 	
 func populate_card_data() -> void:
-	self.card_name.text = card_data["name"]
-	set_card_class(card_data["card_class"])
-	set_card_art(card_data["art_id"])
-	self.description.text = card_data["description"]
-	self.offense.text = str(card_data["offensive_stat"])
-	self.defense.text = str(card_data["defensive_stat"])
+	set_card_name(card_data.get("name", "name err"))
+	set_card_class(card_data.get("card_class", "class err"))
+	set_card_art(card_data.get("art_id", "art err"))
+	set_card_description(card_data.get("description", "desc err"))
+	set_card_stats(card_data.get("offensive_stat", -1), card_data.get("defensive_stat", -1))
 
 
-func set_card_art(art_id: int) -> void:
-	var art_path: String = CARD_ART_PATH + str(art_id) + ".png"
-	print(art_path)
-	art.texture = load(art_path)
+func set_card_name(card_name: String) -> void:
+	self.card_name.text = card_name
 
 
 func set_card_class(class_modulation: String) -> void:
 	card_class.self_modulate = CARD_CLASS.get(class_modulation)
+
+
+func set_card_art(art_id: int) -> void:
+	var art_path: String = CARD_ART_PATH + str(art_id) + ".png"
+	art.texture = load(art_path)
+
+
+func set_card_description(description: String) -> void:
+	self.description.text = description
+
+
+func set_card_stats(offense: int, defense: int) -> void:
+	self.offense.text = str(offense)
+	self.defense.text = str(defense)
 
 
 func _on_Area2D_input_event(_viewport, _event, _shape_idx) -> void:
