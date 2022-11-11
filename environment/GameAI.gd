@@ -20,7 +20,10 @@ var ai_card_positions: Dictionary = {
 onready var hand_manager: Node = $"../HandNodeManager"
 onready var ship_node_manager: Node = $"../ShipNodeManager"
 onready var overlay: CanvasLayer = $"../GameOverlay"
+onready var ai_card_manager: Node = $"../AiCardManager"
 onready var card_manager: Node = $"../CardManager"
+onready var incoming: MarginContainer = $"../IncomingAnnouncement"
+onready var turn_timer: MarginContainer = $"../TurnTimer"
 
 
 func _ready() -> void:
@@ -30,32 +33,26 @@ func _ready() -> void:
 
 func start_ai_turn() -> void:
 	current_turn = Turn.AI
-	# Block player input
-	# AI draws cards
+	ai_card_manager.draw_hand()
 	# AI places crd/cards
-	# show_incoming_banner()
+	show_incoming_banner()
 	
 
 func show_incoming_banner():
-	pass
-	# Show incoming banner
-	# Allow player input
-	# start_player_turn()
+	incoming.display_incoming()
 
 
 func start_player_turn() -> void:
 	current_turn = Turn.PLAYER
-	# Start player turn timer
-	# Player makes moves
-	# Player ends turn OR runs out of time:
-	#	resolve_cards()
+	overlay.toggle_player_input()
+	turn_timer.start_timer()
 
 
 func resolve_cards() -> void:
-	pass
+	overlay.toggle_player_input()
 	# Check for cards placed by AI
 	# Check for cards placed by Player
-	# Activate card effects
+	# Activate/resolve card effects
 	# start_ai_turn()
 
 
@@ -107,3 +104,17 @@ func _on_AiCard4_placed(card_data, node) -> void:
 func _on_AiCard5_placed(card_data, node) -> void:
 	ai_card_positions[node] = card_data
 	print(ai_card_positions)
+
+
+func _on_TurnTimer_player_time_out():
+	resolve_cards()
+
+
+func _on_IncomingAnnouncement_player_turn():
+	start_player_turn()
+
+
+func _on_GameOverlay_end_player_turn():
+	var extra_time: int = turn_timer.stop_timer()
+	overlay.add_progress(extra_time)
+	resolve_cards()
