@@ -35,6 +35,6 @@ func stop_level_progress_bar() -> int:
 	return time_left
 
 
-func _on_ProgressTexture_value_changed(value):
+func _on_ProgressTexture_value_changed(value) -> void:
 	if value >= MAX_VALUE:
 		time_left = stop_level_progress_bar()
