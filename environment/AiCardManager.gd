@@ -1,7 +1,11 @@
 extends CardManager
 
 
+signal ai_ready
+
 const AI_ID: int = 99
+const NODE_INDEX_RANGE: int = 3
+const CARD_INDEX_RANGE: int = 4
 const POSITIONS: Array = [Vector2(820, 231), Vector2(504, 117), Vector2(501, 328), Vector2(201, 227)]
 const LOCATIONS: Array = ["bow", "port", "starboard", "stern"]
 
@@ -19,11 +23,14 @@ func _on_ready() -> void:
 	cards = [ card_1, card_2, card_3, card_4, card_5 ]
 	build_deck(owner_id)
 	draw_hand()
+	yield(get_tree().root, "ready")
+	emit_signal("ai_ready")
 
 
-func place_card(location: String, new_position: Vector2, card: Card) -> void:
-	card.set_placed(location)
-	card.set_position(new_position)
-	card.set_physics_process(false)
-	
-	
+func place_card() -> void:
+	rng.randomize()
+	var node_index: int = rng.randi_range(0, NODE_INDEX_RANGE)
+	var card_index: int = rng.randi_range(0, CARD_INDEX_RANGE)
+	cards[card_index].set_placed(LOCATIONS[node_index])
+	cards[card_index].set_underway(true)
+	cards[card_index].set_assigned_position(POSITIONS[node_index])
