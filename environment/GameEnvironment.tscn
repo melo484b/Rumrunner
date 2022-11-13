@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://environment/GameEnvironment.gd" type="Script" id=1]
 [ext_resource path="res://environment/CardNode.tscn" type="PackedScene" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://UI/GameOverlay.tscn" type="PackedScene" id=10]
 [ext_resource path="res://UI/IncomingAnnouncement.tscn" type="PackedScene" id=11]
 [ext_resource path="res://UI/ScoreCounter.tscn" type="PackedScene" id=12]
+[ext_resource path="res://environment/ShipNodeManager.gd" type="Script" id=13]
+[ext_resource path="res://card/AiCard.tscn" type="PackedScene" id=14]
 
 [node name="GameEnvironment" type="Node2D"]
 z_index = 1
@@ -42,6 +44,7 @@ position = Vector2( 870, 580 )
 scale = Vector2( 0.8, 0.8 )
 
 [node name="ShipNodeManager" type="Node" parent="."]
+script = ExtResource( 13 )
 
 [node name="bow" parent="ShipNodeManager" instance=ExtResource( 4 )]
 position = Vector2( 820, 231 )
@@ -70,25 +73,20 @@ layer = -1
 [node name="AiCardManager" type="Node" parent="."]
 script = ExtResource( 6 )
 
-[node name="AiCard" parent="AiCardManager" instance=ExtResource( 3 )]
-position = Vector2( 136, -134 )
-selectable = false
+[node name="AiCard" parent="AiCardManager" instance=ExtResource( 14 )]
+position = Vector2( 144, -48 )
 
-[node name="AiCard2" parent="AiCardManager" instance=ExtResource( 3 )]
-position = Vector2( 299, -136 )
-selectable = false
+[node name="AiCard2" parent="AiCardManager" instance=ExtResource( 14 )]
+position = Vector2( 336, -48 )
 
-[node name="AiCard3" parent="AiCardManager" instance=ExtResource( 3 )]
-position = Vector2( 469, -134 )
-selectable = false
+[node name="AiCard3" parent="AiCardManager" instance=ExtResource( 14 )]
+position = Vector2( 520, -48 )
 
-[node name="AiCard4" parent="AiCardManager" instance=ExtResource( 3 )]
-position = Vector2( 656, -136 )
-selectable = false
+[node name="AiCard4" parent="AiCardManager" instance=ExtResource( 14 )]
+position = Vector2( 696, -48 )
 
-[node name="AiCard5" parent="AiCardManager" instance=ExtResource( 3 )]
-position = Vector2( 856, -136 )
-selectable = false
+[node name="AiCard5" parent="AiCardManager" instance=ExtResource( 14 )]
+position = Vector2( 896, -48 )
 
 [node name="CardManager" parent="." instance=ExtResource( 8 )]
 
@@ -123,12 +121,13 @@ margin_right = 76.0
 margin_bottom = 137.0
 
 [connection signal="end_player_turn" from="GameOverlay" to="GameAI" method="_on_GameOverlay_end_player_turn"]
-[connection signal="ai_ready" from="AiCardManager" to="GameAI" method="_on_AiCardManager_ai_ready"]
+[connection signal="start_level" from="GameOverlay" to="GameAI" method="_on_GameOverlay_start_level"]
 [connection signal="placed" from="AiCardManager/AiCard" to="GameAI" method="_on_AiCard_placed"]
 [connection signal="placed" from="AiCardManager/AiCard2" to="GameAI" method="_on_AiCard2_placed"]
 [connection signal="placed" from="AiCardManager/AiCard3" to="GameAI" method="_on_AiCard3_placed"]
 [connection signal="placed" from="AiCardManager/AiCard4" to="GameAI" method="_on_AiCard4_placed"]
 [connection signal="placed" from="AiCardManager/AiCard5" to="GameAI" method="_on_AiCard5_placed"]
+[connection signal="player_hand_discarded" from="CardManager" to="ShipNodeManager" method="_on_CardManager_player_hand_discarded"]
 [connection signal="placed" from="CardManager/Card" to="GameAI" method="_on_Card_placed"]
 [connection signal="placed" from="CardManager/Card2" to="GameAI" method="_on_Card2_placed"]
 [connection signal="placed" from="CardManager/Card3" to="GameAI" method="_on_Card3_placed"]
