@@ -26,11 +26,10 @@ func _ready() -> void:
 
 
 func _on_ready() -> void:
-	#rng.randomize()
-	#cards = [ card_1, card_2, card_3, card_4, card_5 ]
-	#build_deck(owner_id)
-	#draw_hand()
-	pass
+	rng.randomize()
+	cards = [ card_1, card_2, card_3, card_4, card_5 ]
+	build_deck(owner_id)
+	draw_hand()
 	
 	
 func build_deck(owner_id: int) -> void:
@@ -79,7 +78,9 @@ func draw_hand() -> void:
 		card.call("populate_card_data")
 
 
-func _on_GameOverlay_player_turn():
-	pass
-	# Discard used cards
-	# Draw new cards to replace
+func discard_hand() -> void:
+	for card in cards:
+		discard(card.get_id())
+		print(str(card.position) + " moving to: " + str(card.original_position))
+		card.reset_card()
+	shuffle_cards()
