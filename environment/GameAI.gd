@@ -1,9 +1,6 @@
 extends Node
 
 
-enum Turn { PLAYER, AI }
-
-
 var current_rum: int = 20 setget set_current_rum
 var player_card_positions: Dictionary = {
 	"bow": null,
@@ -54,7 +51,27 @@ func resolve_cards() -> void:
 	# Check for cards placed by Player
 	# Activate/resolve card effects
 	ai_card_manager.discard_hand()
+	reset_ai_card_positions()
+	reset_player_card_positions()
 	start_ai_turn()
+
+
+func reset_ai_card_positions() -> void:
+	ai_card_positions = {
+	"bow": null,
+	"port": null,
+	"starboard": null,
+	"stern": null,
+	}
+
+
+func reset_player_card_positions() -> void:
+	player_card_positions = {
+	"bow": null,
+	"port": null,
+	"starboard": null,
+	"stern": null,
+	}
 
 
 func set_current_rum(new_rum: int) -> void:
@@ -104,6 +121,7 @@ func _on_AiCard5_placed(card_data, node) -> void:
 
 func _on_TurnTimer_player_time_out():
 	resolve_cards()
+	card_manager.discard_hand()
 
 
 func _on_IncomingAnnouncement_player_turn():
@@ -117,5 +135,5 @@ func _on_GameOverlay_end_player_turn():
 	card_manager.discard_hand()
 
 
-func _on_AiCardManager_ai_ready():
+func _on_GameOverlay_start_level():
 	start_ai_turn()
