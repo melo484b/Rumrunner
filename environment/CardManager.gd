@@ -2,6 +2,8 @@ class_name CardManager
 extends Node
 
 
+signal player_hand_discarded
+
 var associated_cards: Dictionary
 var deck: Dictionary
 var hand: Dictionary
@@ -84,3 +86,4 @@ func discard_hand() -> void:
 		print(str(card.position) + " moving to: " + str(card.original_position))
 		card.reset_card()
 	shuffle_cards()
+	emit_signal("player_hand_discarded")
