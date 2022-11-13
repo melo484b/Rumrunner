@@ -4,6 +4,7 @@ extends CanvasLayer
 signal level_complete
 signal end_player_turn
 
+
 onready var deck: TextureRect = $CardBackTexture
 onready var level_progress_bar: MarginContainer = $LevelProgress
 onready var input_blocker: Panel = $InputBlocker
@@ -17,11 +18,13 @@ func draw_card_animation() -> void:
 	deck.draw_animation()
 
 
-func toggle_player_input() -> void:
-	if input_blocker.visible == true:
-		input_blocker.visible = false
-	else:
-		input_blocker.visible = true
+func block_player_input():
+	input_blocker.visible = true
+	
+
+
+func unblock_player_input() -> void:
+	input_blocker.visible = false
 
 
 func add_progress(progress: int) -> void:
