@@ -37,7 +37,7 @@ tracks/0/keys = {
 margin_left = 850.0
 margin_top = 45.0
 margin_right = 958.0
-margin_bottom = 153.001
+margin_bottom = 153.0
 theme = ExtResource( 1 )
 script = ExtResource( 3 )
 
