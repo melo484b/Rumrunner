@@ -17,7 +17,10 @@ export var selectable: bool = true
 var card_data: Dictionary
 var selected: bool = false
 var placed: bool = false
+var underway: bool = false
 var target_position: Vector2
+var original_position: Vector2
+var assigned_position: Vector2
 var target_nodes: Array = []
 
 onready var collider: CollisionShape2D = $CardCollider
@@ -34,6 +37,8 @@ onready var defense: Label = $ThemedMarginContainer/ClassPanelContainer/MarginCo
 func _ready() -> void:
 	target_nodes = get_tree().get_nodes_in_group("CARD_NODE")
 	target_position = global_position
+	original_position = global_position
+	assigned_position = original_position
 
 
 func _input(event) -> void:
@@ -57,16 +62,40 @@ func _input(event) -> void:
 							animator.play("shrink")
 
 
-func _physics_process(delta) -> void:
+func _integrate_forces(state):
+	drag(state)
+	if underway:
+		state.set_transform(assign_position())
+
+
+func drag(state: Physics2DDirectBodyState) -> void:
 	if selected:
-		global_position = lerp(global_position, get_global_mouse_position(), 25 * delta)
-	else:
-		global_position = lerp(global_position, target_position, 10 * delta)
-		
+		var card_transform: Transform2D = get_transform()
+		var lerp_to: Vector2 = lerp(global_position, get_global_mouse_position(), 25 * state.get_step())
+		card_transform.origin.x = lerp_to.x
+		card_transform.origin.y = lerp_to.y
+		state.set_transform(card_transform)
+	elif not selected:
+		var card_transform: Transform2D = get_transform()
+		var lerp_to: Vector2 = lerp(global_position, target_position, 10 * state.get_step())
+		card_transform.origin.x = lerp_to.x
+		card_transform.origin.y = lerp_to.y
+		state.set_transform(card_transform)
 
 
-func set_position(new_global_position: Vector2) -> void:
-	global_position = new_global_position
+func assign_position() -> Transform2D:
+	var card_transform: Transform2D = get_transform()
+	card_transform.origin.x = assigned_position.x
+	card_transform.origin.y = assigned_position.y
+	return card_transform
+
+
+func set_assigned_position(new_assigned_position: Vector2) -> void:
+	assigned_position = new_assigned_position
+	
+
+func set_underway(underway_status: bool):
+	underway = underway_status
 
 
 func set_placed(node_name: String) -> void:
@@ -74,14 +103,16 @@ func set_placed(node_name: String) -> void:
 	collider.disabled = true
 	animator.stop()
 	emit_signal("placed", card_data, node_name)
-	print(self.name + "placed")
+	print(self.name + " placed")
 
 
 func reset_card() -> void:
-	self.placed = false
-	self.collider.disabled = false
-	if self.visible == false:
-		self.visible = true
+	set_underway(true)
+	assigned_position = original_position
+	placed = false
+	collider.disabled = false
+	if visible == false:
+		visible = true
 
 
 func set_card_data(new_data: Dictionary) -> void:
@@ -90,8 +121,8 @@ func set_card_data(new_data: Dictionary) -> void:
 	else:
 		set_placed("none")
 		visible = false
-	
-	
+
+
 func populate_card_data() -> void:
 	set_card_name(card_data.get("name", "name err"))
 	set_card_class(card_data.get("card_class", "class err"))
@@ -122,6 +153,12 @@ func set_card_stats(offense: int, defense: int) -> void:
 	self.defense.text = str(defense)
 
 
+func get_id() -> int:
+	return card_data["id"]
+
+
 func _on_Area2D_input_event(_viewport, _event, _shape_idx) -> void:
 	if Input.is_action_just_pressed("left_click") and not placed:
 		selected = true
+	if selectable:
+		underway = false
