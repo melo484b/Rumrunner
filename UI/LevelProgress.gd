@@ -19,7 +19,7 @@ func add_progress(progress: int) -> void:
 	var current_time: float = tween.tell()
 	progress_bar.value += progress
 	if tween.is_active():
-		tween.seek(current_time + float(progress/10))
+		tween.seek(current_time + float(progress))
 
 
 func start_level_progress_bar() -> void:
