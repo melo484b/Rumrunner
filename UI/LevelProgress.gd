@@ -30,9 +30,9 @@ func start_level_progress_bar() -> void:
 
 
 func stop_level_progress_bar() -> int:
-	var time_left: int = int(timer.time_left)
+	var time_remaining: int = int(timer.time_left)
 	timer.stop()
-	return time_left
+	return time_remaining
 
 
 func _on_ProgressTexture_value_changed(value) -> void:
