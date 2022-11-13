@@ -64,7 +64,6 @@ func set_active() -> void:
 
 
 func is_active() -> bool:
-	print("checking for activity: " + str(self.active))
 	return self.active
 
 
@@ -88,8 +87,6 @@ func overwrite_slot() -> void:
 func check_for_overwrite() -> void:
 	if is_active():
 		confirmation.popup_centered()
-	else:
-		print("not active")
 
 
 func overwrite_player_data() -> void:
