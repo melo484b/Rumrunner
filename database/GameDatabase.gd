@@ -11,6 +11,7 @@ var db_name: String = "res://database/data/rumrunner"
 
 func _ready() -> void:
 	db = SQLite.new()
+	db.verbosity_level = 0
 	db.path = db_name
 
 
