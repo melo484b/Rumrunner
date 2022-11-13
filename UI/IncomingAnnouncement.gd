@@ -1,3 +1,4 @@
+class_name IncomingAnnouncement
 extends MarginContainer
 
 
@@ -7,11 +8,10 @@ onready var timer: Timer = $DisplayTimer
 
 
 func display_incoming() -> void:
-	self.raise()
-	self.visible = true
+	visible = true
 	timer.start()
 	
 
 func _on_Timer_timeout() -> void:
-	self.visible = false
+	visible = false
 	emit_signal("player_turn")
