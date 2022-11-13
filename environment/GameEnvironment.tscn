@@ -74,19 +74,19 @@ layer = -1
 script = ExtResource( 6 )
 
 [node name="AiCard" parent="AiCardManager" instance=ExtResource( 14 )]
-position = Vector2( 144, -48 )
+position = Vector2( 128, -128 )
 
 [node name="AiCard2" parent="AiCardManager" instance=ExtResource( 14 )]
-position = Vector2( 336, -48 )
+position = Vector2( 320, -128 )
 
 [node name="AiCard3" parent="AiCardManager" instance=ExtResource( 14 )]
-position = Vector2( 520, -48 )
+position = Vector2( 504, -128 )
 
 [node name="AiCard4" parent="AiCardManager" instance=ExtResource( 14 )]
-position = Vector2( 696, -48 )
+position = Vector2( 680, -128 )
 
 [node name="AiCard5" parent="AiCardManager" instance=ExtResource( 14 )]
-position = Vector2( 896, -48 )
+position = Vector2( 880, -128 )
 
 [node name="CardManager" parent="." instance=ExtResource( 8 )]
 
