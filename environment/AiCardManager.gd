@@ -31,6 +31,13 @@ func place_card() -> void:
 	rng.randomize()
 	var node_index: int = rng.randi_range(0, NODE_INDEX_RANGE)
 	var card_index: int = rng.randi_range(0, CARD_INDEX_RANGE)
+	cards[card_index].set_target_position(POSITIONS[node_index])
 	cards[card_index].set_placed(LOCATIONS[node_index])
-	cards[card_index].set_underway(true)
-	cards[card_index].set_assigned_position(POSITIONS[node_index])
+
+
+func discard_hand() -> void:
+	for card in cards:
+		discard(card.get_id())
+		print(str(card.position) + " moving to: " + str(card.original_position))
+		card.reset_card()
+	shuffle_cards()
