@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 
+signal start_level
 signal level_complete
 signal end_player_turn
 
@@ -11,7 +12,9 @@ onready var input_blocker: Panel = $InputBlocker
 
 
 func _ready() -> void:
+	yield(get_tree().create_timer(1.0), "timeout")
 	level_progress_bar.start_level_progress_bar()
+	emit_signal("start_level")
 
 
 func draw_card_animation() -> void:
@@ -20,7 +23,6 @@ func draw_card_animation() -> void:
 
 func block_player_input():
 	input_blocker.visible = true
-	
 
 
 func unblock_player_input() -> void:
