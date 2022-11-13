@@ -110,7 +110,6 @@ mouse_filter = 2
 texture = ExtResource( 8 )
 
 [node name="InputBlocker" type="Panel" parent="."]
-visible = false
 modulate = Color( 1, 1, 1, 0 )
 self_modulate = Color( 1, 1, 1, 0 )
 margin_right = 1024.0
