@@ -2,18 +2,8 @@ extends Node
 
 
 var current_rum: int = 20 setget set_current_rum
-var player_card_positions: Dictionary = {
-	"bow": null,
-	"port": null,
-	"starboard": null,
-	"stern": null,
-}
-var ai_card_positions: Dictionary = {
-	"bow": null,
-	"port": null,
-	"starboard": null,
-	"stern": null,
-}
+var player_card_positions: Array = [{}, {}, {}, {}]
+var ai_card_positions: Array = [{}, {}, {}, {}]
 
 onready var hand_manager: Node = $"../HandNodeManager"
 onready var ship_node_manager: Node = $"../ShipNodeManager"
@@ -56,22 +46,16 @@ func resolve_cards() -> void:
 	start_ai_turn()
 
 
+func compare_cards(player_cards: Dictionary, ai_cards: Dictionary) -> void:
+	pass
+
+
 func reset_ai_card_positions() -> void:
-	ai_card_positions = {
-	"bow": null,
-	"port": null,
-	"starboard": null,
-	"stern": null,
-	}
+	ai_card_positions = [{}, {}, {}, {}]
 
 
 func reset_player_card_positions() -> void:
-	player_card_positions = {
-	"bow": null,
-	"port": null,
-	"starboard": null,
-	"stern": null,
-	}
+	player_card_positions = [{}, {}, {}, {}]
 
 
 func set_current_rum(new_rum: int) -> void:
@@ -79,44 +63,44 @@ func set_current_rum(new_rum: int) -> void:
 	score_counter.set_score_counter_label(current_rum)
 
 
-func _on_Card_placed(card_data, node) -> void:
-	player_card_positions[node] = card_data
+func _on_Card_placed(card_data, index) -> void:
+	player_card_positions[index] = card_data
 
 
-func _on_Card2_placed(card_data, node) -> void:
-	player_card_positions[node] = card_data
+func _on_Card2_placed(card_data, index) -> void:
+	player_card_positions[index] = card_data
 
 
-func _on_Card3_placed(card_data, node) -> void:
-	player_card_positions[node] = card_data
+func _on_Card3_placed(card_data, index) -> void:
+	player_card_positions[index] = card_data
 
 
-func _on_Card4_placed(card_data, node) -> void:
-	player_card_positions[node] = card_data
+func _on_Card4_placed(card_data, index) -> void:
+	player_card_positions[index] = card_data
 
 
-func _on_Card5_placed(card_data, node) -> void:
-	player_card_positions[node] = card_data
+func _on_Card5_placed(card_data, index) -> void:
+	player_card_positions[index] = card_data
 
 
-func _on_AiCard_placed(card_data, node) -> void:
-	ai_card_positions[node] = card_data
+func _on_AiCard_placed(card_data, index) -> void:
+	ai_card_positions[index] = card_data
 
 
-func _on_AiCard2_placed(card_data, node) -> void:
-	ai_card_positions[node] = card_data
+func _on_AiCard2_placed(card_data, index) -> void:
+	ai_card_positions[index] = card_data
 
 
-func _on_AiCard3_placed(card_data, node) -> void:
-	ai_card_positions[node] = card_data
+func _on_AiCard3_placed(card_data, index) -> void:
+	ai_card_positions[index] = card_data
 
 
-func _on_AiCard4_placed(card_data, node) -> void:
-	ai_card_positions[node] = card_data
+func _on_AiCard4_placed(card_data, index) -> void:
+	ai_card_positions[index] = card_data
 
 
-func _on_AiCard5_placed(card_data, node) -> void:
-	ai_card_positions[node] = card_data
+func _on_AiCard5_placed(card_data, index) -> void:
+	ai_card_positions[index] = card_data
 
 
 func _on_TurnTimer_player_time_out():

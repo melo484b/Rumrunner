@@ -33,9 +33,11 @@ func reset_card() -> void:
 
 
 func set_placed(node_name: String) -> void:
+	var index: int = index_from_node_name(node_name)
 	placed = true
-	emit_signal("placed", card_data, node_name)
-	print(self.name + " placed")
+	if index != -1:
+		emit_signal("placed", card_data, index)
+		print(self.name + " placed " + str(index))
 
 
 func set_card_data(new_data: Dictionary) -> void:

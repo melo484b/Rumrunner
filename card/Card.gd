@@ -2,7 +2,7 @@ class_name Card
 extends RigidBody2D
 
 
-signal placed(card_data, node)
+signal placed(card_data, index)
 
 const CARD_CLASS = {
 	"cat": "64ff00fb",
@@ -89,11 +89,27 @@ func set_target_position(new_target_position: Vector2) -> void:
 
 
 func set_placed(node_name: String) -> void:
+	var index: int = index_from_node_name(node_name)
 	placed = true
 	card_collider.disabled = true
 	animator.stop()
-	emit_signal("placed", card_data, node_name)
-	print(self.name + " placed")
+	if index != -1:
+		emit_signal("placed", card_data, index)
+		print(self.name + " placed " + str(index))
+
+
+func index_from_node_name(name_in: String) -> int:
+	match name_in:
+		"bow":
+			return 0
+		"port":
+			return 1
+		"starboard":
+			return 2
+		"stern":
+			return 3
+		_:
+			return -1
 
 
 func reset_card() -> void:
