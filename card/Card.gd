@@ -83,9 +83,7 @@ func drag(state: Physics2DDirectBodyState) -> void:
 
 
 func set_target_position(new_target_position: Vector2) -> void:
-	print("before setting position: " + str(target_position))
 	target_position = new_target_position
-	print("new position: " + str(target_position))
 
 
 func set_placed(node_name: String) -> void:
@@ -95,7 +93,6 @@ func set_placed(node_name: String) -> void:
 	animator.stop()
 	if index != -1:
 		emit_signal("placed", card_data, index)
-		print(self.name + " placed " + str(index))
 
 
 func index_from_node_name(name_in: String) -> int:

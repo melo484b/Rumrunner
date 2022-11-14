@@ -83,7 +83,6 @@ func draw_hand() -> void:
 func discard_hand() -> void:
 	for card in cards:
 		discard(card.get_id())
-		print(str(card.position) + " moving to: " + str(card.original_position))
 		card.reset_card()
 	shuffle_cards()
 	emit_signal("player_hand_discarded")

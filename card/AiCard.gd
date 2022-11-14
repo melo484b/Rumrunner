@@ -25,7 +25,6 @@ func _on_ready() -> void:
 
 
 func reset_card() -> void:
-	print(name + " reset")
 	target_position = original_position
 	placed = false
 	if visible == false:
@@ -37,7 +36,6 @@ func set_placed(node_name: String) -> void:
 	placed = true
 	if index != -1:
 		emit_signal("placed", card_data, index)
-		print(self.name + " placed " + str(index))
 
 
 func set_card_data(new_data: Dictionary) -> void:
