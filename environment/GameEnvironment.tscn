@@ -121,6 +121,7 @@ margin_right = 76.0
 margin_bottom = 137.0
 
 [connection signal="end_player_turn" from="GameOverlay" to="GameAI" method="_on_GameOverlay_end_player_turn"]
+[connection signal="level_complete" from="GameOverlay" to="." method="_on_GameOverlay_level_complete"]
 [connection signal="start_level" from="GameOverlay" to="GameAI" method="_on_GameOverlay_start_level"]
 [connection signal="placed" from="AiCardManager/AiCard" to="GameAI" method="_on_AiCard_placed"]
 [connection signal="placed" from="AiCardManager/AiCard2" to="GameAI" method="_on_AiCard2_placed"]
