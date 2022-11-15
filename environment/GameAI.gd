@@ -31,6 +31,7 @@ func show_incoming_banner():
 
 
 func start_player_turn() -> void:
+	card_manager.draw_hand()
 	overlay.unblock_player_input()
 	turn_timer.start_timer()
 
@@ -154,6 +155,7 @@ func _on_TurnTimer_player_time_out():
 
 func _on_IncomingAnnouncement_player_turn():
 	start_player_turn()
+	overlay.draw_card_animation()
 
 
 func _on_GameOverlay_end_player_turn():
