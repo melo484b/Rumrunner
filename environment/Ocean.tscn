@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://art/ocean.png" type="Texture" id=1]
+[ext_resource path="res://resources/ocean_shader.gdshader" type="Shader" id=2]
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 2 )
+shader_param/tiled_factor = Vector2( 1, 1 )
+shader_param/aspect_ratio = 1.0
+shader_param/time_scale = Vector2( 0.1, 0.1 )
+shader_param/offset_scale = Vector2( 2, 2 )
+shader_param/amplitude = Vector2( 0.1, 0.1 )
+
+[node name="Ocean" type="Sprite"]
+material = SubResource( 2 )
+texture = ExtResource( 1 )
