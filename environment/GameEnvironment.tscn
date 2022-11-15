@@ -24,23 +24,23 @@ script = ExtResource( 1 )
 [node name="HandNodeManager" type="Node" parent="."]
 
 [node name="CardNode" parent="HandNodeManager" instance=ExtResource( 2 )]
-position = Vector2( 150, 580 )
+position = Vector2( 150, 576 )
 scale = Vector2( 0.8, 0.8 )
 
 [node name="CardNode2" parent="HandNodeManager" instance=ExtResource( 2 )]
-position = Vector2( 330, 580 )
+position = Vector2( 330, 576 )
 scale = Vector2( 0.8, 0.8 )
 
 [node name="CardNode3" parent="HandNodeManager" instance=ExtResource( 2 )]
-position = Vector2( 510, 580 )
+position = Vector2( 510, 576 )
 scale = Vector2( 0.8, 0.8 )
 
 [node name="CardNode4" parent="HandNodeManager" instance=ExtResource( 2 )]
-position = Vector2( 690, 580 )
+position = Vector2( 690, 576 )
 scale = Vector2( 0.8, 0.8 )
 
 [node name="CardNode5" parent="HandNodeManager" instance=ExtResource( 2 )]
-position = Vector2( 870, 580 )
+position = Vector2( 870, 576 )
 scale = Vector2( 0.8, 0.8 )
 
 [node name="ShipNodeManager" type="Node" parent="."]
@@ -74,36 +74,36 @@ layer = -1
 script = ExtResource( 6 )
 
 [node name="AiCard" parent="AiCardManager" instance=ExtResource( 14 )]
-position = Vector2( 128, -128 )
+position = Vector2( 256, -88 )
 
 [node name="AiCard2" parent="AiCardManager" instance=ExtResource( 14 )]
-position = Vector2( 320, -128 )
+position = Vector2( 384, -88 )
 
 [node name="AiCard3" parent="AiCardManager" instance=ExtResource( 14 )]
-position = Vector2( 504, -128 )
+position = Vector2( 512, -88 )
 
 [node name="AiCard4" parent="AiCardManager" instance=ExtResource( 14 )]
-position = Vector2( 680, -128 )
+position = Vector2( 640, -88 )
 
 [node name="AiCard5" parent="AiCardManager" instance=ExtResource( 14 )]
-position = Vector2( 880, -128 )
+position = Vector2( 768, -88 )
 
 [node name="CardManager" parent="." instance=ExtResource( 8 )]
 
 [node name="Card" parent="CardManager" instance=ExtResource( 3 )]
-position = Vector2( 150, 580 )
+position = Vector2( 150, 576 )
 
 [node name="Card2" parent="CardManager" instance=ExtResource( 3 )]
-position = Vector2( 330, 580 )
+position = Vector2( 330, 576 )
 
 [node name="Card3" parent="CardManager" instance=ExtResource( 3 )]
-position = Vector2( 510, 580 )
+position = Vector2( 510, 576 )
 
 [node name="Card4" parent="CardManager" instance=ExtResource( 3 )]
-position = Vector2( 690, 580 )
+position = Vector2( 690, 576 )
 
 [node name="Card5" parent="CardManager" instance=ExtResource( 3 )]
-position = Vector2( 870, 580 )
+position = Vector2( 870, 576 )
 
 [node name="IncomingAnnouncement" parent="." instance=ExtResource( 11 )]
 
