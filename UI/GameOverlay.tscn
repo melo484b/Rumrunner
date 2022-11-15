@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://art/card_back.png" type="Texture" id=1]
 [ext_resource path="res://art/draw_card.png" type="Texture" id=2]
@@ -6,11 +6,20 @@
 [ext_resource path="res://UI/GameOverlay.gd" type="Script" id=4]
 [ext_resource path="res://art/progress_placeholder.png" type="Texture" id=5]
 [ext_resource path="res://art/progress_background_placeholder-export.png" type="Texture" id=6]
-[ext_resource path="res://art/progress_overlay_placeholder.png" type="Texture" id=7]
+[ext_resource path="res://art/progress_overlay.png" type="Texture" id=7]
 [ext_resource path="res://art/ship_placeholder.png" type="Texture" id=8]
-[ext_resource path="res://art/placeholder_background.png" type="Texture" id=9]
+[ext_resource path="res://resources/ocean_shader.gdshader" type="Shader" id=9]
 [ext_resource path="res://UI/LevelProgress.gd" type="Script" id=10]
 [ext_resource path="res://UI/GameButton.tscn" type="PackedScene" id=11]
+[ext_resource path="res://art/ocean.png" type="Texture" id=12]
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 9 )
+shader_param/tiled_factor = Vector2( 5, 5 )
+shader_param/aspect_ratio = 0.1
+shader_param/time_scale = Vector2( 0.5, 0.5 )
+shader_param/offset_scale = Vector2( 3, 3 )
+shader_param/amplitude = Vector2( 0.1, 0.1 )
 
 [sub_resource type="Animation" id=1]
 resource_name = "draw_card"
@@ -26,7 +35,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 141, 441 ), Vector2( 212, 529 ) ]
+"values": [ Vector2( 87, 405 ), Vector2( 196, 537 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:modulate")
@@ -45,17 +54,18 @@ tracks/1/keys = {
 script = ExtResource( 4 )
 
 [node name="Background" type="TextureRect" parent="."]
+material = SubResource( 2 )
 margin_right = 1024.0
 margin_bottom = 600.0
 mouse_filter = 2
-texture = ExtResource( 9 )
+texture = ExtResource( 12 )
+stretch_mode = 2
 
 [node name="CardBackTexture" type="TextureRect" parent="."]
-modulate = Color( 1, 1, 1, 0 )
-margin_left = 158.278
-margin_top = 493.567
-margin_right = 408.279
-margin_bottom = 843.569
+margin_left = 87.0
+margin_top = 405.0
+margin_right = 337.001
+margin_bottom = 755.003
 rect_rotation = -218.4
 rect_scale = Vector2( 0.3, 0.3 )
 mouse_filter = 2
@@ -66,7 +76,7 @@ script = ExtResource( 3 )
 anims/draw_card = SubResource( 1 )
 
 [node name="Timer" type="Timer" parent="CardBackTexture"]
-wait_time = 1.25
+wait_time = 0.5
 one_shot = true
 
 [node name="DeckTexture" type="TextureRect" parent="."]
@@ -112,9 +122,9 @@ texture = ExtResource( 8 )
 [node name="EndTurnButton" parent="." instance=ExtResource( 11 )]
 modulate = Color( 0.301961, 0.329412, 0.509804, 1 )
 margin_left = 432.0
-margin_top = 456.0
+margin_top = 449.0
 margin_right = 592.0
-margin_bottom = 490.0
+margin_bottom = 483.0
 text = "End Turn"
 
 [node name="InputBlocker" type="Panel" parent="."]
