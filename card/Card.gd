@@ -23,6 +23,7 @@ var target_nodes: Array = []
 
 onready var card_collider: CollisionShape2D = $CardCollider
 onready var animator: AnimationPlayer = $AnimationPlayer
+onready var sprite: Sprite = $Sprite
 onready var area: Area2D = $Sprite/Area2D
 onready var card_name: Label = $ThemedMarginContainer/ClassPanelContainer/MarginContainer/VBoxContainer/Name
 onready var card_class: PanelContainer = $ThemedMarginContainer/ClassPanelContainer
@@ -116,7 +117,8 @@ func reset_card() -> void:
 		visible = true
 	yield(get_tree().create_timer(0.2), "timeout")
 	card_collider.disabled = false
-
+	if sprite.scale == Vector2(0.25, 0.25):
+		animator.play("grow")
 
 func set_card_data(new_data: Dictionary) -> void:
 	if !new_data.empty():
