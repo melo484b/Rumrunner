@@ -86,3 +86,9 @@ func discard_hand() -> void:
 		card.reset_card()
 	shuffle_cards()
 	emit_signal("player_hand_discarded")
+
+
+func _on_GameOverlay_level_complete() -> void:
+	for card in cards:
+		card.spin()
+	discard_hand()
