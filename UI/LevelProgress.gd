@@ -1,6 +1,8 @@
 extends MarginContainer
 
 
+signal progress_complete(level_time)
+
 const MAX_VALUE: int = 1200
 const LEVEL_SECONDS: float = 120.0
 
@@ -11,15 +13,15 @@ onready var tween: Tween = $ProgressTween
 onready var timer: Timer = $Timer
 
 
-func _ready():
-	start_level_progress_bar()
-
-
 func add_progress(progress: int) -> void:
 	var current_time: float = tween.tell()
 	progress_bar.value += progress
 	if tween.is_active():
 		tween.seek(current_time + float(progress))
+
+
+func get_level_time() -> int:
+	return int(tween.tell())
 
 
 func start_level_progress_bar() -> void:
@@ -38,3 +40,4 @@ func stop_level_progress_bar() -> int:
 func _on_ProgressTexture_value_changed(value) -> void:
 	if value >= MAX_VALUE:
 		time_left = stop_level_progress_bar()
+		emit_signal("progress_complete", time_left)
