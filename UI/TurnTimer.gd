@@ -4,13 +4,15 @@ extends MarginContainer
 
 signal player_time_out
 
+var active: bool = true
+
 onready var timer: Timer = $Timer
 onready var tween: Tween = $TimerTween
 onready var progress_texture: TextureProgress = $PanelContainer/MarginContainer/CenterContainer/TextureProgress
 onready var animation: AnimationPlayer = $AnimationPlayer
 
 
-func _ready():
+func _ready() -> void:
 	pass
 
 
@@ -28,6 +30,11 @@ func stop_timer() -> int:
 	return int(time_left)
 
 
-func _on_Timer_timeout():
+func _on_Timer_timeout() -> void:
 	animation.play("shake")
-	emit_signal("player_time_out")
+	if active:
+		emit_signal("player_time_out")
+
+
+func _on_GameOverlay_level_complete() -> void:
+	active = false
