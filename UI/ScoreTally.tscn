@@ -1,0 +1,162 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://UI/UI_theme.tres" type="Theme" id=1]
+[ext_resource path="res://resources/LSANS_dynamic_font_extra_large.tres" type="DynamicFont" id=2]
+[ext_resource path="res://UI/GameButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UI/ScoreTally.gd" type="Script" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.0392157, 0.172549, 0.517647, 0.745098 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0, 0, 0, 1 )
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 32.0
+expand_margin_right = 32.0
+expand_margin_top = 8.0
+expand_margin_bottom = 8.0
+
+[node name="ScoreTally" type="MarginContainer"]
+margin_left = -80.0
+margin_top = -139.0
+margin_right = 81.0
+margin_bottom = 139.0
+rect_pivot_offset = Vector2( 80, 139 )
+theme = ExtResource( 1 )
+script = ExtResource( 4 )
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+margin_right = 161.0
+margin_bottom = 278.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 157.0
+margin_bottom = 274.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+margin_right = 153.0
+margin_bottom = 270.0
+
+[node name="TimeScore" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+margin_right = 153.0
+margin_bottom = 30.0
+
+[node name="TimeLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/TimeScore"]
+margin_right = 73.0
+margin_bottom = 30.0
+custom_fonts/font = ExtResource( 2 )
+text = "Time: "
+
+[node name="TimeValue" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/TimeScore"]
+margin_left = 77.0
+margin_right = 134.0
+margin_bottom = 30.0
+custom_fonts/font = ExtResource( 2 )
+text = "000s"
+max_lines_visible = 1
+
+[node name="TimeSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer"]
+modulate = Color( 0, 0, 0, 1 )
+margin_top = 34.0
+margin_right = 153.0
+margin_bottom = 38.0
+
+[node name="RumScore" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+margin_top = 42.0
+margin_right = 153.0
+margin_bottom = 72.0
+
+[node name="RumLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/RumScore"]
+margin_right = 68.0
+margin_bottom = 30.0
+custom_fonts/font = ExtResource( 2 )
+text = "Rum: "
+
+[node name="RumValue" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/RumScore"]
+margin_left = 72.0
+margin_right = 117.0
+margin_bottom = 30.0
+custom_fonts/font = ExtResource( 2 )
+text = "000"
+align = 2
+max_lines_visible = 1
+
+[node name="RumSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer"]
+modulate = Color( 0, 0, 0, 1 )
+margin_top = 76.0
+margin_right = 153.0
+margin_bottom = 80.0
+
+[node name="GoldEarned" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+margin_top = 84.0
+margin_right = 153.0
+margin_bottom = 114.0
+custom_fonts/font = ExtResource( 2 )
+text = "Gold Earned:"
+
+[node name="GoldValueCenterContainer" type="CenterContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+margin_top = 118.0
+margin_right = 153.0
+margin_bottom = 148.0
+
+[node name="GoldEarnedValue" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/GoldValueCenterContainer"]
+margin_left = 16.0
+margin_right = 136.0
+margin_bottom = 30.0
+custom_fonts/font = ExtResource( 2 )
+text = "00000000"
+max_lines_visible = 1
+
+[node name="GoldSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer"]
+modulate = Color( 0, 0, 0, 1 )
+margin_top = 152.0
+margin_right = 153.0
+margin_bottom = 156.0
+
+[node name="ScoreLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+margin_top = 160.0
+margin_right = 153.0
+margin_bottom = 190.0
+custom_fonts/font = ExtResource( 2 )
+text = "Final Score:"
+
+[node name="ScoreValueCenterContainer" type="CenterContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+margin_top = 194.0
+margin_right = 153.0
+margin_bottom = 224.0
+
+[node name="ScoreValue" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ScoreValueCenterContainer"]
+margin_left = 16.0
+margin_right = 136.0
+margin_bottom = 30.0
+custom_fonts/font = ExtResource( 2 )
+text = "00000000"
+max_lines_visible = 1
+
+[node name="ScoreSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer"]
+modulate = Color( 0, 0, 0, 1 )
+margin_top = 228.0
+margin_right = 153.0
+margin_bottom = 232.0
+
+[node name="Continue" parent="PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 236.0
+margin_right = 153.0
+margin_bottom = 270.0
+text = "Continue"
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="tween_step" from="Tween" to="." method="_on_Tween_tween_step"]
