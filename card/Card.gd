@@ -135,6 +135,10 @@ func populate_card_data() -> void:
 	set_card_stats(card_data.get("offensive_stat", -1), card_data.get("defensive_stat", -1))
 
 
+func spin() -> void:
+	animator.play("spin")
+
+
 func set_card_name(new_card_name: String) -> void:
 	card_name.text = new_card_name
 
