@@ -78,7 +78,7 @@ func compare_cards() -> Vector2:
 
 
 func modify_rum_after_combat(combat_outcome: Vector2) -> void:
-	var modified_rum: int = current_rum;
+	var modified_rum: int = current_rum
 	if combat_outcome.x < 0:
 		pass # TODO: vfx & sfx to indicate nothing happens
 	elif combat_outcome.x > 0:
