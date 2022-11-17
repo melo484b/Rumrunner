@@ -9,7 +9,10 @@ const CARD_INDEX_RANGE: int = 4
 const POSITIONS: Array = [Vector2(820, 240), Vector2(504, 137), Vector2(499, 328), Vector2(232, 240)]
 const LOCATIONS: Array = ["bow", "port", "starboard", "stern"]
 
-func _init():
+var level_in_progess: bool = true
+
+
+func _init() -> void:
 	owner_id = AI_ID
 
 
@@ -28,11 +31,12 @@ func _on_ready() -> void:
 
 
 func place_card() -> void:
-	rng.randomize()
-	var node_index: int = rng.randi_range(0, NODE_INDEX_RANGE)
-	var card_index: int = rng.randi_range(0, CARD_INDEX_RANGE)
-	cards[card_index].set_target_position(POSITIONS[node_index])
-	cards[card_index].set_placed(LOCATIONS[node_index])
+	if level_in_progess:
+		rng.randomize()
+		var node_index: int = rng.randi_range(0, NODE_INDEX_RANGE)
+		var card_index: int = rng.randi_range(0, CARD_INDEX_RANGE)
+		cards[card_index].set_target_position(POSITIONS[node_index])
+		cards[card_index].set_placed(LOCATIONS[node_index])
 
 
 func discard_hand() -> void:
@@ -40,3 +44,10 @@ func discard_hand() -> void:
 		discard(card.get_id())
 		card.reset_card()
 	shuffle_cards()
+
+
+func _on_GameOverlay_level_complete() -> void:
+	level_in_progess = false
+	for card in cards:
+		card.spin()
+	discard_hand()
