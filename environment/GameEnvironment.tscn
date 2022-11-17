@@ -108,9 +108,7 @@ position = Vector2( 870, 576 )
 [node name="IncomingAnnouncement" parent="." instance=ExtResource( 11 )]
 
 [node name="TurnTimer" parent="." instance=ExtResource( 9 )]
-margin_left = 904.0
 margin_top = 48.0
-margin_right = 1012.0
 margin_bottom = 156.001
 mouse_filter = 2
 
