@@ -1,7 +1,13 @@
 extends MarginContainer
 
 
+export var initial_label_text: String = "Price: "
+
 onready var label: Label = $PanelContainer/MarginContainer/CenterContainer/Label
+
+
+func _ready():
+	label.text = initial_label_text
 
 
 func set_price(price: int) -> void:
