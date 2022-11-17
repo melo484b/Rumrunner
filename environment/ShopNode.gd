@@ -6,6 +6,10 @@ signal occupied_by_card(card_data)
 onready var cards: Array = get_tree().get_nodes_in_group("CARD")
 
 
+func _ready():
+	select()
+
+
 func select() -> void:
 	modulate = Color.aqua
 	self.selected = true
