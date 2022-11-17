@@ -1,3 +1,82 @@
-[gd_scene format=2]
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://UI/ShopNodeManager.gd" type="Script" id=1]
+[ext_resource path="res://card/Card.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UI/CardCostDisplay.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UI/GameButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://environment/ShopNode.tscn" type="PackedScene" id=5]
+[ext_resource path="res://UI/ShopCardManager.gd" type="Script" id=6]
 
 [node name="CardShop" type="CanvasLayer"]
+
+[node name="ShopNodeManager" type="Node" parent="."]
+script = ExtResource( 1 )
+
+[node name="ShopNode" parent="ShopNodeManager" instance=ExtResource( 5 )]
+position = Vector2( 128, 120 )
+scale = Vector2( 0.6, 0.6 )
+
+[node name="ShopNode2" parent="ShopNodeManager" instance=ExtResource( 5 )]
+position = Vector2( 384, 120 )
+scale = Vector2( 0.6, 0.6 )
+
+[node name="ShopNode3" parent="ShopNodeManager" instance=ExtResource( 5 )]
+position = Vector2( 640, 120 )
+scale = Vector2( 0.6, 0.6 )
+
+[node name="ShopNode4" parent="ShopNodeManager" instance=ExtResource( 5 )]
+position = Vector2( 896, 120 )
+scale = Vector2( 0.6, 0.6 )
+
+[node name="ShopNode5" parent="ShopNodeManager" instance=ExtResource( 5 )]
+position = Vector2( 512, 376 )
+scale = Vector2( 0.6, 0.6 )
+
+[node name="CardCostDisplay" parent="ShopNodeManager" instance=ExtResource( 3 )]
+
+[node name="CardCostDisplay2" parent="ShopNodeManager" instance=ExtResource( 3 )]
+margin_left = 312.0
+margin_right = 456.0
+
+[node name="CardCostDisplay3" parent="ShopNodeManager" instance=ExtResource( 3 )]
+margin_left = 568.0
+margin_right = 712.0
+
+[node name="CardCostDisplay4" parent="ShopNodeManager" instance=ExtResource( 3 )]
+margin_left = 824.0
+margin_right = 968.0
+
+[node name="CardCostDisplay5" parent="ShopNodeManager" instance=ExtResource( 3 )]
+margin_left = 441.0
+margin_top = 488.0
+margin_right = 585.0
+margin_bottom = 528.0
+
+[node name="PurchaseButton" parent="ShopNodeManager" instance=ExtResource( 4 )]
+margin_left = 436.0
+margin_top = 544.0
+margin_right = 590.0
+margin_bottom = 578.0
+text = "Purchase"
+
+[node name="ShopCardManager" type="Node" parent="."]
+script = ExtResource( 6 )
+
+[node name="Card" parent="ShopCardManager" instance=ExtResource( 2 )]
+position = Vector2( 128, 120 )
+
+[node name="Card2" parent="ShopCardManager" instance=ExtResource( 2 )]
+position = Vector2( 384, 120 )
+
+[node name="Card3" parent="ShopCardManager" instance=ExtResource( 2 )]
+position = Vector2( 640, 120 )
+
+[node name="Card4" parent="ShopCardManager" instance=ExtResource( 2 )]
+position = Vector2( 896, 120 )
+
+[connection signal="occupied_by_card" from="ShopNodeManager/ShopNode" to="ShopNodeManager" method="_on_ShopNode_occupied_by_card"]
+[connection signal="occupied_by_card" from="ShopNodeManager/ShopNode2" to="ShopNodeManager" method="_on_ShopNode2_occupied_by_card"]
+[connection signal="occupied_by_card" from="ShopNodeManager/ShopNode3" to="ShopNodeManager" method="_on_ShopNode3_occupied_by_card"]
+[connection signal="occupied_by_card" from="ShopNodeManager/ShopNode4" to="ShopNodeManager" method="_on_ShopNode4_occupied_by_card"]
+[connection signal="occupied_by_card" from="ShopNodeManager/ShopNode5" to="ShopNodeManager" method="_on_ShopNode5_occupied_by_card"]
+[connection signal="pressed" from="ShopNodeManager/PurchaseButton" to="ShopNodeManager" method="_on_PurchaseButton_pressed"]
