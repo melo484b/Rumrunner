@@ -49,26 +49,16 @@ func tally_score() -> void:
 	score_tally.calculate_and_tally()
 
 
-func _on_ProgressTexture_value_changed(value) -> void:
-	if value >= level_progress_bar.MAX_VALUE:
-		end_turn_button.disabled = true
-		end_turn_button.visible = false
-		emit_signal("level_complete")
-
-
-func _on_EndTurnButton_pressed():
+func _on_EndTurnButton_pressed() -> void:
 	emit_signal("end_player_turn")
 
 
-func _on_LevelProgress_progress_complete(level_time):
+func _on_LevelProgress_progress_complete(level_time) -> void:
 	score_tally.set_time(level_time)
-
-
-func _on_ProgressTween_tween_completed(_object, _key):
 	end_turn_button.disabled = true
 	end_turn_button.visible = false
 	emit_signal("level_complete")
 
 
-func _on_ScoreTally_continue_button_pressed():
+func _on_ScoreTally_continue_button_pressed() -> void:
 	emit_signal("change_scene_to_shop")
