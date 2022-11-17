@@ -13,7 +13,7 @@ func drag(state: Physics2DDirectBodyState) -> void:
 	state.set_transform(card_transform)
 
 
-func _input(event) -> void:
+func _input(_event) -> void:
 	pass
 
 
