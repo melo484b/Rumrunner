@@ -116,6 +116,7 @@ margin_top = 48.0
 margin_right = 76.0
 margin_bottom = 137.0
 
+[connection signal="change_scene_to_shop" from="GameOverlay" to="." method="_on_GameOverlay_change_scene_to_shop"]
 [connection signal="end_player_turn" from="GameOverlay" to="GameAI" method="_on_GameOverlay_end_player_turn"]
 [connection signal="level_complete" from="GameOverlay" to="." method="_on_GameOverlay_level_complete"]
 [connection signal="level_complete" from="GameOverlay" to="ShipNodeManager" method="_on_GameOverlay_level_complete"]
