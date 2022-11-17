@@ -49,18 +49,18 @@ func _input(event) -> void:
 			selected = false
 			target_position = global_position
 			var shortest_distance = 100
-			for child in target_nodes:
-				if !child.filled and not placed and child.active:
-					var distance = global_position.distance_to(child.global_position)
+			for node in target_nodes:
+				if !node.filled and not placed and node.active:
+					var distance = global_position.distance_to(node.global_position)
 					if distance < shortest_distance:
-						child.select()
-						target_position = child.global_position
+						node.select()
+						target_position = node.global_position
 						shortest_distance = distance
-						if child.is_in_group("SHIP_NODE"):
-							set_placed(child.name)
-							child.set_inactive()
-						if child.is_in_group("DISCARD"):
-							set_placed(child.name)
+						if node.is_in_group("SHIP_NODE"):
+							set_placed(node.name)
+							node.set_inactive()
+						if node.is_in_group("DISCARD"):
+							set_placed(node.name)
 							animator.play("shrink")
 
 
@@ -94,6 +94,7 @@ func set_placed(node_name: String) -> void:
 	animator.stop()
 	if index != -1:
 		emit_signal("placed", card_data, index)
+		print("placed")
 
 
 func index_from_node_name(name_in: String) -> int:
