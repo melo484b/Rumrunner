@@ -109,7 +109,7 @@ tracks/1/keys = {
 "values": [ 0.0, 360.0 ]
 }
 
-[node name="Card" type="RigidBody2D"]
+[node name="Card" type="RigidBody2D" groups=["CARD"]]
 collision_layer = 2
 collision_mask = 3
 mode = 2
