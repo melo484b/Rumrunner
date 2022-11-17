@@ -272,3 +272,4 @@ margin_bottom = 138.0
 [connection signal="tween_completed" from="LevelProgress/ProgressTween" to="." method="_on_ProgressTween_tween_completed"]
 [connection signal="value_changed" from="LevelProgress/ProgressTexture" to="LevelProgress" method="_on_ProgressTexture_value_changed"]
 [connection signal="pressed" from="EndTurnButton" to="." method="_on_EndTurnButton_pressed"]
+[connection signal="continue_button_pressed" from="ScoreTally" to="." method="_on_ScoreTally_continue_button_pressed"]
