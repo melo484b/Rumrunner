@@ -60,7 +60,7 @@ func _on_LevelProgress_progress_complete(level_time):
 	score_tally.set_time(level_time)
 
 
-func _on_ProgressTween_tween_completed(object, key):
+func _on_ProgressTween_tween_completed(_object, _key):
 	end_turn_button.disabled = true
 	end_turn_button.visible = false
 	emit_signal("level_complete")
