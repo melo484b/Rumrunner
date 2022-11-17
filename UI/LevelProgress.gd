@@ -17,7 +17,7 @@ func add_progress(progress: int) -> void:
 	var current_time: float = tween.tell()
 	progress_bar.value += progress
 	if tween.is_active():
-		tween.seek(current_time + float(progress))
+		tween.seek(clamp(current_time + float(progress), 0.0, LEVEL_SECONDS))
 
 
 func get_level_time() -> int:
@@ -40,4 +40,5 @@ func stop_level_progress_bar() -> int:
 func _on_ProgressTexture_value_changed(value) -> void:
 	if value >= MAX_VALUE:
 		time_left = stop_level_progress_bar()
+		print(time_left)
 		emit_signal("progress_complete", time_left)
