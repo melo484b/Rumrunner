@@ -163,3 +163,4 @@ position = Vector2( 896, 128 )
 [connection signal="pressed" from="ShopNodeManager/PurchaseButton" to="ShopNodeManager" method="_on_PurchaseButton_pressed"]
 [connection signal="pressed" from="RerollButton" to="ShopNodeManager/Dice" method="_on_RerollButton_pressed"]
 [connection signal="pressed" from="RerollButton" to="ShopCardManager" method="_on_RerollButton_pressed"]
+[connection signal="pressed" from="SkipButton" to="ShopNodeManager" method="_on_SkipButton_pressed"]
