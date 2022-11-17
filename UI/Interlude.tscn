@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://UI/GameButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UI/Interlude.gd" type="Script" id=2]
+
+[node name="Interlude" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="ReturnToMainMenu" parent="." instance=ExtResource( 1 )]
+margin_left = 168.0
+margin_top = 288.0
+margin_right = 321.0
+margin_bottom = 322.0
+text = "Main Menu"
+
+[node name="NextRun" parent="." instance=ExtResource( 1 )]
+margin_left = 704.0
+margin_top = 288.0
+margin_right = 858.0
+margin_bottom = 322.0
+text = "Next Run"
+
+[connection signal="pressed" from="ReturnToMainMenu" to="." method="_on_ReturnToMainMenu_pressed"]
+[connection signal="pressed" from="NextRun" to="." method="_on_NextRun_pressed"]
