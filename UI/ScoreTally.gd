@@ -1,6 +1,8 @@
 extends MarginContainer
 
 
+signal continue_button_pressed
+
 const MAX_TIME: int = 120
 
 var time: int
@@ -65,3 +67,7 @@ func count_up_score(target_label: Label, count_up_to: int, time_to_count: float)
 
 func _on_Tween_tween_step(object, _key, _elapsed, value) -> void:
 	object.text = str(int(value))
+
+
+func _on_ContinueButton_pressed():
+	emit_signal("continue_button_pressed")
