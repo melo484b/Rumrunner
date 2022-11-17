@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/draw_card.png-d2e4401c5cdf174fb4c11218886e40e2.stex"
+path="res://.import/deck.png-6c430b1052fe36c90b27c17cde89b274.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/draw_card.png"
-dest_files=[ "res://.import/draw_card.png-d2e4401c5cdf174fb4c11218886e40e2.stex" ]
+source_file="res://art/deck.png"
+dest_files=[ "res://.import/deck.png-6c430b1052fe36c90b27c17cde89b274.stex" ]
 
 [params]
 
