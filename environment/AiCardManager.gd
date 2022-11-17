@@ -6,7 +6,7 @@ signal ai_ready
 const AI_ID: int = 99
 const NODE_INDEX_RANGE: int = 3
 const CARD_INDEX_RANGE: int = 4
-const POSITIONS: Array = [Vector2(820, 231), Vector2(504, 117), Vector2(501, 328), Vector2(201, 227)]
+const POSITIONS: Array = [Vector2(820, 240), Vector2(504, 137), Vector2(499, 328), Vector2(232, 240)]
 const LOCATIONS: Array = ["bow", "port", "starboard", "stern"]
 
 func _init():

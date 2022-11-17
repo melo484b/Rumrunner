@@ -47,19 +47,19 @@ scale = Vector2( 0.8, 0.8 )
 script = ExtResource( 13 )
 
 [node name="bow" parent="ShipNodeManager" instance=ExtResource( 4 )]
-position = Vector2( 820, 231 )
+position = Vector2( 820, 240 )
 scale = Vector2( 0.6, 0.6 )
 
 [node name="port" parent="ShipNodeManager" instance=ExtResource( 4 )]
-position = Vector2( 504, 117 )
+position = Vector2( 502, 137 )
 scale = Vector2( 0.6, 0.6 )
 
 [node name="starboard" parent="ShipNodeManager" instance=ExtResource( 4 )]
-position = Vector2( 501, 328 )
+position = Vector2( 499, 328 )
 scale = Vector2( 0.6, 0.6 )
 
 [node name="stern" parent="ShipNodeManager" instance=ExtResource( 4 )]
-position = Vector2( 201, 227 )
+position = Vector2( 232, 240 )
 scale = Vector2( 0.6, 0.6 )
 
 [node name="DiscardPile" parent="." instance=ExtResource( 5 )]
