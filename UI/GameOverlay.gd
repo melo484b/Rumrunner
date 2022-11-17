@@ -4,12 +4,14 @@ extends CanvasLayer
 signal start_level
 signal level_complete
 signal end_player_turn
+signal change_scene_to_shop
 
 const INACTIVE_BUTTON: String = "4d5482"
 const ACTIVE_BUTTON: String = "ffffff"
 
 onready var deck: TextureRect = $CardBackTexture
 onready var level_progress_bar: MarginContainer = $LevelProgress
+onready var progress: TextureProgress = $LevelProgress/ProgressTexture
 onready var input_blocker: Panel = $InputBlocker
 onready var end_turn_button: Button = $EndTurnButton
 onready var score_tally: MarginContainer = $ScoreTally
@@ -49,7 +51,9 @@ func tally_score() -> void:
 
 func _on_ProgressTexture_value_changed(value) -> void:
 	if value >= level_progress_bar.MAX_VALUE:
-		pass
+		end_turn_button.disabled = true
+		end_turn_button.visible = false
+		emit_signal("level_complete")
 
 
 func _on_EndTurnButton_pressed():
@@ -64,3 +68,7 @@ func _on_ProgressTween_tween_completed(_object, _key):
 	end_turn_button.disabled = true
 	end_turn_button.visible = false
 	emit_signal("level_complete")
+
+
+func _on_ScoreTally_continue_button_pressed():
+	emit_signal("change_scene_to_shop")
