@@ -81,6 +81,7 @@ func shuffle_cards() -> void:
 
 func draw_hand() -> void:
 	for card in cards:
+		card.animator.play("shuffle")
 		card.call("set_card_data", draw_card())
 		card.call("populate_card_data")
 
