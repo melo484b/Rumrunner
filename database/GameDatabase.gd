@@ -74,3 +74,12 @@ func get_data_by_id(table_name: String, target_column: String, id: int) -> Array
 	db.query("select * from " + table_name + " where " + target_column + " = " + str(id) + ";")
 	var data: Array = db.query_result
 	return data
+
+
+func get_current_copies(card_id: int, player_id: int) -> int:
+	db.open_db()
+	db.query("select * from " + DECK_TABLE + " where card_id = " + str(card_id) + " and player_id  = " + str(player_id) + ";")
+	var data: Array = db.query_result
+	if data.empty():
+		return 0
+	return data[0]["card_copies"]
