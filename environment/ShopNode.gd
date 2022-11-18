@@ -3,6 +3,8 @@ extends CardNode
 
 signal occupied_by_card(card_data)
 
+var card_held: Card
+
 onready var cards: Array = get_tree().get_nodes_in_group("CARD")
 
 
@@ -14,7 +16,6 @@ func select() -> void:
 	modulate = Color.aqua
 	self.selected = true
 	self.filled = true
-	var card_held: Card
 	for card in cards:
 		var distance = global_position.distance_to(card.global_position)
 		if distance < 100 and selected:
