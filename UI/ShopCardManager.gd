@@ -19,13 +19,6 @@ func _on_ready() -> void:
 	draw_hand()
 
 
-func draw_hand() -> void:
-	for card in cards:
-		card.animator.play("shop_shuffle")
-		card.call("set_card_data", draw_card())
-		card.call("populate_card_data")
-
-
 func discard_hand() -> void:
 	for card in cards:
 		discard(card.get_id())
