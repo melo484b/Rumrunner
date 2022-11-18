@@ -12,11 +12,11 @@ var cards: Array
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 var owner_id: int = Player.player_id
 
-onready var card_1: RigidBody2D = $"../CardManager/Card"
-onready var card_2: RigidBody2D = $"../CardManager/Card2"
-onready var card_3: RigidBody2D = $"../CardManager/Card3"
-onready var card_4: RigidBody2D = $"../CardManager/Card4"
-onready var card_5: RigidBody2D = $"../CardManager/Card5"
+onready var card_1: RigidBody2D
+onready var card_2: RigidBody2D
+onready var card_3: RigidBody2D
+onready var card_4: RigidBody2D
+onready var card_5: RigidBody2D
 
 
 func _init():
@@ -28,6 +28,11 @@ func _ready() -> void:
 
 
 func _on_ready() -> void:
+	card_1 = $"../CardManager/Card"
+	card_2 = $"../CardManager/Card2"
+	card_3 = $"../CardManager/Card3"
+	card_4 = $"../CardManager/Card4"
+	card_5 = $"../CardManager/Card5"
 	rng.randomize()
 	cards = [ card_1, card_2, card_3, card_4, card_5 ]
 	build_deck(owner_id)
