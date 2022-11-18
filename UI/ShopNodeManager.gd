@@ -6,6 +6,7 @@ onready var cost_display_2: MarginContainer = $CardCostDisplay2
 onready var cost_display_3: MarginContainer = $CardCostDisplay3
 onready var cost_display_4: MarginContainer = $CardCostDisplay4
 onready var cost_display_5: MarginContainer = $CardCostDisplay5
+onready var shop_node_5: Position2D = $ShopNode5
 onready var player_currency: Label = $PlayerCurrencyContainer/PlayerCurrencyDisplay/PanelContainer/MarginContainer/CenterContainer/Label
 
 
@@ -13,8 +14,14 @@ func _ready() -> void:
 	player_currency.text = "Currency: " + str(Player.currency)
 
 
+# TODO notify player of transaction then change scene
 func process_transaction() -> void:
-	pass # TODO: do transaction
+	Player.currency = 10
+	if shop_node_5.card_held != null:
+		if shop_node_5.card_held.card_data["cost"] <= Player.currency:
+			Player.currency -= shop_node_5.card_held.card_data["cost"]
+			var current_copies: int = GameDatabase.get_current_copies(shop_node_5.card_held.card_data["id"], Player.player_id)
+			GameDatabase.associate_new_card_with_player(Player.player_id, shop_node_5.card_held.card_data["id"], current_copies + 1)
 
 
 func _on_ShopNode_occupied_by_card(card_data) -> void:
