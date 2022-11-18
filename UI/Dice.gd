@@ -1,7 +1,7 @@
 extends Sprite
 
 
-const ROLL_DURATION: float = 0.5
+const ROLL_DURATION: float = 0.2
 const MAX_FRAME: int = 5
 
 var rng = RandomNumberGenerator.new()
