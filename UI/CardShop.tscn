@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://UI/ShopNodeManager.gd" type="Script" id=1]
 [ext_resource path="res://card/Card.tscn" type="PackedScene" id=2]
@@ -10,8 +10,10 @@
 [ext_resource path="res://UI/Dice.gd" type="Script" id=8]
 [ext_resource path="res://art/skip_arrow.png" type="Texture" id=9]
 [ext_resource path="res://UI/UI_theme.tres" type="Theme" id=10]
+[ext_resource path="res://UI/CardShop.gd" type="Script" id=11]
 
 [node name="CardShop" type="CanvasLayer"]
+script = ExtResource( 11 )
 
 [node name="ShopNodeManager" type="Node" parent="."]
 script = ExtResource( 1 )
@@ -63,14 +65,13 @@ margin_left = 441.0
 margin_top = 486.0
 margin_right = 585.0
 margin_bottom = 526.0
-initial_label_text = "Cost: "
 
-[node name="CardCostDisplay6" parent="ShopNodeManager" instance=ExtResource( 3 )]
+[node name="RerollCostDisplay" parent="ShopNodeManager" instance=ExtResource( 3 )]
 margin_left = 134.0
 margin_top = 486.0
 margin_right = 278.0
 margin_bottom = 526.0
-initial_label_text = "Cost: "
+initial_label_text = "Cost: 2"
 
 [node name="PurchaseButton" parent="ShopNodeManager" instance=ExtResource( 4 )]
 margin_left = 436.0
@@ -156,11 +157,15 @@ position = Vector2( 640, 128 )
 position = Vector2( 896, 128 )
 
 [connection signal="occupied_by_card" from="ShopNodeManager/ShopNode" to="ShopNodeManager" method="_on_ShopNode_occupied_by_card"]
+[connection signal="unoccupied" from="ShopNodeManager/ShopNode" to="ShopNodeManager" method="_on_ShopNode_unoccupied"]
 [connection signal="occupied_by_card" from="ShopNodeManager/ShopNode2" to="ShopNodeManager" method="_on_ShopNode2_occupied_by_card"]
+[connection signal="unoccupied" from="ShopNodeManager/ShopNode2" to="ShopNodeManager" method="_on_ShopNode2_unoccupied"]
 [connection signal="occupied_by_card" from="ShopNodeManager/ShopNode3" to="ShopNodeManager" method="_on_ShopNode3_occupied_by_card"]
+[connection signal="unoccupied" from="ShopNodeManager/ShopNode3" to="ShopNodeManager" method="_on_ShopNode3_unoccupied"]
 [connection signal="occupied_by_card" from="ShopNodeManager/ShopNode4" to="ShopNodeManager" method="_on_ShopNode4_occupied_by_card"]
+[connection signal="unoccupied" from="ShopNodeManager/ShopNode4" to="ShopNodeManager" method="_on_ShopNode4_unoccupied"]
 [connection signal="occupied_by_card" from="ShopNodeManager/ShopNode5" to="ShopNodeManager" method="_on_ShopNode5_occupied_by_card"]
+[connection signal="unoccupied" from="ShopNodeManager/ShopNode5" to="ShopNodeManager" method="_on_ShopNode5_unoccupied"]
 [connection signal="pressed" from="ShopNodeManager/PurchaseButton" to="ShopNodeManager" method="_on_PurchaseButton_pressed"]
-[connection signal="pressed" from="RerollButton" to="ShopNodeManager/Dice" method="_on_RerollButton_pressed"]
-[connection signal="pressed" from="RerollButton" to="ShopCardManager" method="_on_RerollButton_pressed"]
+[connection signal="pressed" from="RerollButton" to="." method="_on_RerollButton_pressed"]
 [connection signal="pressed" from="SkipButton" to="ShopNodeManager" method="_on_SkipButton_pressed"]
