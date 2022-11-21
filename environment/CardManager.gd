@@ -20,7 +20,7 @@ onready var card_5: RigidBody2D
 
 
 func _init() -> void:
-	pass
+	owner_id = Player.player_id
 
 
 func _ready() -> void:
@@ -44,6 +44,7 @@ func build_deck(owner_id: int) -> void:
 	for card in deck_data:
 		var added_card = GameDatabase.get_data_by_id(GameDatabase.CARD_TABLE, "id", card["id"])
 		deck[added_card[0]["id"]] = added_card[0]
+
 
 # TODO add a check for "number_of_copies"
 func draw_card() -> Dictionary:
