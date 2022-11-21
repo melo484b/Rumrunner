@@ -15,10 +15,6 @@ func roll_the_die() -> void:
 	if not tween.is_active():
 		tween.start()
 	else:
-		tween.restart()
+		tween.reset(self, "frame")
 	yield(tween, "tween_completed")
 	self.set_frame(rng.randi_range(0, 5))
-
-
-func _on_RerollButton_pressed() -> void:
-	roll_the_die()
