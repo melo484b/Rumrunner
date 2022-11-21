@@ -8,27 +8,31 @@ export var active: bool = true
 
 
 func _ready() -> void:
+	_on_ready()
+
+
+func _on_ready():
 	deselect()
 
 
 func select() -> void:
 	modulate = Color.aqua
-	self.selected = true
-	self.filled = true
+	selected = true
+	filled = true
 
 
 func deselect() -> void:
 	modulate = Color.white
-	self.selected = false
-	self.filled = false
+	selected = false
+	filled = false
 
 
 func set_inactive() -> void:
-	self.active = false
+	active = false
 
 
 func set_active() -> void:
-	self.active = true
+	active = true
 
 
 func _on_Area2D_area_exited(_area) -> void:
