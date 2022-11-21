@@ -24,8 +24,3 @@ func discard_hand() -> void:
 		discard(card.get_id())
 		card.reset_card()
 	shuffle_cards()
-
-
-func _on_RerollButton_pressed() -> void:
-	discard_hand()
-	draw_hand()
