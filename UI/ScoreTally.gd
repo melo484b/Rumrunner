@@ -39,12 +39,12 @@ func initialize_scores() -> void:
 
 func calculate_gold() -> int:
 	var multiplier: float = max(0.01, 0.03 * (MAX_TIME - time))
-	return int(rum * multiplier)
+	return int(max(0, rum * multiplier))
 
 
 func calculate_score() -> int:
 	var multiplier: float = max(0.01, (MAX_TIME - time) * 0.1)
-	return int(rum * multiplier)
+	return int(max(0, rum * multiplier))
 
 
 func tally_scores() -> void:

@@ -42,7 +42,7 @@ func add_progress(progress: int) -> void:
 
 
 func set_score_tally_rum(rum_amount: int) -> void:
-	score_tally.set_rum(rum_amount)
+	score_tally.set_rum(max(0, rum_amount))
 
 
 func tally_score() -> void:
