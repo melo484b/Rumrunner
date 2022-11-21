@@ -27,7 +27,7 @@ func draw_card_animation() -> void:
 	deck.draw_animation()
 
 
-func block_player_input():
+func block_player_input() -> void:
 	input_blocker.visible = true
 	end_turn_button.modulate = INACTIVE_BUTTON
 

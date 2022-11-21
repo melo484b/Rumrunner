@@ -8,7 +8,7 @@ var card_held: Card
 onready var cards: Array = get_tree().get_nodes_in_group("CARD")
 
 
-func _ready():
+func _ready() -> void:
 	select()
 
 

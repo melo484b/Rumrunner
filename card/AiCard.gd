@@ -1,7 +1,7 @@
 extends Card
 
 
-func _ready():
+func _ready() -> void:
 	_on_ready()
 
 

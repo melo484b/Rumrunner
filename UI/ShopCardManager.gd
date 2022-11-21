@@ -26,6 +26,6 @@ func discard_hand() -> void:
 	shuffle_cards()
 
 
-func _on_RerollButton_pressed():
+func _on_RerollButton_pressed() -> void:
 	discard_hand()
 	draw_hand()

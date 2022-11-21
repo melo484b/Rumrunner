@@ -69,5 +69,5 @@ func _on_Tween_tween_step(object, _key, _elapsed, value) -> void:
 	object.text = str(int(value))
 
 
-func _on_ContinueButton_pressed():
+func _on_ContinueButton_pressed() -> void:
 	emit_signal("continue_button_pressed")

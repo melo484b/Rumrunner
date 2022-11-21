@@ -20,5 +20,5 @@ func roll_the_die() -> void:
 	self.set_frame(rng.randi_range(0, 5))
 
 
-func _on_RerollButton_pressed():
+func _on_RerollButton_pressed() -> void:
 	roll_the_die()

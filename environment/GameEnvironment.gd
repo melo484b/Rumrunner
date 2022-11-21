@@ -10,5 +10,5 @@ func _on_GameOverlay_level_complete() -> void:
 	overlay.tally_score()
 
 
-func _on_GameOverlay_change_scene_to_shop():
+func _on_GameOverlay_change_scene_to_shop() -> void:
 	get_tree().change_scene("res://UI/CardShop.tscn")

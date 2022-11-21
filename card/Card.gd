@@ -64,7 +64,7 @@ func _input(event) -> void:
 							animator.play("shrink")
 
 
-func _integrate_forces(state):
+func _integrate_forces(state) -> void:
 	drag(state)
 
 

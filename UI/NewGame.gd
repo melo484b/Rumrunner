@@ -46,7 +46,7 @@ func _on_SelectSaveFile3_pressed() -> void:
 	current_save = 2
 
 
-func _on_ConfirmationButton_pressed():
+func _on_ConfirmationButton_pressed() -> void:
 	if save_files[current_save].is_active():
 		save_files[current_save].overwrite_player_data()
 	else:

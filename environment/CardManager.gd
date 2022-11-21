@@ -19,7 +19,7 @@ onready var card_4: RigidBody2D
 onready var card_5: RigidBody2D
 
 
-func _init():
+func _init() -> void:
 	pass
 
 

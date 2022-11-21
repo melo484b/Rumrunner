@@ -147,22 +147,22 @@ func _on_AiCard5_placed(card_data, index) -> void:
 	ai_card_positions[index] = card_data
 
 
-func _on_TurnTimer_player_time_out():
+func _on_TurnTimer_player_time_out() -> void:
 	resolve_cards()
 	card_manager.discard_hand()
 
 
-func _on_IncomingAnnouncement_player_turn():
+func _on_IncomingAnnouncement_player_turn() -> void:
 	start_player_turn()
 	overlay.draw_card_animation()
 
 
-func _on_GameOverlay_end_player_turn():
+func _on_GameOverlay_end_player_turn() -> void:
 	var extra_time: int = turn_timer.stop_timer()
 	overlay.add_progress(extra_time)
 	resolve_cards()
 	card_manager.discard_hand()
 
 
-func _on_GameOverlay_start_level():
+func _on_GameOverlay_start_level() -> void:
 	start_ai_turn()
