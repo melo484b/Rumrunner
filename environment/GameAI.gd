@@ -104,7 +104,7 @@ func gain_rum(rum_gained: int) -> void:
 	
 
 func lose_rum(rum_lost: int) -> void:
-	current_rum -= abs(rum_lost)
+	current_rum = max(0, current_rum - abs(rum_lost))
 
 
 func _on_Card_placed(card_data, index) -> void:
