@@ -11,4 +11,5 @@ func _on_GameOverlay_level_complete() -> void:
 
 
 func _on_GameOverlay_change_scene_to_shop() -> void:
+# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://UI/CardShop.tscn")
