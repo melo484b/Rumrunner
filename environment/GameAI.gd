@@ -66,8 +66,8 @@ func compare_cards() -> Vector2:
 			offense_result[current_index] -= ai_card["defensive_stat"]
 			defense_result[current_index] -= ai_card["offensive_stat"]
 		current_index += 1
-	var offense_sum: int
-	var defense_sum: int
+	var offense_sum: int = 0
+	var defense_sum: int = 0
 	for i in offense_result:
 		offense_sum += i
 	for j in defense_result:
@@ -82,9 +82,11 @@ func modify_rum_after_combat(combat_outcome: Vector2) -> void:
 		pass # TODO: vfx & sfx to indicate nothing happens
 	elif combat_outcome.x > 0:
 		print(combat_outcome.x)
+# warning-ignore:narrowing_conversion
 		gain_rum(combat_outcome.x)
 	if combat_outcome.y < 0:
 		print(combat_outcome.y)
+# warning-ignore:narrowing_conversion
 		lose_rum(combat_outcome.y)
 	elif combat_outcome.y > 0:
 		pass # TODO: vfx & sfx to indicate nothing happens
@@ -104,6 +106,7 @@ func gain_rum(rum_gained: int) -> void:
 	
 
 func lose_rum(rum_lost: int) -> void:
+# warning-ignore:narrowing_conversion
 	current_rum = max(0, current_rum - abs(rum_lost))
 
 
