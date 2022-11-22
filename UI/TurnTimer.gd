@@ -18,14 +18,18 @@ func _ready() -> void:
 
 func start_timer() -> void:
 	timer.start()
+# warning-ignore:return_value_discarded
 	tween.interpolate_property(progress_texture, "value", 0, 60, 6.0, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	if not tween.is_active():
+# warning-ignore:return_value_discarded
 		tween.start()
 
 
 func stop_timer() -> int:
+# warning-ignore:narrowing_conversion
 	var time_left: int = round(timer.time_left)
 	timer.stop()
+# warning-ignore:return_value_discarded
 	tween.stop(progress_texture, "value")
 	return int(time_left)
 

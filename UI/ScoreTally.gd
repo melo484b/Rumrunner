@@ -61,8 +61,10 @@ func tally_scores() -> void:
 
 
 func count_up_score(target_label: Label, count_up_to: int, time_to_count: float) -> void:
+# warning-ignore:return_value_discarded
 	tween.interpolate_property(target_label, "text", 0, count_up_to, time_to_count, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	if not tween.is_active():
+# warning-ignore:return_value_discarded
 		tween.start()
 
 func _on_Tween_tween_step(object, _key, _elapsed, value) -> void:

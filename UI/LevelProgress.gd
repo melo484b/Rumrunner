@@ -17,6 +17,7 @@ func add_progress(progress: int) -> void:
 	var current_time: float = tween.tell()
 	progress_bar.value += progress
 	if tween.is_active():
+# warning-ignore:return_value_discarded
 		tween.seek(clamp(current_time + float(progress), 0.0, LEVEL_SECONDS))
 
 
@@ -25,8 +26,10 @@ func get_level_time() -> int:
 
 
 func start_level_progress_bar() -> void:
+# warning-ignore:return_value_discarded
 	tween.interpolate_property(progress_bar, "value", 0, MAX_VALUE, LEVEL_SECONDS, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 	if not tween.is_active():
+# warning-ignore:return_value_discarded
 		tween.start()
 	timer.start()
 
