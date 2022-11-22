@@ -39,8 +39,8 @@ func _on_ready() -> void:
 	draw_hand()
 	
 	
-func build_deck(owner_id: int) -> void:
-	var deck_data = GameDatabase.get_data_by_id(GameDatabase.DECK_TABLE, "player_id", owner_id)
+func build_deck(deck_owner: int) -> void:
+	var deck_data = GameDatabase.get_data_by_id(GameDatabase.DECK_TABLE, "player_id", deck_owner)
 	for card in deck_data:
 		var added_card = GameDatabase.get_data_by_id(GameDatabase.CARD_TABLE, "id", card["id"])
 		deck[added_card[0]["id"]] = added_card[0]
@@ -55,6 +55,7 @@ func draw_card() -> Dictionary:
 		card_ids.shuffle()
 		pulled = card_ids[rng.randi_range(0, card_ids.size() - 1)]
 		hand[pulled] = deck.get(pulled)
+# warning-ignore:return_value_discarded
 		deck.erase(pulled)
 		return hand.get(pulled)
 	elif discard_pile.size() >= 1:
@@ -63,6 +64,7 @@ func draw_card() -> Dictionary:
 		card_ids.shuffle()
 		pulled = card_ids[0]
 		hand[pulled] = deck.get(pulled)
+# warning-ignore:return_value_discarded
 		deck.erase(pulled)
 		return hand.get(pulled)
 	else:
@@ -72,6 +74,7 @@ func draw_card() -> Dictionary:
 func discard(card_id: int) -> void:
 	if (hand.has(card_id)):
 		discard_pile[card_id] = hand.get(card_id)
+# warning-ignore:return_value_discarded
 		hand.erase(card_id)
 
 
