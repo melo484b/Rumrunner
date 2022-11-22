@@ -4,7 +4,7 @@ extends MarginContainer
 signal progress_complete(level_time)
 
 const MAX_VALUE: int = 1200
-const LEVEL_SECONDS: float = 120.0
+const LEVEL_SECONDS: float = 60.0
 
 var time_left: int
 
