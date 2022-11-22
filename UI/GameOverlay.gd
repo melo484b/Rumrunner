@@ -37,8 +37,8 @@ func unblock_player_input() -> void:
 	end_turn_button.modulate = ACTIVE_BUTTON
 
 
-func add_progress(progress: int) -> void:
-	level_progress_bar.add_progress(progress)
+func add_progress(progress_amount: int) -> void:
+	level_progress_bar.add_progress(progress_amount)
 
 
 func set_score_tally_rum(rum_amount: int) -> void:
