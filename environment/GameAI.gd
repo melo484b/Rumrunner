@@ -26,7 +26,7 @@ func start_ai_turn() -> void:
 	show_incoming_banner()
 	
 
-func show_incoming_banner():
+func show_incoming_banner() -> void:
 	incoming.display_incoming()
 
 
