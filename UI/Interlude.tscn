@@ -7,17 +7,27 @@
 script = ExtResource( 2 )
 
 [node name="ReturnToMainMenu" parent="." instance=ExtResource( 1 )]
-margin_left = 168.0
-margin_top = 288.0
-margin_right = 321.0
-margin_bottom = 322.0
+anchor_left = 0.3
+anchor_top = 0.5
+anchor_right = 0.3
+anchor_bottom = 0.5
+margin_left = -20.1
+margin_top = -20.0
+margin_right = 132.9
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( 76, 17 )
 text = "Main Menu"
 
 [node name="NextRun" parent="." instance=ExtResource( 1 )]
-margin_left = 704.0
-margin_top = 288.0
-margin_right = 858.0
-margin_bottom = 322.0
+anchor_left = 0.6
+anchor_top = 0.5
+anchor_right = 0.6
+anchor_bottom = 0.5
+margin_left = -20.835
+margin_top = -20.0
+margin_right = 133.165
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( 76, 17 )
 text = "Next Run"
 
 [connection signal="pressed" from="ReturnToMainMenu" to="." method="_on_ReturnToMainMenu_pressed"]

@@ -111,7 +111,7 @@ script = ExtResource( 4 )
 
 [node name="Background" type="TextureRect" parent="."]
 material = SubResource( 2 )
-margin_right = 1024.0
+margin_right = 1067.0
 margin_bottom = 600.0
 mouse_filter = 2
 texture = ExtResource( 12 )
@@ -222,7 +222,7 @@ mouse_filter = 2
 texture = ExtResource( 2 )
 
 [node name="LevelProgress" type="MarginContainer" parent="."]
-margin_right = 1024.0
+margin_right = 1067.0
 margin_bottom = 40.0
 mouse_filter = 2
 script = ExtResource( 10 )
@@ -230,7 +230,7 @@ script = ExtResource( 10 )
 [node name="ProgressTween" type="Tween" parent="LevelProgress"]
 
 [node name="ProgressTexture" type="TextureProgress" parent="LevelProgress"]
-margin_right = 1024.0
+margin_right = 1067.0
 margin_bottom = 40.0
 mouse_filter = 2
 max_value = 1200.0
@@ -254,7 +254,7 @@ text = "End Turn"
 [node name="InputBlocker" type="Panel" parent="."]
 modulate = Color( 0.67451, 0, 0, 1 )
 self_modulate = Color( 1, 1, 1, 0 )
-margin_right = 1024.0
+margin_right = 1067.0
 margin_bottom = 600.0
 
 [node name="ScoreTally" parent="." instance=ExtResource( 13 )]

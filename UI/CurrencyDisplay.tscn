@@ -4,14 +4,14 @@
 [ext_resource path="res://UI/CurrencyDisplay.gd" type="Script" id=2]
 
 [node name="CurrencyDisplay" type="CenterContainer"]
-margin_right = 1024.0
+margin_right = 1067.0
 margin_bottom = 40.0
 script = ExtResource( 2 )
 
 [node name="PlayerCurrencyDisplay" type="MarginContainer" parent="."]
-margin_left = 467.0
+margin_left = 488.0
 margin_top = 6.0
-margin_right = 557.0
+margin_right = 578.0
 margin_bottom = 34.0
 theme = ExtResource( 1 )
 
