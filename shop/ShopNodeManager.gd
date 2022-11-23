@@ -12,7 +12,6 @@ onready var player_currency: CenterContainer = $CurrencyDisplay
 
 
 func _ready() -> void:
-	yield(get_tree().root, "ready")
 	player_currency.update_label(Player.currency)
 
 
@@ -29,8 +28,7 @@ func purchase_card() -> void:
 func refresh_shop_nodes() -> void:
 	var shop_nodes: Array = get_tree().get_nodes_in_group("CARD_NODE")
 	for node in shop_nodes:
-		if node.filled:
-			node.select()
+		node.select()
 
 
 func _on_PurchaseButton_pressed() -> void:
