@@ -11,7 +11,7 @@ func _ready() -> void:
 	_on_ready()
 
 
-func _on_ready():
+func _on_ready() -> void:
 	deselect()
 
 
