@@ -12,7 +12,7 @@ onready var currency_display: CenterContainer = $ShopNodeManager/CurrencyDisplay
 
 
 func _ready() -> void:
-	Player.currency = 100
+	currency_display.update_label(Player.currency)
 
 
 func increase_cost() -> void:
