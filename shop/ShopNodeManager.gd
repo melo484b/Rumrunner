@@ -12,6 +12,7 @@ onready var player_currency: CenterContainer = $CurrencyDisplay
 
 
 func _ready() -> void:
+	Player.currency = 200
 	player_currency.update_label(Player.currency)
 
 
@@ -36,4 +37,5 @@ func _on_PurchaseButton_pressed() -> void:
 
 
 func _on_SkipButton_pressed() -> void:
+# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://UI/Interlude.tscn")
