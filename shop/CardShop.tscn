@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://shop/ShopCardManager.gd" type="Script" id=1]
 [ext_resource path="res://shop/ShopNodeManager.gd" type="Script" id=2]
@@ -11,9 +11,29 @@
 [ext_resource path="res://environment/ShopNode.tscn" type="PackedScene" id=9]
 [ext_resource path="res://UI/Dice.gd" type="Script" id=10]
 [ext_resource path="res://shop/CardShop.gd" type="Script" id=11]
+[ext_resource path="res://audio/SFXplayer.tscn" type="PackedScene" id=12]
+[ext_resource path="res://audio/SFX/coin-drop-4.ogg" type="AudioStream" id=13]
+[ext_resource path="res://audio/SFX/coin-drop-3.ogg" type="AudioStream" id=14]
+[ext_resource path="res://audio/SFX/coin-drop-2.ogg" type="AudioStream" id=15]
+[ext_resource path="res://audio/SFX/coin-drop-1.ogg" type="AudioStream" id=16]
 
 [node name="CardShop" type="CanvasLayer"]
 script = ExtResource( 11 )
+
+[node name="ShopSFXplayer" parent="." instance=ExtResource( 12 )]
+number_to_play = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="ShopSFXplayer"]
+stream = ExtResource( 16 )
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="ShopSFXplayer"]
+stream = ExtResource( 15 )
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="ShopSFXplayer"]
+stream = ExtResource( 14 )
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="ShopSFXplayer"]
+stream = ExtResource( 13 )
 
 [node name="ShopNodeManager" type="Node" parent="."]
 script = ExtResource( 2 )

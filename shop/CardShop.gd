@@ -9,6 +9,7 @@ onready var shop_node_manager: Node = $ShopNodeManager
 onready var dice: Sprite = $ShopNodeManager/Dice
 onready var shop_card_manager: Node = $ShopCardManager
 onready var currency_display: CenterContainer = $ShopNodeManager/CurrencyDisplay
+onready var shop_sfx: Node = $ShopSFXplayer
 
 
 func _ready() -> void:
@@ -20,12 +21,13 @@ func increase_cost() -> void:
 
 
 func process_transaction(transaction_amount):
+	shop_sfx.play()
 	Player.currency -= transaction_amount
 	currency_display.update_label(Player.currency)
 
 
 func _on_RerollButton_pressed() -> void:
-	if Player.currency > reroll_cost:
+	if Player.currency >= reroll_cost:
 		increase_cost()
 		reroll_cost_display.set_cost(reroll_cost)
 		dice.roll_the_die()
