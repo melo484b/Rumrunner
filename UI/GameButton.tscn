@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://UI/GameButton.gd" type="Script" id=1]
 [ext_resource path="res://UI/UI_theme.tres" type="Theme" id=2]
 [ext_resource path="res://resources/LSANS_dynamic_font_extra_large.tres" type="DynamicFont" id=3]
+[ext_resource path="res://audio/SFXplayer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://audio/SFX/hover-button.ogg" type="AudioStream" id=5]
+[ext_resource path="res://audio/SFX/select.ogg" type="AudioStream" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "hover"
@@ -26,3 +29,19 @@ anims/hover = SubResource( 1 )
 
 [node name="ClickAnimationPlayer" type="AnimationPlayer" parent="."]
 anims/click = SubResource( 2 )
+
+[node name="HoverSFXplayer" parent="." instance=ExtResource( 4 )]
+number_to_play = 1
+
+[node name="Hover" type="AudioStreamPlayer" parent="HoverSFXplayer"]
+stream = ExtResource( 5 )
+bus = "MenuSFX"
+
+[node name="SelectSFXplayer" parent="." instance=ExtResource( 4 )]
+number_to_play = 1
+
+[node name="Select" type="AudioStreamPlayer" parent="SelectSFXplayer"]
+stream = ExtResource( 6 )
+bus = "MenuSFX"
+
+[connection signal="button_down" from="." to="." method="_on_GameButton_button_down"]
