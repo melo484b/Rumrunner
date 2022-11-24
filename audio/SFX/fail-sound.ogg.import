@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/fail-sound.ogg-0a5389168f96639e0a09d09bd2fd1c17.oggstr"
+
+[deps]
+
+source_file="res://audio/SFX/fail-sound.ogg"
+dest_files=[ "res://.import/fail-sound.ogg-0a5389168f96639e0a09d09bd2fd1c17.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

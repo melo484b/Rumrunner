@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/shuffle-deck-2.ogg-24a78d68c76ecd50b3fb52359fd47c93.oggstr"
+
+[deps]
+
+source_file="res://audio/SFX/shuffle-deck-2.ogg"
+dest_files=[ "res://.import/shuffle-deck-2.ogg-24a78d68c76ecd50b3fb52359fd47c93.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

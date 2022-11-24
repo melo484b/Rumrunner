@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/coin-drop-4.ogg-76d8f2a07446808aaa79cc895d102405.oggstr"
+
+[deps]
+
+source_file="res://audio/SFX/coin-drop-4.ogg"
+dest_files=[ "res://.import/coin-drop-4.ogg-76d8f2a07446808aaa79cc895d102405.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

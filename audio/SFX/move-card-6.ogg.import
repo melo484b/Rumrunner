@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/move-card-6.ogg-6d8d456d4a001c56b25a6248e8ce4503.oggstr"
+
+[deps]
+
+source_file="res://audio/SFX/move-card-6.ogg"
+dest_files=[ "res://.import/move-card-6.ogg-6d8d456d4a001c56b25a6248e8ce4503.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
