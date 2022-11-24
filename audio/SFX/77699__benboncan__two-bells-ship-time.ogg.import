@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/77699__benboncan__two-bells-ship-time.ogg-0d36d6b03417b882d8cc23b5b79f0e19.oggstr"
+
+[deps]
+
+source_file="res://audio/SFX/77699__benboncan__two-bells-ship-time.ogg"
+dest_files=[ "res://.import/77699__benboncan__two-bells-ship-time.ogg-0d36d6b03417b882d8cc23b5b79f0e19.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/583348__fission9__rock-splash-shortened.ogg-6b36b754f040cdd722a9108a601ac035.oggstr"
+
+[deps]
+
+source_file="res://audio/SFX/583348__fission9__rock-splash-shortened.ogg"
+dest_files=[ "res://.import/583348__fission9__rock-splash-shortened.ogg-6b36b754f040cdd722a9108a601ac035.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

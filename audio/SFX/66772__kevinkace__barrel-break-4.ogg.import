@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/66772__kevinkace__barrel-break-4.ogg-07a75a486bebaf5f56bf28d23e431a1e.oggstr"
+
+[deps]
+
+source_file="res://audio/SFX/66772__kevinkace__barrel-break-4.ogg"
+dest_files=[ "res://.import/66772__kevinkace__barrel-break-4.ogg-07a75a486bebaf5f56bf28d23e431a1e.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
