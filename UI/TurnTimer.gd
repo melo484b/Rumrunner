@@ -10,6 +10,7 @@ onready var timer: Timer = $Timer
 onready var tween: Tween = $TimerTween
 onready var progress_texture: TextureProgress = $PanelContainer/MarginContainer/CenterContainer/TextureProgress
 onready var animation: AnimationPlayer = $AnimationPlayer
+onready var bell_sfx: Node = $BellSFXplayer
 
 
 func _ready() -> void:
@@ -35,6 +36,7 @@ func stop_timer() -> int:
 
 
 func _on_Timer_timeout() -> void:
+	bell_sfx.play()
 	animation.play("shake")
 	if active:
 		emit_signal("player_time_out")
