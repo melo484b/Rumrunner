@@ -10,6 +10,7 @@ onready var dice: Sprite = $ShopNodeManager/Dice
 onready var shop_card_manager: Node = $ShopCardManager
 onready var currency_display: CenterContainer = $ShopNodeManager/CurrencyDisplay
 onready var shop_sfx: Node = $ShopSFXplayer
+onready var error_sfx: Node = $ErrorSFXplayer
 
 
 func _ready() -> void:
@@ -22,7 +23,7 @@ func increase_cost() -> void:
 
 func process_transaction(transaction_amount):
 	shop_sfx.play()
-	Player.currency -= transaction_amount
+	Player.currency = max(0, Player.currency - transaction_amount)
 	currency_display.update_label(Player.currency)
 
 
@@ -36,9 +37,15 @@ func _on_RerollButton_pressed() -> void:
 		shop_node_manager.refresh_shop_nodes()
 		process_transaction(reroll_cost)
 	else:
-		pass
-		# TODO: Warn player they do not have enough money
+		yield(get_tree().create_timer(0.1), "timeout")
+		error_sfx.play()
+		
 
 
 func _on_ShopNodeManager_transaction_made(amount):
 	process_transaction(amount)
+
+
+func _on_ShopNodeManager_insufficient_funds():
+	yield(get_tree().create_timer(0.1), "timeout")
+	error_sfx.play()
