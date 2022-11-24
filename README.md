@@ -5,6 +5,8 @@ Follow my progress on [Trello](https://trello.com/b/JxY0rXKO/rumrunner).
 
 
 <strong>Attributions:</strong><br>
-- "Dropping, Wood, I.wav" by [InspectorJ](www.jshaw.co.uk) of Freesound.org
+- "Dropping, Wood, I.wav" by [InspectorJ](www.jshaw.co.uk) of [Freesound.org](https://freesound.org/) Modified. [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 
 
-- "Waves.wav" by [justkiddink](https://freesound.org/people/juskiddink/) of Freesound.org
+- "Waves.wav" by [justkiddink](https://freesound.org/people/juskiddink/) of [Freesound.org](https://freesound.org/) Modified. [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
+- "Two Bells,Ship Time.wav" by [Benboncan](https://freesound.org/people/Benboncan/sounds/77699/) of [Freesound.org](https://freesound.org/) Modified. [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
