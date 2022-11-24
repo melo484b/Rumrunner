@@ -4,8 +4,8 @@
 [ext_resource path="res://UI/UI_theme.tres" type="Theme" id=2]
 [ext_resource path="res://resources/LSANS_dynamic_font_extra_large.tres" type="DynamicFont" id=3]
 [ext_resource path="res://audio/SFXplayer.tscn" type="PackedScene" id=4]
-[ext_resource path="res://audio/SFX/hover-button.ogg" type="AudioStream" id=5]
-[ext_resource path="res://audio/SFX/select.ogg" type="AudioStream" id=6]
+[ext_resource path="res://audio/SFX/364691__alegemaate__wood-hit.ogg" type="AudioStream" id=5]
+[ext_resource path="res://audio/SFX/inspector-dropping-wood-i-juskiddink-waves.ogg" type="AudioStream" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "hover"
@@ -32,6 +32,8 @@ anims/click = SubResource( 2 )
 
 [node name="HoverSFXplayer" parent="." instance=ExtResource( 4 )]
 number_to_play = 1
+min_pitch_scale = 0.7
+max_pitch_scale = 0.9
 
 [node name="Hover" type="AudioStreamPlayer" parent="HoverSFXplayer"]
 stream = ExtResource( 5 )
