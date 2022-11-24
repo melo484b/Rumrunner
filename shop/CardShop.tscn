@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://shop/ShopCardManager.gd" type="Script" id=1]
 [ext_resource path="res://shop/ShopNodeManager.gd" type="Script" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://audio/SFX/coin-drop-3.ogg" type="AudioStream" id=14]
 [ext_resource path="res://audio/SFX/coin-drop-2.ogg" type="AudioStream" id=15]
 [ext_resource path="res://audio/SFX/coin-drop-1.ogg" type="AudioStream" id=16]
+[ext_resource path="res://audio/SFX/fail-sound.ogg" type="AudioStream" id=17]
 
 [node name="CardShop" type="CanvasLayer"]
 script = ExtResource( 11 )
@@ -25,15 +26,25 @@ number_to_play = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="ShopSFXplayer"]
 stream = ExtResource( 16 )
+volume_db = 4.0
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="ShopSFXplayer"]
 stream = ExtResource( 15 )
+volume_db = 4.0
 
 [node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="ShopSFXplayer"]
 stream = ExtResource( 14 )
+volume_db = 4.0
 
 [node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="ShopSFXplayer"]
 stream = ExtResource( 13 )
+volume_db = 4.0
+
+[node name="ErrorSFXplayer" parent="." instance=ExtResource( 12 )]
+number_to_play = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="ErrorSFXplayer"]
+stream = ExtResource( 17 )
 
 [node name="ShopNodeManager" type="Node" parent="."]
 script = ExtResource( 2 )
@@ -140,6 +151,7 @@ position = Vector2( 656, 128 )
 [node name="Card4" parent="ShopCardManager" instance=ExtResource( 7 )]
 position = Vector2( 912, 128 )
 
+[connection signal="insufficient_funds" from="ShopNodeManager" to="." method="_on_ShopNodeManager_insufficient_funds"]
 [connection signal="transaction_made" from="ShopNodeManager" to="." method="_on_ShopNodeManager_transaction_made"]
 [connection signal="pressed" from="ShopNodeManager/PurchaseButton" to="ShopNodeManager" method="_on_PurchaseButton_pressed"]
 [connection signal="pressed" from="RerollButton" to="." method="_on_RerollButton_pressed"]
