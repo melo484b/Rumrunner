@@ -32,4 +32,5 @@ func play() -> void:
 
 
 func play_hover() -> void:
+# warning-ignore:return_value_discarded
 	get_children()
