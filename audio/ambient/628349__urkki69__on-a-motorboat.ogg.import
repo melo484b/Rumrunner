@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/628349__urkki69__on-a-motorboat.ogg-b7638de133a696f4e37df1e5d9b0f86e.oggstr"
+
+[deps]
+
+source_file="res://audio/ambient/628349__urkki69__on-a-motorboat.ogg"
+dest_files=[ "res://.import/628349__urkki69__on-a-motorboat.ogg-b7638de133a696f4e37df1e5d9b0f86e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

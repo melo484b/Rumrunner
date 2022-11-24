@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/364691__alegemaate__wood-hit.ogg-83378b8daceece4423e1311f2dfb7d15.oggstr"
+
+[deps]
+
+source_file="res://audio/SFX/364691__alegemaate__wood-hit.ogg"
+dest_files=[ "res://.import/364691__alegemaate__wood-hit.ogg-83378b8daceece4423e1311f2dfb7d15.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

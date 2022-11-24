@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/card-bridge-1.ogg-71396a4e342621640043fcb0ed5b300c.oggstr"
+
+[deps]
+
+source_file="res://audio/SFX/card-bridge-1.ogg"
+dest_files=[ "res://.import/card-bridge-1.ogg-71396a4e342621640043fcb0ed5b300c.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
