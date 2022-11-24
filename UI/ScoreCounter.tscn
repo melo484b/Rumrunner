@@ -1,10 +1,14 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://UI/UI_theme.tres" type="Theme" id=1]
 [ext_resource path="res://art/rum_barrel.png" type="Texture" id=2]
 [ext_resource path="res://resources/LSANS.TTF" type="DynamicFontData" id=3]
 [ext_resource path="res://UI/ScoreCounter.gd" type="Script" id=4]
 [ext_resource path="res://art/rum_splash.png" type="Texture" id=5]
+[ext_resource path="res://audio/SFXplayer.tscn" type="PackedScene" id=6]
+[ext_resource path="res://audio/SFX/66772__kevinkace__barrel-break-4.ogg" type="AudioStream" id=7]
+[ext_resource path="res://audio/SFX/583348__fission9__rock-splash-shortened.ogg" type="AudioStream" id=8]
+[ext_resource path="res://audio/SFX/583348__fission9__rock-splash-shortened-tempo-up.ogg" type="AudioStream" id=9]
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.580392, 0.231373, 0, 1 )
@@ -180,3 +184,18 @@ texture = ExtResource( 5 )
 anims/gain_rum = SubResource( 7 )
 anims/lose_rum = SubResource( 6 )
 anims/no_change = SubResource( 8 )
+
+[node name="SloshSFXplayer" parent="." instance=ExtResource( 6 )]
+number_to_play = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SloshSFXplayer"]
+stream = ExtResource( 8 )
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="SloshSFXplayer"]
+stream = ExtResource( 9 )
+
+[node name="DamageSFXplayer" parent="." instance=ExtResource( 6 )]
+number_to_play = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="DamageSFXplayer"]
+stream = ExtResource( 7 )
