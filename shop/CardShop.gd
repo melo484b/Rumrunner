@@ -23,6 +23,7 @@ func increase_cost() -> void:
 
 func process_transaction(transaction_amount):
 	shop_sfx.play()
+# warning-ignore:narrowing_conversion
 	Player.currency = max(0, Player.currency - transaction_amount)
 	currency_display.update_label(Player.currency)
 
