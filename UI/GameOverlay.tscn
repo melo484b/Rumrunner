@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://art/card_back.png" type="Texture" id=1]
 [ext_resource path="res://art/deck.png" type="Texture" id=2]
@@ -15,6 +15,11 @@
 [ext_resource path="res://UI/ScoreTally.tscn" type="PackedScene" id=13]
 [ext_resource path="res://art/wake-particle.png" type="Texture" id=14]
 [ext_resource path="res://UI/Ship.gd" type="Script" id=15]
+[ext_resource path="res://audio/SFX/shuffle-deck-1.ogg" type="AudioStream" id=16]
+[ext_resource path="res://audio/SFX/shuffle-deck-4.ogg" type="AudioStream" id=17]
+[ext_resource path="res://audio/SFX/shuffle-deck-2.ogg" type="AudioStream" id=18]
+[ext_resource path="res://audio/SFX/shuffle-deck-3.ogg" type="AudioStream" id=19]
+[ext_resource path="res://audio/SFXplayer.tscn" type="PackedScene" id=20]
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 9 )
@@ -127,6 +132,24 @@ rect_scale = Vector2( 0.3, 0.3 )
 mouse_filter = 2
 texture = ExtResource( 1 )
 script = ExtResource( 3 )
+
+[node name="CardSFXplayer" parent="CardBackTexture" instance=ExtResource( 20 )]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CardBackTexture/CardSFXplayer"]
+stream = ExtResource( 16 )
+bus = "SFX"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="CardBackTexture/CardSFXplayer"]
+stream = ExtResource( 18 )
+bus = "SFX"
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="CardBackTexture/CardSFXplayer"]
+stream = ExtResource( 19 )
+bus = "SFX"
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="CardBackTexture/CardSFXplayer"]
+stream = ExtResource( 17 )
+bus = "SFX"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CardBackTexture"]
 anims/draw_card = SubResource( 1 )
