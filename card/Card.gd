@@ -20,6 +20,7 @@ var underway: bool = false
 var target_position: Vector2
 var original_position: Vector2
 var target_nodes: Array = []
+var pick_up_sfx: Node
 
 onready var card_collider: CollisionShape2D = $CardCollider
 onready var animator: AnimationPlayer = $AnimationPlayer
@@ -31,6 +32,8 @@ onready var art: TextureRect = $ThemedMarginContainer/ClassPanelContainer/Margin
 onready var description: Label = $ThemedMarginContainer/ClassPanelContainer/MarginContainer/VBoxContainer/Description
 onready var offense: Label = $ThemedMarginContainer/ClassPanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/Offense
 onready var defense: Label = $ThemedMarginContainer/ClassPanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/Defense
+onready var movement_sfx: Node = $MovementSFXplayer
+onready var placement_sfx: Node = $PlacementSFXplayer
 
 
 func _ready() -> void:
@@ -41,13 +44,18 @@ func _on_ready() -> void:
 	target_nodes = get_tree().get_nodes_in_group("CARD_NODE")
 	target_position = global_position
 	original_position = global_position
+	pick_up_sfx = $PickUpSFXplayer
 
 
 func _input(event) -> void:
 	if event is InputEventMouseButton and selectable:
+		if is_mouse_over():
+			pick_up_sfx.play()
 		if event.button_index == BUTTON_LEFT and not event.pressed:
 			selected = false
 			target_position = global_position
+			if is_mouse_over():
+				placement_sfx.play()
 			var shortest_distance = 100
 			for node in target_nodes:
 				if !node.filled and not placed and node.active:
@@ -94,7 +102,6 @@ func set_placed(node_name: String) -> void:
 	animator.stop()
 	if index != -1:
 		emit_signal("placed", card_data, index)
-		print("placed")
 
 
 func index_from_node_name(name_in: String) -> int:
@@ -112,6 +119,7 @@ func index_from_node_name(name_in: String) -> int:
 
 
 func reset_card() -> void:
+	movement_sfx.play()
 	target_position = original_position
 	placed = false
 	if visible == false:
@@ -164,6 +172,16 @@ func set_card_stats(new_offense: int, new_defense: int) -> void:
 
 func get_id() -> int:
 	return card_data["id"]
+
+
+func is_mouse_over() -> bool:
+	if placed or selected:
+		return false
+	var sprite_rect: Rect2 = sprite.get_rect()
+	var mouse_position: Vector2 = get_global_mouse_position()
+	if sprite_rect.has_point(to_local(mouse_position)):
+		return true
+	return false
 
 
 func _on_Area2D_input_event(_viewport, _event, _shape_idx) -> void:
