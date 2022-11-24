@@ -11,5 +11,6 @@ func _on_GameOverlay_level_complete() -> void:
 
 
 func _on_GameOverlay_change_scene_to_shop() -> void:
+	yield(get_tree().create_timer(0.4), "timeout")
 # warning-ignore:return_value_discarded
 	get_tree().change_scene("res://shop/CardShop.tscn")

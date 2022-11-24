@@ -20,19 +20,23 @@ func _ready() -> void:
 
 
 func _on_new_game_button() -> void:
+	yield(get_tree().create_timer(0.4), "timeout")
 # warning-ignore:return_value_discarded
 	get_tree().change_scene("res://UI/NewGame.tscn")
 
 
 func _on_load_game_button() -> void:
+	yield(get_tree().create_timer(0.4), "timeout")
 # warning-ignore:return_value_discarded
 	get_tree().change_scene("res://UI/LoadGame.tscn")
 
 
 func _on_options_button() -> void:
+	yield(get_tree().create_timer(0.4), "timeout")
 # warning-ignore:return_value_discarded
 	get_tree().change_scene("res://UI/OptionsMenu.tscn")
 
 
 func _on_quit_button() -> void:
+	yield(get_tree().create_timer(0.4), "timeout")
 	get_tree().quit()

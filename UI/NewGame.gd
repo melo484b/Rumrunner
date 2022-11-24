@@ -51,4 +51,5 @@ func _on_ConfirmationButton_pressed() -> void:
 		save_files[current_save].overwrite_player_data()
 	else:
 		save_files[current_save].write_player_data()
+	yield(get_tree().create_timer(0.4), "timeout")
 	get_tree().change_scene("res://environment/GameEnvironment.tscn")

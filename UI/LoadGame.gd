@@ -21,17 +21,20 @@ func _ready() -> void:
 
 func _on_LoadSaveFile1_pressed() -> void:
 	save_1.commit_player_data()
+	yield(get_tree().create_timer(0.4), "timeout")
 # warning-ignore:return_value_discarded
 	get_tree().change_scene("res://environment/GameEnvironment.tscn")
 
 
 func _on_LoadSaveFile2_pressed() -> void:
 	save_2.commit_player_data()
+	yield(get_tree().create_timer(0.4), "timeout")
 # warning-ignore:return_value_discarded
 	get_tree().change_scene("res://environment/GameEnvironment.tscn")
 
 
 func _on_LoadSaveFile3_pressed() -> void:
 	save_3.commit_player_data()
+	yield(get_tree().create_timer(0.4), "timeout")
 # warning-ignore:return_value_discarded
 	get_tree().change_scene("res://environment/GameEnvironment.tscn")
