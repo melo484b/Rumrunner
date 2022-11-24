@@ -32,7 +32,7 @@ onready var art: TextureRect = $ThemedMarginContainer/ClassPanelContainer/Margin
 onready var description: Label = $ThemedMarginContainer/ClassPanelContainer/MarginContainer/VBoxContainer/Description
 onready var offense: Label = $ThemedMarginContainer/ClassPanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/Offense
 onready var defense: Label = $ThemedMarginContainer/ClassPanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/Defense
-onready var movement_sfx: Node = $MovementSFXplayer
+onready var shuffle_sfx: Node = $ShuffleSFXplayer
 onready var placement_sfx: Node = $PlacementSFXplayer
 
 
@@ -119,7 +119,7 @@ func index_from_node_name(name_in: String) -> int:
 
 
 func reset_card() -> void:
-	movement_sfx.play()
+	shuffle_sfx.play()
 	target_position = original_position
 	placed = false
 	if visible == false:

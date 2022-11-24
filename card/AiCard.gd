@@ -25,7 +25,7 @@ func _on_ready() -> void:
 
 
 func reset_card() -> void:
-	movement_sfx.play()
+	shuffle_sfx.play()
 	target_position = original_position
 	placed = false
 	if visible == false:

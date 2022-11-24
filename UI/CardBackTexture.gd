@@ -7,9 +7,9 @@ onready var shuffle_sfx: Node = $CardSFXplayer
 
 
 func draw_animation() -> void:
-	shuffle_sfx.play()
 	animator.play("draw_card")
 	timer.start()
+	shuffle_sfx.play()
 
 
 func _on_Timer_timeout() -> void:
