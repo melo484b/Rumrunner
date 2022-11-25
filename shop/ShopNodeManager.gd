@@ -13,7 +13,6 @@ onready var player_currency: CenterContainer = $CurrencyDisplay
 
 
 func _ready() -> void:
-	Player.currency = 200
 	player_currency.update_label(Player.currency)
 
 
