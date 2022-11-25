@@ -49,5 +49,5 @@ func discard_hand() -> void:
 func _on_GameOverlay_level_complete() -> void:
 	level_in_progess = false
 	for card in cards:
+		card.reset_card()
 		card.spin()
-	discard_hand()
