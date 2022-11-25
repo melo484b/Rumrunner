@@ -5,6 +5,8 @@ Follow my progress on [Trello](https://trello.com/b/JxY0rXKO/rumrunner).
 
 
 <strong>Attributions:</strong><br>
+- Music by [Potriel](https://www.fiverr.com/potriel/compose-musics-for-your-video-game)
+
 - "Dropping, Wood, I.wav" by [InspectorJ](www.jshaw.co.uk) of [Freesound.org](https://freesound.org/) Modified. [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 
 
 - "Waves.wav" by [justkiddink](https://freesound.org/people/juskiddink/) of [Freesound.org](https://freesound.org/) Modified. [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
