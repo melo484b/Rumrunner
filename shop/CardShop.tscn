@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://shop/ShopCardManager.gd" type="Script" id=1]
 [ext_resource path="res://shop/ShopNodeManager.gd" type="Script" id=2]
@@ -17,9 +17,16 @@
 [ext_resource path="res://audio/SFX/coin-drop-2.ogg" type="AudioStream" id=15]
 [ext_resource path="res://audio/SFX/coin-drop-1.ogg" type="AudioStream" id=16]
 [ext_resource path="res://audio/SFX/fail-sound.ogg" type="AudioStream" id=17]
+[ext_resource path="res://art/shop_placeholder_background.png" type="Texture" id=18]
 
 [node name="CardShop" type="CanvasLayer"]
 script = ExtResource( 11 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 1067.0
+margin_bottom = 600.0
+texture = ExtResource( 18 )
+expand = true
 
 [node name="ShopSFXplayer" parent="." instance=ExtResource( 12 )]
 number_to_play = 1
