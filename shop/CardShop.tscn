@@ -114,7 +114,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="SkipArrow" type="TextureRect" parent="."]
+[node name="ContinueArrow" type="TextureRect" parent="."]
 margin_left = 768.0
 margin_top = 437.0
 margin_right = 896.0
@@ -126,12 +126,12 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="SkipButton" parent="." instance=ExtResource( 8 )]
+[node name="ContinueButton" parent="." instance=ExtResource( 8 )]
 margin_left = 757.0
 margin_top = 542.0
 margin_right = 911.0
 margin_bottom = 576.0
-text = "Skip"
+text = "Continue"
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -155,4 +155,4 @@ position = Vector2( 912, 128 )
 [connection signal="transaction_made" from="ShopNodeManager" to="." method="_on_ShopNodeManager_transaction_made"]
 [connection signal="pressed" from="ShopNodeManager/PurchaseButton" to="ShopNodeManager" method="_on_PurchaseButton_pressed"]
 [connection signal="pressed" from="RerollButton" to="." method="_on_RerollButton_pressed"]
-[connection signal="pressed" from="SkipButton" to="ShopNodeManager" method="_on_SkipButton_pressed"]
+[connection signal="pressed" from="ContinueButton" to="ShopNodeManager" method="_on_ContinueButton_pressed"]
