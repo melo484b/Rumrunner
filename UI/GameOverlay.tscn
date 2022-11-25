@@ -171,6 +171,7 @@ script = ExtResource( 15 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Ship"]
 stream = ExtResource( 21 )
+volume_db = -3.0
 autoplay = true
 bus = "Ambient"
 
