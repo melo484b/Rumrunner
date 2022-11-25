@@ -37,7 +37,8 @@ func _on_PurchaseButton_pressed() -> void:
 	purchase_card()
 
 
-func _on_SkipButton_pressed() -> void:
+func _on_ContinueButton_pressed() -> void:
+	GameDatabase.update_player_data(Player.player_id, Player.name, Player.currency, Player.score)
 	yield(get_tree().create_timer(0.4), "timeout")
 # warning-ignore:return_value_discarded
 	get_tree().change_scene("res://UI/Interlude.tscn")

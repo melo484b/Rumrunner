@@ -15,16 +15,18 @@ onready var error_sfx: Node = $ErrorSFXplayer
 
 func _ready() -> void:
 	currency_display.update_label(Player.currency)
+	GameDatabase.update_player_data(Player.player_id, Player.name, Player.currency, Player.score)
 
 
 func increase_cost() -> void:
 	reroll_cost = int(reroll_cost * 1.6175)
 
 
-func process_transaction(transaction_amount):
+func process_transaction(transaction_amount) -> void:
 # warning-ignore:narrowing_conversion
-	Player.currency = max(0, Player.currency - transaction_amount)
+	Player.currency = int(max(0, Player.currency - transaction_amount))
 	currency_display.update_label(Player.currency)
+	GameDatabase.update_player_data(Player.player_id, Player.name, Player.currency, Player.score)
 	yield(get_tree().create_timer(0.1), "timeout")
 	shop_sfx.play()
 
