@@ -138,7 +138,7 @@ func set_card_data(new_data: Dictionary) -> void:
 
 func populate_card_data() -> void:
 	set_card_name(card_data.get("name", "name err"))
-	set_card_class(card_data.get("card_class", "class err"))
+	set_card_class(card_data.get("card_class", "cat"))
 	set_card_art(card_data.get("art_id", "art err"))
 	set_card_description(card_data.get("description", "desc err"))
 	set_card_stats(card_data.get("offensive_stat", -1), card_data.get("defensive_stat", -1))
