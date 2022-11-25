@@ -16,25 +16,27 @@ func _ready() -> void:
 		var index: int = player_data.find(save)
 		save_files[index].update_player_data(save["id"], save["name"], save["currency"], save["score"])
 		save_files[index].update_labels()
-		save_files[index].set_active()
 
 
 func _on_LoadSaveFile1_pressed() -> void:
-	save_1.commit_player_data()
-	yield(get_tree().create_timer(0.4), "timeout")
+	if save_1.active:
+		save_1.commit_player_data()
+		yield(get_tree().create_timer(0.4), "timeout")
 # warning-ignore:return_value_discarded
-	get_tree().change_scene("res://environment/GameEnvironment.tscn")
+		get_tree().change_scene("res://environment/GameEnvironment.tscn")
 
 
 func _on_LoadSaveFile2_pressed() -> void:
-	save_2.commit_player_data()
-	yield(get_tree().create_timer(0.4), "timeout")
+	if save_2.active:
+		save_2.commit_player_data()
+		yield(get_tree().create_timer(0.4), "timeout")
 # warning-ignore:return_value_discarded
-	get_tree().change_scene("res://environment/GameEnvironment.tscn")
+		get_tree().change_scene("res://environment/GameEnvironment.tscn")
 
 
 func _on_LoadSaveFile3_pressed() -> void:
-	save_3.commit_player_data()
-	yield(get_tree().create_timer(0.4), "timeout")
+	if save_3.active:
+		save_3.commit_player_data()
+		yield(get_tree().create_timer(0.4), "timeout")
 # warning-ignore:return_value_discarded
-	get_tree().change_scene("res://environment/GameEnvironment.tscn")
+		get_tree().change_scene("res://environment/GameEnvironment.tscn")
