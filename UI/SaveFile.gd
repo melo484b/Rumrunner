@@ -1,10 +1,11 @@
 extends PanelContainer
 
 
-const HOVERED_MODULATE = "00ffe6"
-const NORMAL_MODULATE = "ffffff"
-const DEACTIVATED_MODULATE = "111111"
-const LOADED_MODULATE = "1a0095"
+const HOVERED_MODULATE: String = "00ffe6"
+const NORMAL_MODULATE: String = "ffffff"
+const DEACTIVATED_MODULATE: String = "111111"
+const LOADED_MODULATE: String = "1a0095"
+const UNSAVED_FILE_NAMES: Array = ["[Slot 1]", "[Slot 2]", "[Slot 3]", "Player Name"]
 
 export var exported_player_id: int = 1
 
@@ -51,6 +52,10 @@ func update_labels() -> void:
 	player_name.text = save_data["player_name"]
 	currency.text = "$" + str(save_data["currency"])
 	score.text = str(save_data["score"])
+	if UNSAVED_FILE_NAMES.has(save_data["player_name"]):
+		set_inactive()
+	else:
+		set_active()
 
 
 func set_inactive() -> void:
