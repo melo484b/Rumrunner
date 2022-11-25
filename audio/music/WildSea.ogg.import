@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/WildSea.ogg-8b7b01e83e9dc5e9be571dbd7f0275f6.oggstr"
+
+[deps]
+
+source_file="res://audio/music/WildSea.ogg"
+dest_files=[ "res://.import/WildSea.ogg-8b7b01e83e9dc5e9be571dbd7f0275f6.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
