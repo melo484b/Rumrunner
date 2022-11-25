@@ -71,6 +71,7 @@ config/icon="res://icon.png"
 GameDatabase="*res://database/GameDatabase.gd"
 Player="*res://player/Player.gd"
 GameMusic="*res://audio/music/GameMusic.tscn"
+AmbientWaves="*res://audio/ambient/AmbientWaves.tscn"
 
 [display]
 
