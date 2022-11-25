@@ -26,19 +26,19 @@ number_to_play = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="ShopSFXplayer"]
 stream = ExtResource( 16 )
-volume_db = 4.0
+volume_db = 6.0
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="ShopSFXplayer"]
 stream = ExtResource( 15 )
-volume_db = 4.0
+volume_db = 6.0
 
 [node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="ShopSFXplayer"]
 stream = ExtResource( 14 )
-volume_db = 4.0
+volume_db = 6.0
 
 [node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="ShopSFXplayer"]
 stream = ExtResource( 13 )
-volume_db = 4.0
+volume_db = 6.0
 
 [node name="ErrorSFXplayer" parent="." instance=ExtResource( 12 )]
 number_to_play = 1

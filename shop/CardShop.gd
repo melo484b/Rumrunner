@@ -22,10 +22,11 @@ func increase_cost() -> void:
 
 
 func process_transaction(transaction_amount):
-	shop_sfx.play()
 # warning-ignore:narrowing_conversion
 	Player.currency = max(0, Player.currency - transaction_amount)
 	currency_display.update_label(Player.currency)
+	yield(get_tree().create_timer(0.1), "timeout")
+	shop_sfx.play()
 
 
 func _on_RerollButton_pressed() -> void:
