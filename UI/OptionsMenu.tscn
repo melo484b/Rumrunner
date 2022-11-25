@@ -16,6 +16,7 @@ border_color = Color( 0, 0, 0, 1 )
 border_blend = true
 
 [node name="OptionsMenu" type="CanvasLayer"]
+layer = 2
 script = ExtResource( 5 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
