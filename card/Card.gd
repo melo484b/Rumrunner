@@ -41,7 +41,8 @@ func _ready() -> void:
 
 
 func _on_ready() -> void:
-	target_nodes = get_tree().get_nodes_in_group("CARD_NODE")
+	if get_tree() != null:
+		target_nodes = get_tree().get_nodes_in_group("CARD_NODE")
 	target_position = global_position
 	original_position = global_position
 	pick_up_sfx = $PickUpSFXplayer
