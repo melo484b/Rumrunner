@@ -2,6 +2,7 @@ extends CanvasLayer
 
 
 var options_menu: PackedScene = preload("res://UI/OptionsMenu.tscn")
+var deck_report: PackedScene = preload("res://UI/DeckReport.tscn")
 
 onready var new_game: Button = $ThemedMarginContainer/PanelContainer/MarginContainer/VBoxContainer/NewGame
 onready var load_game: Button = $ThemedMarginContainer/PanelContainer/MarginContainer/VBoxContainer/LoadGame
@@ -47,6 +48,19 @@ func _on_options_menu_back_pressed() -> void:
 	main_menu.visible = true
 	$OptionsMenu.queue_free()
 
+
+func _on_DeckReport_pressed() -> void:
+	var report_instance = deck_report.instance()
+	add_child(report_instance)
+	main_menu.visible = false
+# warning-ignore:return_value_discarded
+	report_instance.connect("back_pressed", self, "_on_deck_report_back_pressed")
+
+
+func _on_deck_report_back_pressed() -> void:
+	yield(get_tree().create_timer(0.4), "timeout")
+	main_menu.visible = true
+	$DeckReport.queue_free()
 
 
 func _on_quit_button() -> void:
