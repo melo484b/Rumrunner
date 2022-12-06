@@ -13,10 +13,6 @@ onready var title_label: Label = $MarginContainer/PanelContainer/MarginContainer
 onready var table: MarginContainer = $MarginContainer/PanelContainer/MarginContainer/ReportTable
 onready var records: VBoxContainer = $MarginContainer/PanelContainer/MarginContainer/ReportTable/Panel/MarginContainer/ScrollContainer/Records
 onready var buttons: VBoxContainer = $MarginContainer/PanelContainer/MarginContainer/CenterContainer/Buttons
-onready var player_1_button: Button = $MarginContainer/PanelContainer/MarginContainer/ButtonsAndLabel/VBoxContainer/CheckPlayer1
-onready var player_2_button: Button = $MarginContainer/PanelContainer/MarginContainer/ButtonsAndLabel/VBoxContainer/CheckPlayer2
-onready var player_3_button: Button = $MarginContainer/PanelContainer/MarginContainer/ButtonsAndLabel/VBoxContainer/CheckPlayer3
-
 
 
 func _ready() -> void:
@@ -30,6 +26,7 @@ func set_button_text() -> void:
 			var player_name = GameDatabase.get_data_by_id(GameDatabase.PLAYER_TABLE, "id", player_id)
 			button.text = player_name[0].get("name")
 			player_id += 1
+
 
 func pull_report(deck_owner_id: int) -> void:
 	deck.clear()
@@ -52,6 +49,7 @@ func set_report_title(player_id: int) -> void:
 	var player_name = GameDatabase.get_data_by_id(GameDatabase.PLAYER_TABLE, "id", player_id)
 	var date_time_stamp = Time.get_datetime_string_from_system(false, true)
 	title_label.text = str(player_name[0].get("name")) + "'s Deck Report - " + date_time_stamp
+
 
 func show_table() -> void:
 	table.visible = true
