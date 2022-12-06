@@ -13,14 +13,14 @@ onready var cost_label: Label = $PanelContainer/MarginContainer/AttributeLabels/
 
 
 func set_record_data(id: String, card_name: String, card_class: String, art_id: String, description: String, offense: String, defense: String, cost: String) -> void:
-	self.id_label.text = id
-	self.name_label.text = card_name
-	self.class_label.text = card_class
-	self.art_label.text = art_id
-	self.description_label.text = description
-	self.offense_label.text = offense
-	self.defense_label.text = defense
-	self.cost_label.text = cost
+	id_label.text = id
+	name_label.text = card_name
+	class_label.text = card_class
+	art_label.text = art_id
+	description_label.text = description
+	offense_label.text = offense
+	defense_label.text = defense
+	cost_label.text = cost
 
 
 func get_record_data() -> Array:

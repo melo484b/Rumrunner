@@ -95,7 +95,6 @@ margin_right = 637.0
 margin_bottom = 26.0
 rect_min_size = Vector2( 115, 0 )
 text = "description"
-align = 1
 valign = 1
 clip_text = true
 max_lines_visible = 1
