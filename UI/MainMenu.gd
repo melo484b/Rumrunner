@@ -63,6 +63,10 @@ func _on_deck_report_back_pressed() -> void:
 	$DeckReport.queue_free()
 
 
+func _on_CardSearch_pressed():
+	pass # Replace with function body.
+
+
 func _on_quit_button() -> void:
 	yield(get_tree().create_timer(0.4), "timeout")
 	get_tree().quit()

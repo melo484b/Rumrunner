@@ -28,56 +28,64 @@ rect_pivot_offset = Vector2( 88, 88 )
 theme = ExtResource( 2 )
 
 [node name="PanelContainer" type="PanelContainer" parent="ThemedMarginContainer"]
-margin_right = 178.0
-margin_bottom = 194.0
+margin_right = 188.0
+margin_bottom = 232.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="ThemedMarginContainer/PanelContainer"]
 margin_left = 4.0
 margin_top = 4.0
-margin_right = 174.0
-margin_bottom = 190.0
+margin_right = 184.0
+margin_bottom = 228.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ThemedMarginContainer/PanelContainer/MarginContainer"]
-margin_right = 170.0
-margin_bottom = 186.0
+margin_right = 180.0
+margin_bottom = 224.0
 rect_min_size = Vector2( 170, 148 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="NewGame" parent="ThemedMarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
-margin_left = 8.0
-margin_right = 161.0
+margin_right = 180.0
 margin_bottom = 34.0
+rect_min_size = Vector2( 180, 34 )
 text = "New Game"
 
 [node name="LoadGame" parent="ThemedMarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
-margin_left = 8.0
 margin_top = 38.0
-margin_right = 161.0
+margin_right = 180.0
 margin_bottom = 72.0
+rect_min_size = Vector2( 180, 34 )
 text = "Load Game"
 
 [node name="Options" parent="ThemedMarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
-margin_left = 8.0
 margin_top = 76.0
-margin_right = 161.0
+margin_right = 180.0
 margin_bottom = 110.0
+rect_min_size = Vector2( 180, 34 )
 text = "Options"
 
 [node name="DeckReport" parent="ThemedMarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
-margin_left = 6.0
 margin_top = 114.0
-margin_right = 164.0
+margin_right = 180.0
 margin_bottom = 148.0
+rect_min_size = Vector2( 180, 34 )
 text = "Deck Reports"
 
-[node name="Quit" parent="ThemedMarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
-margin_left = 8.0
+[node name="CardSearch" parent="ThemedMarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 152.0
-margin_right = 161.0
+margin_right = 180.0
 margin_bottom = 186.0
+rect_min_size = Vector2( 180, 34 )
+text = "Card Search"
+
+[node name="Quit" parent="ThemedMarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 190.0
+margin_right = 180.0
+margin_bottom = 224.0
+rect_min_size = Vector2( 180, 34 )
 text = "Quit"
 
 [connection signal="pressed" from="ThemedMarginContainer/PanelContainer/MarginContainer/VBoxContainer/DeckReport" to="." method="_on_DeckReport_pressed"]
+[connection signal="pressed" from="ThemedMarginContainer/PanelContainer/MarginContainer/VBoxContainer/CardSearch" to="." method="_on_CardSearch_pressed"]
