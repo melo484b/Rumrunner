@@ -12,14 +12,15 @@ script = ExtResource( 3 )
 
 [node name="UIpanel" parent="." instance=ExtResource( 4 )]
 margin_left = 424.0
-margin_top = 176.0
+margin_top = 208.0
 margin_right = 640.0
-margin_bottom = 216.0
+margin_bottom = 248.0
 
 [node name="Label" type="Label" parent="UIpanel"]
 margin_top = 5.0
 margin_right = 216.0
 margin_bottom = 35.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = ExtResource( 5 )
 text = "View deck report:"
 align = 1
@@ -43,33 +44,44 @@ margin_bottom = 596.0
 margin_right = 1059.0
 margin_bottom = 592.0
 
-[node name="Buttons" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/CenterContainer"]
-margin_left = 453.0
-margin_top = 222.0
-margin_right = 606.0
-margin_bottom = 370.0
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/CenterContainer"]
+margin_left = 296.0
+margin_top = 256.0
+margin_right = 763.0
+margin_bottom = 336.0
 
-[node name="CheckPlayer1" parent="MarginContainer/PanelContainer/MarginContainer/CenterContainer/Buttons" instance=ExtResource( 2 )]
+[node name="Buttons" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/CenterContainer/VBoxContainer"]
+margin_right = 467.0
+margin_bottom = 34.0
+
+[node name="CheckPlayer1" parent="MarginContainer/PanelContainer/MarginContainer/CenterContainer/VBoxContainer/Buttons" instance=ExtResource( 2 )]
 margin_right = 153.0
 margin_bottom = 34.0
 text = "Player 1"
 
-[node name="CheckPlayer2" parent="MarginContainer/PanelContainer/MarginContainer/CenterContainer/Buttons" instance=ExtResource( 2 )]
-margin_top = 38.0
-margin_right = 153.0
-margin_bottom = 72.0
+[node name="CheckPlayer2" parent="MarginContainer/PanelContainer/MarginContainer/CenterContainer/VBoxContainer/Buttons" instance=ExtResource( 2 )]
+margin_left = 157.0
+margin_right = 310.0
+margin_bottom = 34.0
 text = "Player 2"
 
-[node name="CheckPlayer3" parent="MarginContainer/PanelContainer/MarginContainer/CenterContainer/Buttons" instance=ExtResource( 2 )]
-margin_top = 76.0
-margin_right = 153.0
-margin_bottom = 110.0
+[node name="CheckPlayer3" parent="MarginContainer/PanelContainer/MarginContainer/CenterContainer/VBoxContainer/Buttons" instance=ExtResource( 2 )]
+margin_left = 314.0
+margin_right = 467.0
+margin_bottom = 34.0
 text = "Player 3"
 
-[node name="Back" parent="MarginContainer/PanelContainer/MarginContainer/CenterContainer/Buttons" instance=ExtResource( 2 )]
-margin_top = 114.0
-margin_right = 153.0
-margin_bottom = 148.0
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/PanelContainer/MarginContainer/CenterContainer/VBoxContainer"]
+modulate = Color( 0, 0, 0, 0 )
+margin_top = 38.0
+margin_right = 467.0
+margin_bottom = 42.0
+
+[node name="Back" parent="MarginContainer/PanelContainer/MarginContainer/CenterContainer/VBoxContainer" instance=ExtResource( 2 )]
+margin_left = 157.0
+margin_top = 46.0
+margin_right = 310.0
+margin_bottom = 80.0
 text = "Back"
 
 [node name="ReportTable" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
@@ -227,8 +239,8 @@ margin_right = 605.0
 margin_bottom = 20.0
 text = "Player Name's Deck"
 
-[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/CenterContainer/Buttons/CheckPlayer1" to="." method="_on_CheckPlayer1_pressed"]
-[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/CenterContainer/Buttons/CheckPlayer2" to="." method="_on_CheckPlayer2_pressed"]
-[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/CenterContainer/Buttons/CheckPlayer3" to="." method="_on_CheckPlayer3_pressed"]
-[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/CenterContainer/Buttons/Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/CenterContainer/VBoxContainer/Buttons/CheckPlayer1" to="." method="_on_CheckPlayer1_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/CenterContainer/VBoxContainer/Buttons/CheckPlayer2" to="." method="_on_CheckPlayer2_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/CenterContainer/VBoxContainer/Buttons/CheckPlayer3" to="." method="_on_CheckPlayer3_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/CenterContainer/VBoxContainer/Back" to="." method="_on_Back_pressed"]
 [connection signal="button_down" from="MarginContainer/PanelContainer/MarginContainer/ReportTable/Panel/CloseReportButton" to="." method="_on_CloseReportButton_button_down"]
