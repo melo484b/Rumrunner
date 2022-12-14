@@ -12,7 +12,7 @@ var keys: Array
 onready var title_label: Label = $MarginContainer/PanelContainer/MarginContainer/ReportTable/Panel/CenterContainer/ReportTitle
 onready var table: MarginContainer = $MarginContainer/PanelContainer/MarginContainer/ReportTable
 onready var records: VBoxContainer = $MarginContainer/PanelContainer/MarginContainer/ReportTable/Panel/MarginContainer/ScrollContainer/Records
-onready var buttons: VBoxContainer = $MarginContainer/PanelContainer/MarginContainer/CenterContainer/Buttons
+onready var buttons: HBoxContainer = $MarginContainer/PanelContainer/MarginContainer/CenterContainer/VBoxContainer/Buttons
 
 
 func _ready() -> void:
@@ -22,10 +22,9 @@ func _ready() -> void:
 func set_button_text() -> void:
 	var player_id: int = 1
 	for button in buttons.get_children():
-		if button.name != "Back":
-			var player_name = GameDatabase.get_data_by_id(GameDatabase.PLAYER_TABLE, "id", player_id)
-			button.text = player_name[0].get("name")
-			player_id += 1
+		var player_name = GameDatabase.get_data_by_id(GameDatabase.PLAYER_TABLE, "id", player_id)
+		button.text = player_name[0].get("name")
+		player_id += 1
 
 
 func pull_report(deck_owner_id: int) -> void:
