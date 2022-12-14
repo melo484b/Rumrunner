@@ -1,22 +1,37 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://UI/UI_theme.tres" type="Theme" id=1]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.00392157, 0.0784314, 0.415686, 0.87451 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 1 )
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [node name="UIpanel" type="MarginContainer"]
 margin_right = 40.0
 margin_bottom = 40.0
 theme = ExtResource( 1 )
+theme_type_variation = "UIpanel"
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
+custom_styles/panel = SubResource( 1 )
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 36.0
-margin_bottom = 36.0
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 38.0
+margin_bottom = 38.0
 
 [node name="CenterContainer" type="CenterContainer" parent="PanelContainer/MarginContainer"]
-margin_right = 32.0
-margin_bottom = 32.0
+margin_right = 36.0
+margin_bottom = 36.0
