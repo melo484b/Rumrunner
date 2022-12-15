@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://card/card_theme.tres" type="Theme" id=1]
 [ext_resource path="res://card_art/0.png" type="Texture" id=2]
 [ext_resource path="res://art/card_front.png" type="Texture" id=3]
+[ext_resource path="res://card/UIcard.gd" type="Script" id=4]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
@@ -18,6 +19,7 @@ corner_radius_bottom_left = 4
 corner_detail = 10
 
 [node name="UIcard" type="TextureRect"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -29,6 +31,7 @@ margin_bottom = 88.0
 rect_min_size = Vector2( 128, 176 )
 texture = ExtResource( 3 )
 expand = true
+script = ExtResource( 4 )
 
 [node name="ThemedMarginContainer" type="MarginContainer" parent="."]
 margin_right = 128.0
