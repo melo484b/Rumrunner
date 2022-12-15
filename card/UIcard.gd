@@ -11,7 +11,6 @@ const CARD_ART_PATH = "res://card_art/"
 
 var card_data: Dictionary
 
-onready var sprite: Sprite = $Sprite
 onready var card_name: Label = $ThemedMarginContainer/ClassPanelContainer/MarginContainer/VBoxContainer/Name
 onready var card_class: PanelContainer = $ThemedMarginContainer/ClassPanelContainer
 onready var art: TextureRect = $ThemedMarginContainer/ClassPanelContainer/MarginContainer/VBoxContainer/TextureRect
@@ -35,6 +34,10 @@ func populate_card_data() -> void:
 	
 func set_card_name(new_card_name: String) -> void:
 	card_name.text = new_card_name
+
+
+func get_card_name() -> String:
+	return card_name.text.to_lower()
 
 
 func set_card_class(class_modulation: String) -> void:
