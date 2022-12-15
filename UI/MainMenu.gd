@@ -3,6 +3,7 @@ extends CanvasLayer
 
 var options_menu: PackedScene = preload("res://UI/OptionsMenu.tscn")
 var deck_report: PackedScene = preload("res://UI/DeckReport.tscn")
+var card_search: PackedScene = preload("res://UI/CardSearch.tscn")
 
 onready var new_game: Button = $ThemedMarginContainer/PanelContainer/MarginContainer/VBoxContainer/NewGame
 onready var load_game: Button = $ThemedMarginContainer/PanelContainer/MarginContainer/VBoxContainer/LoadGame
@@ -63,8 +64,18 @@ func _on_deck_report_back_pressed() -> void:
 	$DeckReport.queue_free()
 
 
-func _on_CardSearch_pressed():
-	pass # Replace with function body.
+func _on_CardSearch_pressed() -> void:
+	var search_instance = card_search.instance()
+	add_child(search_instance)
+	main_menu.visible = false
+# warning-ignore:return_value_discarded
+	search_instance.connect("back_pressed", self, "_on_CardSearch_back_pressed")
+
+
+func _on_CardSearch_back_pressed() -> void:
+	yield(get_tree().create_timer(0.4), "timeout")
+	main_menu.visible = true
+	$CardSearch.queue_free()
 
 
 func _on_quit_button() -> void:
