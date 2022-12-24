@@ -169,6 +169,7 @@ margin_bottom = 34.0
 text = "Confirm"
 icon_align = 1
 
+[connection signal="text_changed" from="NameThemedMarginContainer/PanelContainer/MarginContainer/VBoxContainer/LineEdit" to="." method="_on_LineEdit_text_changed"]
 [connection signal="pressed" from="SaveThemedMarginContainer/PanelContainer/MarginContainer/HBoxContainer2/VBoxContainer/SelectSaveFile1" to="." method="_on_SelectSaveFile1_pressed"]
 [connection signal="pressed" from="SaveThemedMarginContainer/PanelContainer/MarginContainer/HBoxContainer2/VBoxContainer2/SelectSaveFile2" to="." method="_on_SelectSaveFile2_pressed"]
 [connection signal="pressed" from="SaveThemedMarginContainer/PanelContainer/MarginContainer/HBoxContainer2/VBoxContainer3/SelectSaveFile3" to="." method="_on_SelectSaveFile3_pressed"]
