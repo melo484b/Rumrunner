@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://UI/UI_theme.tres" type="Theme" id=1]
 [ext_resource path="res://UI/GameButton.tscn" type="PackedScene" id=2]
@@ -6,9 +6,18 @@
 [ext_resource path="res://UI/SaveFile.tscn" type="PackedScene" id=4]
 [ext_resource path="res://UI/ReturnToMainMenu.tscn" type="PackedScene" id=5]
 [ext_resource path="res://art/menu_placeholder_background.png" type="Texture" id=6]
+[ext_resource path="res://audio/SFXplayer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://audio/SFX/fail-sound.ogg" type="AudioStream" id=8]
+[ext_resource path="res://UI/NameException.tscn" type="PackedScene" id=9]
 
 [node name="NewGame" type="CanvasLayer"]
 script = ExtResource( 3 )
+
+[node name="ErrorSFXplayer" parent="." instance=ExtResource( 7 )]
+number_to_play = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="ErrorSFXplayer"]
+stream = ExtResource( 8 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
 margin_right = 1067.0
@@ -168,6 +177,8 @@ margin_right = 153.0
 margin_bottom = 34.0
 text = "Confirm"
 icon_align = 1
+
+[node name="NameException" parent="." instance=ExtResource( 9 )]
 
 [connection signal="text_changed" from="NameThemedMarginContainer/PanelContainer/MarginContainer/VBoxContainer/LineEdit" to="." method="_on_LineEdit_text_changed"]
 [connection signal="pressed" from="SaveThemedMarginContainer/PanelContainer/MarginContainer/HBoxContainer2/VBoxContainer/SelectSaveFile1" to="." method="_on_SelectSaveFile1_pressed"]

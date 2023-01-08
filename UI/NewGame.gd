@@ -13,6 +13,8 @@ onready var save_1: PanelContainer = $SaveThemedMarginContainer/PanelContainer/M
 onready var save_2: PanelContainer = $SaveThemedMarginContainer/PanelContainer/MarginContainer/HBoxContainer2/VBoxContainer2/SaveFile2
 onready var save_3: PanelContainer = $SaveThemedMarginContainer/PanelContainer/MarginContainer/HBoxContainer2/VBoxContainer3/SaveFile3
 onready var name_line: LineEdit = $NameThemedMarginContainer/PanelContainer/MarginContainer/VBoxContainer/LineEdit
+onready var error_sfx: Node = $ErrorSFXplayer
+onready var name_exception: WindowDialog = $NameException
 
 
 func _ready() -> void:
@@ -35,7 +37,14 @@ func validate_player_name(name_to_validate: String) -> bool:
 	if is_name_valid:
 		return true
 	return false
-	
+
+
+func set_content_error() -> void:
+	if name_line.text == "":
+		name_exception.show_content_missing_error()
+	else:
+		name_exception.show_content_error()
+
 
 func _on_SelectSaveFile1_pressed() -> void:
 	if name_is_valid:
@@ -44,8 +53,9 @@ func _on_SelectSaveFile1_pressed() -> void:
 		save_1.set_player_data_to_new_player_data()
 		current_save = 0
 	else:
-		# TODO: Play error sound if the name is not valid
-		print("problem")
+		error_sfx.play()
+		set_content_error()
+		name_exception.popup()
 
 
 func _on_SelectSaveFile2_pressed() -> void:
@@ -54,8 +64,9 @@ func _on_SelectSaveFile2_pressed() -> void:
 		save_2.set_player_data_to_new_player_data()
 		current_save = 1
 	else:
-		# TODO: Play error sound if the name is not valid
-		print("problem")
+		error_sfx.play()
+		set_content_error()
+		name_exception.popup()
 	
 	
 func _on_SelectSaveFile3_pressed() -> void:
@@ -64,8 +75,9 @@ func _on_SelectSaveFile3_pressed() -> void:
 		save_3.set_player_data_to_new_player_data()
 		current_save = 2
 	else:
-		# TODO: Play error sound if the name is not valid
-		print("problem")
+		error_sfx.play()
+		set_content_error()
+		name_exception.popup()
 
 
 func _on_ConfirmationButton_pressed() -> void:
