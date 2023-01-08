@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://UI/UI_theme.tres" type="Theme" id=1]
+[ext_resource path="res://UI/NameException.gd" type="Script" id=2]
+
+[node name="NameException" type="WindowDialog"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -89.762
+margin_top = -37.2
+margin_right = 90.238
+margin_bottom = 37.8
+rect_pivot_offset = Vector2( 90, 37 )
+theme = ExtResource( 1 )
+window_title = "Name Exception!"
+script = ExtResource( 2 )
+
+[node name="Content" type="Label" parent="."]
+visible = false
+margin_left = 14.0
+margin_top = 1.0
+margin_right = 165.0
+margin_bottom = 67.0
+text = "Please use only alphanumeric characters."
+align = 1
+autowrap = true
+
+[node name="ContentMissing" type="Label" parent="."]
+visible = false
+margin_left = 14.0
+margin_top = 1.0
+margin_right = 165.0
+margin_bottom = 67.0
+text = "Please ensure the name is not blank."
+align = 1
+autowrap = true
