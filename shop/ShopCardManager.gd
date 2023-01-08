@@ -1,7 +1,7 @@
 extends CardManager
 
 
-const SHOP_ID: int = 99
+const SHOP_ID: int = 1
 
 func _init() -> void:
 	owner_id = SHOP_ID
