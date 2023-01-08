@@ -43,7 +43,6 @@ func _on_RerollButton_pressed() -> void:
 	else:
 		yield(get_tree().create_timer(0.1), "timeout")
 		error_sfx.play()
-		
 
 
 func _on_ShopNodeManager_transaction_made(amount):
